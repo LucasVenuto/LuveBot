@@ -1,0 +1,292 @@
+/* dashboard/src/style.css */
+/* LuveBot Dashboard Plugin Styles */
+/* Relies on Hermes Dashboard Theme CSS tokens: --color-*, --background, etc. */
+@import "tailwindcss/theme.css" layer(theme) prefix(lb);
+@import "tailwindcss/utilities.css" layer(utilities) prefix(lb);
+
+.luvebot-scroll-container {
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) transparent;
+}
+
+.luvebot-scroll-container::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.luvebot-scroll-container::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: var(--radius-sm, 3px);
+}
+
+/* Attention marks (components/ui/AttentionBadge.tsx). Motion only when the user allows it. */
+.luve-typing i {
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--color-primary);
+  opacity: 0.35;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .luve-typing i { animation: luve-typing 1.2s infinite ease-in-out; }
+  .luve-typing i:nth-child(2) { animation-delay: 0.15s; }
+  .luve-typing i:nth-child(3) { animation-delay: 0.3s; }
+  .luve-pulse { animation: luve-pulse 2s infinite; }
+}
+@keyframes luve-typing {
+  0%, 60%, 100% { opacity: 0.35; transform: translateY(0); }
+  30% { opacity: 1; transform: translateY(-2px); }
+}
+@keyframes luve-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-warning) 55%, transparent); }
+  50% { box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-warning) 0%, transparent); }
+}
+
+/* ------------------------------------------------------------------------------------------------
+   LuveBot style guide (docs/propostas/guia-estilo.md). The palette is LuveBot's own, set on its root element
+   (.lb-root, below), so it looks the same under any Hermes theme. Motion only when the user allows it.
+   ------------------------------------------------------------------------------------------------ */
+:root, .lb-root {
+  --lb-font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+  --lb-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --lb-fill: color-mix(in srgb, var(--color-foreground) 6%, transparent);
+  --lb-fill-2: color-mix(in srgb, var(--color-foreground) 10%, transparent);
+  --lb-separator: color-mix(in srgb, var(--color-foreground) 10%, transparent);
+  --lb-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.lb-large-title { font: 700 28px/34px var(--lb-font); letter-spacing: -0.022em; margin: 0; color: var(--color-foreground); }
+.lb-title { font: 600 20px/25px var(--lb-font); letter-spacing: -0.017em; margin: 0; color: var(--color-foreground); }
+.lb-headline { font: 600 15px/20px var(--lb-font); letter-spacing: -0.01em; margin: 0; color: var(--color-foreground); }
+.lb-body { font: 400 15px/22px var(--lb-font); letter-spacing: -0.01em; color: var(--color-foreground); }
+.lb-subhead { font: 400 13px/18px var(--lb-font); color: var(--color-muted-foreground); margin: 0; }
+.lb-caption { font: 500 12px/16px var(--lb-font); color: var(--color-muted-foreground); font-variant-numeric: tabular-nums; }
+.lb-mono { font-family: var(--lb-mono); font-size: 12px; }
+
+.lb-group { background: var(--lb-fill); border-radius: 16px; overflow: hidden; }
+.lb-row { position: relative; display: flex; align-items: center; gap: 12px; min-height: 56px; padding: 10px 16px; }
+.lb-row + .lb-row::before { content: ""; position: absolute; top: 0; right: 0; left: 60px; height: 1px; background: var(--lb-separator); }
+.lb-row-stack { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.lb-truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.lb-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px; flex-shrink: 0;
+  min-height: 32px; padding: 0 14px; border: none; border-radius: 999px; cursor: pointer;
+  font: 600 13px/1 var(--lb-font); background: var(--lb-fill); color: var(--color-foreground);
+}
+.lb-btn:focus-visible { outline: 2px solid var(--color-ring, var(--color-primary)); outline-offset: 2px; }
+.lb-btn:active:not(:disabled) { background: var(--lb-fill-2); }
+.lb-btn:disabled { opacity: 0.4; cursor: default; }
+/* A disabled primary button must look disabled in every palette (white at 40% still read as active on dark). */
+.lb-btn-primary:disabled { opacity: 1; background: var(--lb-fill-2); color: var(--color-muted-foreground); cursor: not-allowed; }
+.lb-btn-primary { background: var(--color-foreground); color: var(--color-background); }
+.lb-btn-plain { background: transparent; color: var(--color-primary); padding: 0 6px; }
+.lb-btn-destructive { background: color-mix(in srgb, var(--color-destructive) 12%, transparent); color: var(--color-destructive); }
+.lb-btn-primary:active:not(:disabled) { background: color-mix(in srgb, var(--color-foreground) 85%, transparent); }
+@media (hover: hover) {
+  .lb-btn:hover:not(:disabled) { background: var(--lb-fill-2); }
+  .lb-btn-primary:hover:not(:disabled) { background: color-mix(in srgb, var(--color-foreground) 88%, transparent); }
+  .lb-btn-plain:hover:not(:disabled) { background: var(--lb-fill); }
+  .lb-btn-destructive:hover:not(:disabled) { background: color-mix(in srgb, var(--color-destructive) 18%, transparent); }
+}
+@media (max-width: 767px), (pointer: coarse) { .lb-btn { min-height: 44px; } }
+
+.lb-pill { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; background: var(--lb-fill); font: 500 12px/16px var(--lb-font); color: var(--color-foreground); }
+.lb-empty { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px; padding: 28px 20px; }
+.lb-empty-icon { width: 40px; height: 40px; border-radius: 20px; display: inline-flex; align-items: center; justify-content: center; background: var(--lb-fill); color: var(--color-muted-foreground); margin-bottom: 4px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .lb-btn { transition: background-color 120ms var(--lb-ease), transform 120ms var(--lb-ease), opacity 120ms var(--lb-ease); }
+  .lb-btn:active:not(:disabled) { transform: scale(0.97); }
+  .lb-appear { animation: lb-appear 220ms var(--lb-ease) both; }
+}
+@keyframes lb-appear { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+/* Sections stack as full-width grouped lists; side-by-side columns only with room to spare (guide §8). */
+.lb-sections { container-type: inline-size; }
+.lb-section-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px; align-items: start; }
+@container (min-width: 1280px) { .lb-section-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; } }
+.lb-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+/* Contact list and rail (guide §5): one row style, hover only with a real pointer, focus ring never removed. */
+.lb-contact {
+  display: flex; align-items: center; gap: 12px; width: 100%; min-height: 56px; padding: 8px 10px;
+  border: none; border-radius: 12px; background: transparent; color: var(--color-foreground); text-align: left; cursor: pointer;
+  font-family: var(--lb-font);
+}
+.lb-contact[aria-pressed="true"], .lb-contact[aria-current="true"] { background: var(--lb-fill-2); }
+.lb-contact:focus-visible, .lb-rail-btn:focus-visible, .lb-icon-btn:focus-visible { outline: 2px solid var(--color-ring, var(--color-primary)); outline-offset: 2px; }
+.lb-section-label { display: flex; align-items: center; justify-content: space-between; padding: 16px 10px 4px; font: 600 13px/18px var(--lb-font); color: var(--color-muted-foreground); }
+.lb-rail-btn {
+  position: relative; display: inline-flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+  width: 44px; height: 44px; border: none; border-radius: 12px; background: transparent; color: var(--color-muted-foreground); cursor: pointer;
+  font: 500 11px/13px var(--lb-font);
+}
+.lb-rail-btn[aria-current="page"] { background: var(--lb-fill-2); color: var(--color-foreground); }
+.lb-tabbar .lb-rail-btn { width: auto; min-width: 56px; height: 52px; padding: 4px 6px; }
+.lb-icon-btn { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border: none; border-radius: 999px; background: transparent; color: var(--color-muted-foreground); cursor: pointer; }
+@media (max-width: 767px), (pointer: coarse) { .lb-icon-btn { width: 44px; height: 44px; } }
+@media (hover: hover) {
+  .lb-contact:hover:not([aria-pressed="true"]):not([aria-current="true"]), .lb-rail-btn:hover:not([aria-current="page"]), .lb-icon-btn:hover { background: var(--lb-fill); color: var(--color-foreground); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .lb-contact, .lb-rail-btn, .lb-icon-btn { transition: background-color 120ms var(--lb-ease), color 120ms var(--lb-ease); }
+}
+
+/* Segmented control (guide §5) and grouped rows with a flush separator (no avatar to indent past). */
+.lb-segmented { display: flex; gap: 4px; padding: 4px; border-radius: 12px; background: var(--lb-fill); }
+.lb-segment { flex: 1; min-width: 0; min-height: 32px; padding: 0 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; border: none; border-radius: 9px; background: transparent; cursor: pointer; font: 600 13px/18px var(--lb-font); color: var(--color-muted-foreground); }
+.lb-segment[aria-selected="true"], .lb-segment[aria-pressed="true"] { background: var(--color-card); color: var(--color-foreground); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06); }
+.lb-segment:focus-visible { outline: 2px solid var(--color-ring, var(--color-primary)); outline-offset: 2px; }
+/* Labels that must never be cut (the work panel's 4 tabs in 320 px): each tab takes its whole label and shares the rest;
+   when even that does not fit, the bar scrolls sideways instead of showing "Ativid…". */
+/* An error's code, only on request (components/ui/ErrorNote.tsx). */
+.lb-error-more { border: none; background: none; padding: 0; color: inherit; font: inherit; text-decoration: underline; cursor: pointer; opacity: 0.8; }
+.lb-error-code { margin-left: 6px; font-family: var(--lb-mono); font-size: 0.92em; overflow-wrap: anywhere; }
+.lb-segmented-fit { overflow-x: auto; scrollbar-width: none; }
+.lb-segmented-fit::-webkit-scrollbar { display: none; }
+.lb-segmented-fit .lb-segment { flex: 1 0 auto; overflow: visible; text-overflow: clip; padding: 0 8px; }
+@media (hover: hover) { .lb-segment:hover:not([aria-selected="true"]):not([aria-pressed="true"]) { color: var(--color-foreground); } }
+@media (prefers-reduced-motion: no-preference) { .lb-segment { transition: background-color 120ms var(--lb-ease), color 120ms var(--lb-ease); } }
+.lb-row-flat + .lb-row-flat::before { left: 16px; }
+@media (prefers-reduced-motion: no-preference) {
+  .lb-sheet { animation: lb-sheet-in 280ms var(--lb-ease) both; }
+}
+@keyframes lb-sheet-in { from { transform: translateY(24px); opacity: 0; } to { transform: none; opacity: 1; } }
+
+/* Dialog and form fields (guide §2, §5). */
+.lb-dialog-overlay { position: fixed; inset: 0; z-index: 50; display: flex; align-items: center; justify-content: center; padding: 16px; background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+.lb-dialog { width: 100%; max-height: 90vh; display: flex; flex-direction: column; border-radius: 22px; background: var(--color-card); color: var(--color-card-foreground); box-shadow: 0 24px 64px rgba(0, 0, 0, 0.2); overflow: hidden; font-family: var(--lb-font); }
+.lb-dialog-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 20px 20px 4px; }
+.lb-dialog-body { display: flex; flex-direction: column; gap: 16px; padding: 12px 20px 20px; overflow-y: auto; }
+.lb-dialog-footer { display: flex; justify-content: flex-end; gap: 8px; padding-top: 4px; }
+.lb-field { display: flex; flex-direction: column; gap: 6px; }
+.lb-label { font: 600 13px/18px var(--lb-font); color: var(--color-foreground); }
+.lb-input { box-sizing: border-box; width: 100%; min-height: 40px; padding: 9px 12px; border: none; border-radius: 12px; background: var(--lb-fill); color: var(--color-foreground); font: 400 15px/20px var(--lb-font); }
+.lb-input:focus-visible { outline: 2px solid var(--color-ring, var(--color-primary)); outline-offset: 1px; }
+.lb-input::placeholder { color: var(--color-muted-foreground); }
+.lb-alert { padding: 10px 12px; border-radius: 12px; background: color-mix(in srgb, var(--color-destructive) 10%, transparent); color: var(--color-destructive); font: 400 13px/18px var(--lb-font); }
+.lb-check { display: flex; align-items: center; gap: 10px; min-height: 44px; font: 400 15px/20px var(--lb-font); cursor: pointer; }
+.lb-check input { width: 18px; height: 18px; accent-color: var(--color-foreground); }
+@media (prefers-reduced-motion: no-preference) {
+  .lb-dialog { animation: lb-dialog-in 220ms var(--lb-ease) both; }
+}
+@keyframes lb-dialog-in { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: none; } }
+
+/* Mascot face picker (T8.3): 44 px touch targets, the chosen face gets the focus-style ring. */
+.lb-mascot-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(48px, 1fr)); gap: 8px; }
+.lb-mascot-pick { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; padding: 2px; border: none; border-radius: 16px; background: transparent; cursor: pointer; }
+/* the chosen mascot is marked on the drawing itself (a contour), never a square around it */
+.lb-mascot-pick[aria-pressed="true"] img { filter: drop-shadow(0 0 1px var(--color-foreground)) drop-shadow(0 0 1.5px var(--color-foreground)); }
+.lb-mascot-pick:focus-visible { outline: 2px solid var(--color-ring, var(--color-primary)); outline-offset: 2px; }
+@media (hover: hover) { .lb-mascot-pick:hover:not([aria-pressed="true"]) img { filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.25)); } }
+
+/* Page card in the conversation (v0.5 §7.1): the glyph is CSS because the turn keeps no svg. */
+.lb-page-card { display: flex; align-items: center; gap: 12px; max-width: min(85%, 460px); margin: 6px 0; padding: 12px 14px; border-radius: 16px; background: var(--color-card); border: 1px solid var(--lb-separator); }
+.lb-page-glyph { flex-shrink: 0; width: 34px; height: 42px; border-radius: 8px; background: var(--lb-fill-2); display: flex; flex-direction: column; justify-content: center; gap: 4px; padding: 7px; }
+.lb-page-glyph i { display: block; height: 3px; border-radius: 2px; background: var(--color-muted-foreground); opacity: 0.5; }
+.lb-page-glyph i:nth-child(2) { width: 70%; }
+
+/* Phone (F8): a dialog rises from the bottom as a sheet, like the side panel, with room for the home indicator. */
+@media (max-width: 767px) {
+  .lb-dialog-overlay { align-items: flex-end; padding: 0; }
+  .lb-dialog { max-width: none !important; max-height: 92vh; border-radius: 22px 22px 0 0; padding-bottom: env(safe-area-inset-bottom); }
+}
+@media (max-width: 767px) and (prefers-reduced-motion: no-preference) {
+  .lb-dialog { animation: lb-sheet-in 280ms var(--lb-ease) both; }
+}
+
+/* ------------------------------------------------------------------------------------------------
+   LuveBot's own palette (the approved previews), redefined on its root so every var(--color-*) inside resolves
+   to it and nothing leaks into Hermes. The root picks light or dark from the background the Hermes theme paints
+   (hooks/useHost.ts). The --lb-* mixes above are redeclared on .lb-root so they follow this palette.
+   ------------------------------------------------------------------------------------------------ */
+.lb-root { height: calc(100dvh - 3.5rem); font-family: var(--lb-font); }
+/* Full screen through the Hermes `overlay` slot (host/overlay.tsx): a fixed layer of the whole viewport, safe areas
+   included; the Hermes shell under it is inert while LuveBot is open. Nothing here styles a Hermes element. */
+.lb-overlay {
+  position: fixed; inset: 0; z-index: 60; display: flex; height: 100dvh; outline: none;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) 0 env(safe-area-inset-left);
+}
+.lb-overlay > .lb-root { flex: 1; min-width: 0; height: auto; }
+.lb-root[data-lb-scheme="dark"] {
+  color-scheme: dark;
+  --background: #09090b;  /* the raw Hermes token some screens still read */
+  --color-background: #09090b; --color-foreground: #fafafa;
+  --color-card: #111113; --color-card-foreground: #fafafa;
+  --color-popover: #18181b; --color-popover-foreground: #fafafa;
+  --color-muted: #18181b; --color-muted-foreground: #a1a1aa;
+  --color-primary: #38bdf8; --color-primary-foreground: #09090b;
+  --color-secondary: #27272a; --color-secondary-foreground: #fafafa;
+  --color-accent: #27272a; --color-accent-foreground: #fafafa;
+  --color-border: #27272a; --color-input: #27272a; --color-ring: #38bdf8;
+  --color-destructive: #f87171; --color-destructive-foreground: #09090b;
+  --color-success: #4ade80; --color-warning: #fbbf24;
+}
+.lb-root[data-lb-scheme="light"] {
+  color-scheme: light;
+  --background: #ffffff;  /* the raw Hermes token some screens still read */
+  --color-background: #ffffff; --color-foreground: #0f172a;
+  --color-card: #fafafa; --color-card-foreground: #0f172a;
+  --color-popover: #ffffff; --color-popover-foreground: #0f172a;
+  --color-muted: #f4f4f5; --color-muted-foreground: #52525b;
+  --color-primary: #2563eb; --color-primary-foreground: #ffffff;
+  --color-secondary: #f4f4f5; --color-secondary-foreground: #0f172a;
+  --color-accent: #f4f4f5; --color-accent-foreground: #0f172a;
+  --color-border: #e4e4e7; --color-input: #e4e4e7; --color-ring: #2563eb;
+  --color-destructive: #dc2626; --color-destructive-foreground: #ffffff;
+  --color-success: #15803d; --color-warning: #b45309;
+}
+
+.lb-host-link { text-decoration: none; }
+/* "Painel do Hermes" in a phone header: icon and name on one line, 44 px target. */
+.lb-host-btn {
+  display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 10px; border-radius: 999px; flex-shrink: 0;
+  color: var(--color-muted-foreground); font: 500 13px/1 var(--lb-font); text-decoration: none; white-space: nowrap;
+}
+.lb-host-btn:focus-visible { outline: 2px solid var(--color-ring); outline-offset: 2px; }
+
+/* A Bot reply's actions (MessageMenu): "…" shows on hover or keyboard focus, always on touch screens; the menu floats. */
+.lb-msg { position: relative; display: flex; align-items: flex-start; gap: 4px; }
+.lb-msg-actions { position: relative; flex-shrink: 0; align-self: flex-end; margin-bottom: 6px; }
+.lb-msg-more { opacity: 0; }
+.lb-msg:hover .lb-msg-more, .lb-msg:focus-within .lb-msg-more, .lb-msg-more[aria-expanded="true"] { opacity: 1; }
+@media (hover: none) { .lb-msg-more { opacity: 1; } }
+.lb-msg-menu {
+  position: absolute; bottom: calc(100% + 4px); left: 0; z-index: 20; min-width: 240px; max-width: min(320px, 80vw); padding: 6px;
+  border-radius: 14px; background: var(--color-popover); color: var(--color-popover-foreground);
+  border: 1px solid var(--lb-separator); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+.lb-msg-menu-item {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 2px; width: 100%; min-height: 44px; padding: 8px 10px;
+  border: none; border-radius: 10px; background: transparent; color: inherit; text-align: left; cursor: pointer;
+}
+.lb-msg-menu-item:focus-visible, .lb-msg-menu-item:hover { background: var(--lb-fill-2); outline: none; }
+
+/* Theme picker (ThemePicker): a small radio group beside the rail (desktop) or under the phone header. */
+.lb-theme-pop {
+  position: absolute; z-index: 30; min-width: 220px; padding: 6px; border-radius: 14px; display: flex; flex-direction: column; gap: 2px;
+  background: var(--color-popover); color: var(--color-popover-foreground); border: 1px solid var(--lb-separator); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+.lb-theme-pop-right { left: calc(100% + 8px); bottom: 0; }
+.lb-theme-pop-below { right: 0; top: calc(100% + 6px); }
+.lb-theme-pop [role="radio"][aria-checked="true"] { background: var(--lb-fill-2); }
+
+/* A turn's steps as one line (StepsLine); the panel toggle's "new activity" dot. */
+.lb-steps { max-width: min(85%, 640px); margin: 6px 0; }
+.lb-steps-line { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; padding: 6px 12px; border-radius: 14px; background: var(--color-muted); color: var(--color-foreground); }
+.lb-steps[data-state="error"] .lb-steps-line { box-shadow: inset 3px 0 0 var(--color-destructive); }
+.lb-steps-toggle { flex: 1; min-width: 0; min-height: 32px; border: none; background: none; color: inherit; text-align: left; cursor: pointer; font: 400 13px/18px var(--lb-font); }
+.lb-steps-toggle:focus-visible { outline: 2px solid var(--color-ring); outline-offset: 2px; border-radius: 8px; }
+.lb-steps-detail { margin-top: 6px; padding: 8px 14px; border-radius: 14px; background: var(--color-muted); }
+.lb-panel-toggle { position: relative; }
+.lb-panel-dot { position: absolute; top: 4px; right: 4px; width: 8px; height: 8px; border-radius: 4px; background: var(--color-primary); }
+.lb-work-turn:focus { outline: 2px solid var(--color-ring); outline-offset: 2px; border-radius: 10px; }
+/* D-007 Screen tab: noVNC draws its canvas inside .lb-screen (scaled to fit); touch gestures go to noVNC, not the page. */
+.lb-screen { position: relative; width: 100%; min-height: 200px; flex: 1; border-radius: 12px; overflow: hidden; background: #000; touch-action: none; }
+.lb-screen:focus-visible { outline: 2px solid var(--color-ring); outline-offset: 2px; }
+.lb-screen[data-mode="control"] { box-shadow: 0 0 0 2px var(--color-warning); }
+.lb-screen-banner { align-self: flex-start; padding: 4px 10px; border-radius: 999px; font: 600 12px/16px var(--lb-font); color: var(--color-background); background: var(--color-warning); }
+.lb-screen-kbd { position: absolute; width: 1px; height: 1px; opacity: 0; border: 0; padding: 0; }
+

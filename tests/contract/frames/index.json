@@ -1,0 +1,389 @@
+{
+  "hermes_commit": "f8489405600c9a7d9d2f307dace086f18d7173ba",
+  "source": "real Hermes HTTP SSE; raw frames, no synthesized events or replaced IDs",
+  "run_events": [
+    "message.delta",
+    "reasoning.available",
+    "message.interim",
+    "tool.started",
+    "tool.completed",
+    "message.delta",
+    "reasoning.available",
+    "run.completed"
+  ],
+  "chat_events": [
+    "run.started",
+    "message.started",
+    "assistant.delta",
+    "tool.progress",
+    "assistant.commentary",
+    "tool.started",
+    "tool.completed",
+    "assistant.delta",
+    "tool.progress",
+    "assistant.completed",
+    "run.completed",
+    "done"
+  ],
+  "approval_events": {
+    "run": [
+      "message.delta",
+      "reasoning.available",
+      "message.interim",
+      "tool.started",
+      "approval.request",
+      "tool.completed",
+      "run.cancelled"
+    ],
+    "chat": [
+      "run.started",
+      "message.started",
+      "assistant.delta",
+      "tool.progress",
+      "assistant.commentary",
+      "tool.started",
+      "approval.request",
+      "tool.failed",
+      "assistant.completed",
+      "run.cancelled",
+      "done"
+    ]
+  },
+  "frames": [
+    {
+      "file": "chat/approval.request.sse",
+      "channel": "chat",
+      "event": "approval.request",
+      "fields": [
+        "command",
+        "pattern_key",
+        "pattern_keys",
+        "description",
+        "allow_permanent",
+        "allow_session",
+        "request_id",
+        "event",
+        "run_id",
+        "timestamp",
+        "message_id",
+        "choices",
+        "session_id",
+        "seq",
+        "ts"
+      ],
+      "bytes": 590
+    },
+    {
+      "file": "chat/assistant.commentary.sse",
+      "channel": "chat",
+      "event": "assistant.commentary",
+      "fields": [
+        "message_id",
+        "text",
+        "already_streamed",
+        "session_id",
+        "run_id",
+        "seq",
+        "ts"
+      ],
+      "bytes": 278
+    },
+    {
+      "file": "chat/assistant.completed.sse",
+      "channel": "chat",
+      "event": "assistant.completed",
+      "fields": [
+        "session_id",
+        "message_id",
+        "content",
+        "completed",
+        "partial",
+        "interrupted",
+        "runtime",
+        "run_id",
+        "seq",
+        "ts"
+      ],
+      "bytes": 443
+    },
+    {
+      "file": "chat/assistant.delta.sse",
+      "channel": "chat",
+      "event": "assistant.delta",
+      "fields": [
+        "message_id",
+        "delta",
+        "session_id",
+        "run_id",
+        "seq",
+        "ts"
+      ],
+      "bytes": 246
+    },
+    {
+      "file": "chat/done.sse",
+      "channel": "chat",
+      "event": "done",
+      "fields": [
+        "session_id",
+        "run_id",
+        "seq",
+        "ts"
+      ],
+      "bytes": 147
+    },
+    {
+      "file": "chat/message.started.sse",
+      "channel": "chat",
+      "event": "message.started",
+      "fields": [
+        "message",
+        "session_id",
+        "run_id",
+        "seq",
+        "ts"
+      ],
+      "bytes": 238
+    },
+    {
+      "file": "chat/run.cancelled.sse",
+      "channel": "chat",
+      "event": "run.cancelled",
+      "fields": [
+        "session_id",
+        "message_id",
+        "completed",
+        "partial",
+        "interrupted",
+        "turn_exit_reason",
+        "messages",
+        "usage",
+        "runtime",
+        "run_id",
+        "seq",
+        "ts"
+      ],
+      "bytes": 1827
+    },
+    {
+      "file": "chat/run.completed.sse",
+      "channel": "chat",
+      "event": "run.completed",
+      "fields": [
+        "session_id",
+        "message_id",
+        "completed",
+        "partial",
+        "interrupted",
+        "messages",
+        "usage",
+        "runtime",
+        "run_id",
+        "seq",
+        "ts"
+      ],
+      "bytes": 1349
+    },
+    {
+      "file": "chat/run.started.sse",
+      "channel": "chat",
+      "event": "run.started",
+      "fields": [
+        "user_message",
+        "runtime",
+        "session_id",
+        "run_id",
+        "seq",
+        "ts"
+      ],
+      "bytes": 360
+    },
+    {
+      "file": "chat/tool.completed.sse",
+      "channel": "chat",
+      "event": "tool.completed",
+      "fields": [
+        "message_id",
+        "tool_name",
+        "preview",
+        "args",
+        "session_id",
+        "run_id",
+        "seq",
+        "ts"
+      ],
+      "bytes": 266
+    },
+    {
+      "file": "chat/tool.failed.sse",
+      "channel": "chat",
+      "event": "tool.failed",
+      "fields": [
+        "message_id",
+        "tool_name",
+        "preview",
+        "args",
+        "session_id",
+        "run_id",
+        "seq",
+        "ts"
+      ],
+      "bytes": 264
+    },
+    {
+      "file": "chat/tool.progress.sse",
+      "channel": "chat",
+      "event": "tool.progress",
+      "fields": [
+        "message_id",
+        "tool_name",
+        "delta",
+        "session_id",
+        "run_id",
+        "seq",
+        "ts"
+      ],
+      "bytes": 272
+    },
+    {
+      "file": "chat/tool.started.sse",
+      "channel": "chat",
+      "event": "tool.started",
+      "fields": [
+        "message_id",
+        "tool_name",
+        "preview",
+        "args",
+        "session_id",
+        "run_id",
+        "seq",
+        "ts"
+      ],
+      "bytes": 334
+    },
+    {
+      "file": "run/approval.request.sse",
+      "channel": "run",
+      "event": "approval.request",
+      "fields": [
+        "command",
+        "pattern_key",
+        "pattern_keys",
+        "description",
+        "allow_permanent",
+        "allow_session",
+        "request_id",
+        "event",
+        "run_id",
+        "timestamp",
+        "choices",
+        "seq"
+      ],
+      "bytes": 451
+    },
+    {
+      "file": "run/message.delta.sse",
+      "channel": "run",
+      "event": "message.delta",
+      "fields": [
+        "event",
+        "run_id",
+        "timestamp",
+        "delta",
+        "seq"
+      ],
+      "bytes": 169
+    },
+    {
+      "file": "run/message.interim.sse",
+      "channel": "run",
+      "event": "message.interim",
+      "fields": [
+        "event",
+        "run_id",
+        "timestamp",
+        "text",
+        "already_streamed",
+        "seq"
+      ],
+      "bytes": 196
+    },
+    {
+      "file": "run/reasoning.available.sse",
+      "channel": "run",
+      "event": "reasoning.available",
+      "fields": [
+        "event",
+        "run_id",
+        "timestamp",
+        "text",
+        "seq"
+      ],
+      "bytes": 174
+    },
+    {
+      "file": "run/run.cancelled.sse",
+      "channel": "run",
+      "event": "run.cancelled",
+      "fields": [
+        "event",
+        "run_id",
+        "timestamp",
+        "completed",
+        "partial",
+        "interrupted",
+        "turn_exit_reason",
+        "seq"
+      ],
+      "bytes": 235
+    },
+    {
+      "file": "run/run.completed.sse",
+      "channel": "run",
+      "event": "run.completed",
+      "fields": [
+        "event",
+        "run_id",
+        "timestamp",
+        "output",
+        "usage",
+        "runtime",
+        "completed",
+        "partial",
+        "interrupted",
+        "seq"
+      ],
+      "bytes": 432
+    },
+    {
+      "file": "run/tool.completed.sse",
+      "channel": "run",
+      "event": "tool.completed",
+      "fields": [
+        "event",
+        "run_id",
+        "timestamp",
+        "tool",
+        "duration",
+        "error",
+        "preview",
+        "seq"
+      ],
+      "bytes": 279
+    },
+    {
+      "file": "run/tool.started.sse",
+      "channel": "run",
+      "event": "tool.started",
+      "fields": [
+        "event",
+        "run_id",
+        "timestamp",
+        "tool",
+        "preview",
+        "seq"
+      ],
+      "bytes": 197
+    }
+  ]
+}

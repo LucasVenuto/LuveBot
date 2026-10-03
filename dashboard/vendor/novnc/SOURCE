@@ -1,0 +1,7 @@
+noVNC, vendored UNMODIFIED for the LuveBot Screen tab (D-007).
+Upstream: https://github.com/novnc/noVNC
+Tag: v1.7.0
+Commit: 63107bd06d9e1f6136ff21aeda8cd62cbf0d433e
+Package: npm @novnc/novnc 1.7.0, integrity sha512-ucEJOx4T2avIRCleodk7YobZj5O2Ga2AeLfQ69A/yjG9HHba2+PDgwSkN3FttrmG+70ZGx21sElNFouK13RzyA==
+Kept: core/, vendor/pako/, LICENSE.txt, docs/LICENSE.MPL-2.0, docs/LICENSE.BSD-3-Clause. Not kept: app/ (see THIRD_PARTY_LICENSES.md).
+Vendored: 2026-10-02. CHECKSUMS.sha256 is the SHA-256 of every kept file as it came in the package.

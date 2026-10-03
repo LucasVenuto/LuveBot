@@ -1,0 +1,28 @@
+: open
+
+id: 0
+data: {"event": "message.delta", "run_id": "run_b7f8ccd592664aafae23adab8cf0d003", "timestamp": 1790821384.875131, "delta": "Testing the local tool.", "seq": 0}
+
+id: 1
+data: {"event": "reasoning.available", "run_id": "run_b7f8ccd592664aafae23adab8cf0d003", "timestamp": 1790821384.8780806, "text": "Testing the local tool.", "seq": 1}
+
+id: 2
+data: {"event": "message.interim", "run_id": "run_b7f8ccd592664aafae23adab8cf0d003", "timestamp": 1790821384.8819726, "text": "Testing the local tool.", "already_streamed": true, "seq": 2}
+
+id: 3
+data: {"event": "tool.started", "run_id": "run_b7f8ccd592664aafae23adab8cf0d003", "timestamp": 1790821384.8837547, "tool": "terminal", "preview": "printf luvebot-real-tool-frame", "seq": 3}
+
+id: 4
+data: {"event": "tool.completed", "run_id": "run_b7f8ccd592664aafae23adab8cf0d003", "timestamp": 1790821384.976109, "tool": "terminal", "duration": 0.091, "error": false, "preview": "{\"output\": \"luvebot-real-tool-frame\", \"exit_code\": 0, \"error\": null}", "seq": 4}
+
+id: 5
+data: {"event": "message.delta", "run_id": "run_b7f8ccd592664aafae23adab8cf0d003", "timestamp": 1790821384.98156, "delta": "\n\nHarness model response", "seq": 5}
+
+id: 6
+data: {"event": "reasoning.available", "run_id": "run_b7f8ccd592664aafae23adab8cf0d003", "timestamp": 1790821384.9839077, "text": "Harness model response", "seq": 6}
+
+id: 7
+data: {"event": "run.completed", "run_id": "run_b7f8ccd592664aafae23adab8cf0d003", "timestamp": 1790821384.9989955, "output": "Harness model response", "usage": {"input_tokens": 2, "output_tokens": 2, "total_tokens": 4, "cache_read_tokens": 0, "cache_write_tokens": 0}, "runtime": {"provider": "custom", "model": "fake-harness", "route_source": "global"}, "completed": true, "partial": false, "interrupted": false, "seq": 7}
+
+: stream closed
+

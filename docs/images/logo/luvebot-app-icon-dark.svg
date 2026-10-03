@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="LuveBot"><defs><linearGradient id="lb-tile" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#161c33"/><stop offset="1" stop-color="#0b0f19"/></linearGradient><radialGradient id="lb-glow"><stop offset="0" stop-color="#3d5bff" stop-opacity=".35"/><stop offset="1" stop-color="#3d5bff" stop-opacity="0"/></radialGradient></defs><rect x="32" y="32" width="448" height="448" rx="104" fill="url(#lb-tile)" stroke="#6a70f8" stroke-opacity=".55" stroke-width="3"/><circle cx="256" cy="270" r="204.6" fill="url(#lb-glow)"/><svg x="91" y="117.8" width="330" height="288.4" viewBox="12 30 238 208">
+
+<defs>
+<linearGradient id="luvi-g" x1=".25" y1="0" x2=".8" y2="1"><stop offset="0" stop-color="#c4b2ff"/><stop offset=".48" stop-color="#6a70f8"/><stop offset="1" stop-color="#2346f2"/></linearGradient>
+<radialGradient id="luvi-hl" cx=".4" cy=".08" r=".55"><stop offset="0" stop-color="#fff" stop-opacity=".75"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<radialGradient id="luvi-rim" cx=".04" cy=".78" r=".5"><stop offset="0" stop-color="#22c3f7" stop-opacity=".95"/><stop offset="1" stop-color="#22c3f7" stop-opacity="0"/></radialGradient>
+<linearGradient id="luvi-plate" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#eaebfe"/></linearGradient>
+<linearGradient id="luvi-eye" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2b3060"/><stop offset="1" stop-color="#141833"/></linearGradient>
+<radialGradient id="luvi-sat" cx=".32" cy=".28" r=".8"><stop offset="0" stop-color="#e2d9ff"/><stop offset=".55" stop-color="#6a70f8"/><stop offset="1" stop-color="#2346f2"/></radialGradient>
+<clipPath id="luvi-clip"><path d="M20,163C20.3,152.7 29.2,138.7 37,131C44.8,123.3 58.2,126.8 67,117C75.8,107.2 80.2,83.3 90,72C99.8,60.7 113.8,51.2 126,49C138.2,46.8 153.3,51.2 163,59C172.7,66.8 174.5,85.5 184,96C193.5,106.5 210.5,110.8 220,122C229.5,133.2 239.8,148.8 241,163C242.2,177.2 237.7,195.8 227,207C216.3,218.2 194.2,228.3 177,230C159.8,231.7 140.5,222.3 124,217C107.5,211.7 92.8,202 78,198C63.2,194 44.7,198.8 35,193C25.3,187.2 19.7,173.3 20,163Z"/></clipPath>
+<filter id="luvi-blur" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="7"/></filter>
+<filter id="luvi-soft" x="-50%" y="-200%" width="200%" height="500%"><feGaussianBlur stdDeviation="4"/></filter>
+</defs>
+
+<g id="lb-working"><g id="lb-needs-you">
+
+<g class="m-hop">
+<g class="m-orbit" style="transform-origin:204.55px 63.2px"><g class="m-sat">
+
+<circle class="m-sat-fill" cx="214" cy="59" r="21" fill="url(#luvi-sat)"/><ellipse cx="207.7" cy="51" rx="8" ry="4.6" fill="#fff" opacity=".55" transform="rotate(-30 207.7 51)"/>
+</g></g>
+<g class="m-body">
+
+<path d="M20,163C20.3,152.7 29.2,138.7 37,131C44.8,123.3 58.2,126.8 67,117C75.8,107.2 80.2,83.3 90,72C99.8,60.7 113.8,51.2 126,49C138.2,46.8 153.3,51.2 163,59C172.7,66.8 174.5,85.5 184,96C193.5,106.5 210.5,110.8 220,122C229.5,133.2 239.8,148.8 241,163C242.2,177.2 237.7,195.8 227,207C216.3,218.2 194.2,228.3 177,230C159.8,231.7 140.5,222.3 124,217C107.5,211.7 92.8,202 78,198C63.2,194 44.7,198.8 35,193C25.3,187.2 19.7,173.3 20,163Z" fill="url(#luvi-g)" stroke="#2346f2" stroke-opacity=".35" stroke-width="1.2"/>
+<g clip-path="url(#luvi-clip)">
+<rect x="20" y="49" width="221" height="181" fill="url(#luvi-rim)"/>
+<rect x="20" y="49" width="221" height="181" fill="url(#luvi-hl)"/>
+<ellipse cx="92.9" cy="85.2" rx="19.9" ry="9.1" fill="#fff" opacity=".5" filter="url(#luvi-soft)" transform="rotate(-35 92.9 85.2)"/>
+</g>
+<g class="m-face">
+<path d="M191,152C190.3,157.8 188.2,164.4 185.1,169.4C182,174.3 177.6,178.3 172.4,181.6C167.1,184.9 161,187.6 153.7,189.3C146.3,191.1 136.6,192 128.2,192C119.8,192 110.3,191.1 103.4,189.3C96.4,187.6 91,184.9 86.5,181.6C82.1,178.3 78.7,174.3 76.8,169.4C74.9,164.4 74.3,157.8 75,152C75.7,146.2 77.8,139.6 80.9,134.6C84,129.7 88.4,125.7 93.6,122.4C98.9,119.1 105,116.4 112.3,114.7C119.7,112.9 129.4,112 137.8,112C146.2,112 155.7,112.9 162.6,114.7C169.6,116.4 175,119.1 179.5,122.4C183.9,125.7 187.3,129.7 189.2,134.6C191.1,139.6 191.7,146.2 191,152Z" fill="#fff" opacity=".55" filter="url(#luvi-blur)"/>
+<path d="M191,152C190.3,157.8 188.2,164.4 185.1,169.4C182,174.3 177.6,178.3 172.4,181.6C167.1,184.9 161,187.6 153.7,189.3C146.3,191.1 136.6,192 128.2,192C119.8,192 110.3,191.1 103.4,189.3C96.4,187.6 91,184.9 86.5,181.6C82.1,178.3 78.7,174.3 76.8,169.4C74.9,164.4 74.3,157.8 75,152C75.7,146.2 77.8,139.6 80.9,134.6C84,129.7 88.4,125.7 93.6,122.4C98.9,119.1 105,116.4 112.3,114.7C119.7,112.9 129.4,112 137.8,112C146.2,112 155.7,112.9 162.6,114.7C169.6,116.4 175,119.1 179.5,122.4C183.9,125.7 187.3,129.7 189.2,134.6C191.1,139.6 191.7,146.2 191,152Z" fill="url(#luvi-plate)"/>
+<g class="m-gaze"><g class="m-pair"><g class="m-eye"><rect x="101.5" y="140" width="15" height="28" rx="7.5" fill="url(#luvi-eye)"/></g><g class="m-eye"><rect x="149.5" y="140" width="15" height="28" rx="7.5" fill="url(#luvi-eye)"/></g></g></g>
+
+</g>
+
+</g>
+</g>
+
+</g></g>
+</svg></svg>

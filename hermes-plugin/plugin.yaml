@@ -1,0 +1,5 @@
+name: luvebot-hook
+version: 0.1.0
+description: "LuveBot rules hook: applies the compiled LuveBot rule table to every tool call of this profile (pre_tool_call). Installed per Bot by LuveBot; fails closed."
+provides_hooks:
+  - pre_tool_call

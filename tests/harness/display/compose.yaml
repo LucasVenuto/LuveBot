@@ -1,0 +1,33 @@
+# D-007 screen harness: the REAL plugin (this repository, read-only) in Hermes f8489405 on the image that has the Bot Desktop stack
+# (Xvnc + Xfce, from tests/harness/spikes/display/Dockerfile). A separate project from the main harness (luvebot-t0-harness):
+# own network, own state dir, only 127.0.0.1:9219 on the host. Run with tests/harness/display/run.sh.
+name: luvebot-display
+services:
+  hermes:
+    image: luvebot-display-spike:f8489405
+    init: true
+    shm_size: 1gb
+    entrypoint: ["python", "/harness/entrypoint.py"]
+    tmpfs:
+      - /root/.hermes/luvebot:mode=0700,size=256m
+    environment:
+      LUVEBOT_WATCH_EVERY: "3"
+      # the Docker VM of a laptop is small and shared: Hermes's default floor (1536 MB free) refused the screen in the T0.9 spike
+      HARNESS_EXTRA_CONFIG: '{"bot_desktop": {"min_free_memory_mb": 512}}'
+    ports:
+      - "127.0.0.1:9219:9119"
+    volumes:
+      - ..:/harness:ro
+      - ${DISPLAY_STATE:-/tmp/luvebot-display}:/fixtures
+      - ${LUVEBOT_REPO:-../../..}:/root/.hermes/plugins/luvebot:ro
+    networks: [display]
+    depends_on: [fake-openai]
+  fake-openai:
+    image: luvebot-display-spike:f8489405
+    entrypoint: ["python", "/harness/fake_openai.py"]
+    volumes:
+      - ..:/harness:ro
+    networks: [display]
+networks:
+  display:
+    driver: bridge

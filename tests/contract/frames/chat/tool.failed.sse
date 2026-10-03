@@ -1,0 +1,3 @@
+event: tool.failed
+data: {"message_id": "msg_7028ae4af8a54fc2ac0a33723de2bc69", "tool_name": "terminal", "preview": null, "args": null, "session_id": "api_1790821826_932dc877", "run_id": "run_2616c764487a4fe99d049109a71a003e", "seq": 8, "ts": 1790821828.4171228}
+

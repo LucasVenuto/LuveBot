@@ -1,0 +1,19 @@
+{
+  "name": "luvebot",
+  "label": "LuveBot",
+  "description": "Mission control open-source da Luve para times de agentes Hermes",
+  "icon": "Bot",
+  "version": "0.1.0",
+  "tab": {
+    "path": "/",
+    "override": "/"
+  },
+  "has_api": true,
+  "api": "plugin_api.py",
+  "entry": "dist/index.js",
+  "css": "dist/style.css",
+  "slots": [
+    "overlay",
+    "header-left"
+  ]
+}

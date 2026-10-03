@@ -1,0 +1,37 @@
+name: luvebot-t0-harness
+services:
+  hermes:
+    image: luvebot-hermes-test:f8489405
+    build:
+      context: .
+      additional_contexts:
+        hermes: ${HERMES_SOURCE:-/tmp/hermes-agent}
+      args:
+        HERMES_COMMIT: f8489405600c9a7d9d2f307dace086f18d7173ba
+    init: true
+    shm_size: 1gb
+    tmpfs:
+      # T4.7: the LuveBot database lives in RAM in the test container. On a Mac whose disk is nearly full the Docker VM returned
+      # "disk I/O error" to SQLite, and an error during a commit's rollback corrupts the file ("database disk image is malformed").
+      # The harness measures LuveBot, not the VM disk; the product code is unchanged and still lives on a real disk in production.
+      - /root/.hermes/luvebot:mode=0700,size=256m
+    environment:
+      LUVEBOT_WATCH_EVERY: "3"        # T4.5: the cost watcher and the executor's reconcile tick fast enough for a test
+    ports:
+      - "127.0.0.1:9119:9119"
+      - "127.0.0.1:8642:8642"
+    volumes:
+      - .:/harness:ro
+      - ${HARNESS_STATE:-/tmp/luvebot-harness}:/fixtures
+      - ../..:/root/.hermes/plugins/luvebot:ro   # the repository root, relative to this file
+    networks: [test]
+    depends_on: [fake-openai]
+  fake-openai:
+    image: luvebot-hermes-test:f8489405
+    entrypoint: ["python", "/harness/fake_openai.py"]
+    volumes:
+      - .:/harness:ro
+    networks: [test]
+networks:
+  test:
+    driver: bridge

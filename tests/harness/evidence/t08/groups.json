@@ -1,0 +1,101 @@
+{
+  "origin": "http://127.0.0.1:9119",
+  "path": "/api/ws",
+  "ticketAuth": true,
+  "opened": true,
+  "replies": [
+    {
+      "method": "groups.capabilities",
+      "reply": {
+        "jsonrpc": "2.0",
+        "id": "t08-0",
+        "result": {
+          "protocol_version": 2,
+          "driver": true,
+          "persistent_process": true,
+          "authority_gateway_id": "install:3423bd06f4da42c29f57ce8129fc8375",
+          "room_link": {
+            "enabled": true,
+            "profile": "default",
+            "catalog": {
+              "installation_id": "install:3423bd06f4da42c29f57ce8129fc8375",
+              "protocol_versions": [
+                2
+              ],
+              "link_modes": [
+                "direct"
+              ],
+              "persistent_process": true,
+              "text": true,
+              "attachments": false,
+              "execution_policy": {
+                "version": 1,
+                "target_profile": "default",
+                "enabled_toolsets": [
+                  "bot_room",
+                  "terminal"
+                ],
+                "approval_mode": "manual",
+                "max_iterations": 9007199254740991,
+                "policy_digest": "3e38eb77af4ffe7c092249e4f8cdf91dd24bc35b433ae80ae27279502ef43826"
+              },
+              "endpoint": {
+                "available": false,
+                "reason": "not_configured"
+              },
+              "catalog_digest": "5ebebdd9e099464447cc82a5ebc843f819269ecd2d312c373a8df03070eb71dd"
+            },
+            "endpoint": {
+              "available": false,
+              "reason": "not_configured"
+            }
+          },
+          "features": [
+            "authority_epoch",
+            "coordinator_fencing",
+            "room_identity",
+            "monotonic_log",
+            "idempotent_send",
+            "replayable_disband",
+            "typed_events",
+            "actor_identity",
+            "log_replication",
+            "authority_takeover"
+          ],
+          "methods": [
+            "groups.capabilities",
+            "groups.list",
+            "groups.create",
+            "groups.state",
+            "groups.send",
+            "groups.rename",
+            "groups.log",
+            "groups.disband",
+            "groups.replicate",
+            "groups.replica_state",
+            "groups.promote",
+            "groups.demote",
+            "groups.stop",
+            "groups.retry",
+            "groups.approve",
+            "groups.peer.invite",
+            "groups.peer.revoke",
+            "groups.peer.register"
+          ],
+          "max_log_limit": 500
+        }
+      }
+    },
+    {
+      "method": "groups.list",
+      "reply": {
+        "jsonrpc": "2.0",
+        "id": "t08-1",
+        "result": {
+          "rooms": [],
+          "next_offset": null
+        }
+      }
+    }
+  ]
+}

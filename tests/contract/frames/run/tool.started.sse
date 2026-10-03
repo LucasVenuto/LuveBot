@@ -1,0 +1,3 @@
+id: 3
+data: {"event": "tool.started", "run_id": "run_b7d2e18234ac414d9f0158ff7a10e402", "timestamp": 1790821824.9336333, "tool": "terminal", "preview": "printf luvebot-real-tool-frame", "seq": 3}
+

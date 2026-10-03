@@ -1,0 +1,33 @@
+event: run.started
+data: {"user_message": {"role": "user", "content": "T08_TOOL_APPROVAL: request the dangerous tool."}, "runtime": {"provider": "", "model": "", "route_source": "global", "requested": {"provider": "", "model": ""}}, "session_id": "api_1790821386_8c5cffc4", "run_id": "run_c145f68ee2dc4e17a8903ab95340c9bf", "seq": 1, "ts": 1790821386.520339}
+
+event: message.started
+data: {"message": {"id": "msg_6efd76d7fe5e403b8bf754e3559fbb05", "role": "assistant"}, "session_id": "api_1790821386_8c5cffc4", "run_id": "run_c145f68ee2dc4e17a8903ab95340c9bf", "seq": 2, "ts": 1790821386.5203497}
+
+event: assistant.delta
+data: {"message_id": "msg_6efd76d7fe5e403b8bf754e3559fbb05", "delta": "Testing the local tool.", "session_id": "api_1790821386_8c5cffc4", "run_id": "run_c145f68ee2dc4e17a8903ab95340c9bf", "seq": 3, "ts": 1790821386.5924454}
+
+event: tool.progress
+data: {"message_id": "msg_6efd76d7fe5e403b8bf754e3559fbb05", "tool_name": "_thinking", "delta": "Testing the local tool.", "session_id": "api_1790821386_8c5cffc4", "run_id": "run_c145f68ee2dc4e17a8903ab95340c9bf", "seq": 4, "ts": 1790821386.594891}
+
+event: assistant.commentary
+data: {"message_id": "msg_6efd76d7fe5e403b8bf754e3559fbb05", "text": "Testing the local tool.", "already_streamed": true, "session_id": "api_1790821386_8c5cffc4", "run_id": "run_c145f68ee2dc4e17a8903ab95340c9bf", "seq": 5, "ts": 1790821386.5985503}
+
+event: tool.started
+data: {"message_id": "msg_6efd76d7fe5e403b8bf754e3559fbb05", "tool_name": "terminal", "preview": "rm -rf /tmp/luvebot-approval-canary", "args": {"command": "rm -rf /tmp/luvebot-approval-canary"}, "session_id": "api_1790821386_8c5cffc4", "run_id": "run_c145f68ee2dc4e17a8903ab95340c9bf", "seq": 6, "ts": 1790821386.5999954}
+
+event: approval.request
+data: {"command": "rm -rf /tmp/luvebot-approval-canary", "pattern_key": "delete in root path", "pattern_keys": ["delete in root path"], "description": "delete in root path", "allow_permanent": true, "allow_session": true, "request_id": "64feb5f0f1d344ea9888eba9c8ce7568", "event": "approval.request", "run_id": "run_c145f68ee2dc4e17a8903ab95340c9bf", "timestamp": 1790821386.7586968, "message_id": "msg_6efd76d7fe5e403b8bf754e3559fbb05", "choices": ["once", "session", "always", "deny"], "session_id": "api_1790821386_8c5cffc4", "seq": 7, "ts": 1790821386.7587347}
+
+event: tool.failed
+data: {"message_id": "msg_6efd76d7fe5e403b8bf754e3559fbb05", "tool_name": "terminal", "preview": null, "args": null, "session_id": "api_1790821386_8c5cffc4", "run_id": "run_c145f68ee2dc4e17a8903ab95340c9bf", "seq": 8, "ts": 1790821387.7767646}
+
+event: assistant.completed
+data: {"session_id": "api_1790821386_8c5cffc4", "message_id": "msg_6efd76d7fe5e403b8bf754e3559fbb05", "content": null, "completed": false, "partial": false, "interrupted": true, "turn_exit_reason": "interrupted_by_user", "runtime": {"provider": "custom", "model": "fake-harness", "route_source": "global", "requested": {"provider": "", "model": ""}}, "run_id": "run_c145f68ee2dc4e17a8903ab95340c9bf", "seq": 9, "ts": 1790821387.809909}
+
+event: run.cancelled
+data: {"session_id": "api_1790821386_8c5cffc4", "message_id": "msg_6efd76d7fe5e403b8bf754e3559fbb05", "completed": false, "partial": false, "interrupted": true, "turn_exit_reason": "interrupted_by_user", "messages": [{"role": "assistant", "content": "Testing the local tool.", "tool_calls": [{"id": "call_harness_terminal", "call_id": "call_harness_terminal", "response_item_id": "fc_harness_terminal", "type": "function", "function": {"name": "terminal", "arguments": "{\"command\": \"rm -rf /tmp/luvebot-approval-canary\"}"}}], "timestamp": 1790821386.595563, "finish_reason": "tool_calls", "reasoning": null}, {"role": "tool", "content": "{\"output\": \"\", \"exit_code\": -1, \"error\": \"BLOCKED: Command approval was withdrawn before the user answered (explicit stop requested). The user has NOT consented to this action. Do NOT retry this command, do NOT rephrase it, and do NOT attempt the same outcome via a different command. Stop the current workflow and wait for the user to respond before taking any further destructive or irreversible action.\", \"status\": \"blocked\", \"user_summary\": \"The approval prompt was withdrawn or never reached you — the command did not run.\"}", "tool_call_id": "call_harness_terminal", "tool_name": "terminal", "timestamp": 1790821387.7685394}, {"role": "assistant", "content": "Operation interrupted.", "timestamp": 1790821387.7837822}], "usage": {"input_tokens": 1, "output_tokens": 1, "total_tokens": 2, "runtime": {"provider": "custom", "model": "fake-harness", "route_source": "global", "requested": {"provider": "", "model": ""}}}, "runtime": {"provider": "custom", "model": "fake-harness", "route_source": "global", "requested": {"provider": "", "model": ""}}, "run_id": "run_c145f68ee2dc4e17a8903ab95340c9bf", "seq": 10, "ts": 1790821387.8099365}
+
+event: done
+data: {"session_id": "api_1790821386_8c5cffc4", "run_id": "run_c145f68ee2dc4e17a8903ab95340c9bf", "seq": 11, "ts": 1790821387.809962}
+
