@@ -1,0 +1,42 @@
+LuveBot by Luve AIgency
+Copyright (c) 2026 Luve AIgency
+
+LuveBot's own code is licensed under the MIT License; see LICENSE (D-005).
+Third-party components retain their own licenses and copyright notices.
+
+Hermes Agent
+-------------
+LuveBot is a dashboard plugin for Hermes Agent by Nous Research, licensed
+under MIT. Hermes is the host runtime and is not bundled with LuveBot.
+Upstream: https://github.com/NousResearch/hermes-agent
+License: https://github.com/NousResearch/hermes-agent/blob/f8489405/LICENSE
+
+noVNC (D-007)
+-------------
+The live Screen feature vendors noVNC 1.7.0 (tag v1.7.0, commit
+63107bd06d9e1f6136ff21aeda8cd62cbf0d433e, npm @novnc/novnc 1.7.0) unmodified,
+as a separate component in dashboard/vendor/novnc/.
+
+noVNC's core is licensed under the Mozilla Public License 2.0 (MPL-2.0),
+with MIT-licensed vendor/pako/ and BSD-style notices in core/crypto/des.js.
+Only core/ and vendor/pako/ are used; noVNC's app/ assets are excluded.
+LuveBot's own integration code remains outside the vendored folder.
+
+Source Code Form is available from the upstream tag:
+https://github.com/novnc/noVNC/tree/v1.7.0
+The same unmodified source is distributed in this repository under
+dashboard/vendor/novnc/, with upstream copyright notices, LICENSE.txt,
+docs/LICENSE.MPL-2.0, docs/LICENSE.BSD-3-Clause and vendor/pako/LICENSE.
+SOURCE and CHECKSUMS.sha256 record provenance and integrity. Retain these
+notices and license texts when redistributing.
+
+See THIRD_PARTY_LICENSES.md for the audit and approved vendoring terms.
+
+Trademarks
+----------
+Grok, Grok Bot, Dots, Cue, Hermes, Hermes Agent, Nous Research, noVNC and the
+other product and company names mentioned in this repository are trademarks of
+their respective owners. LuveBot is not affiliated with, sponsored by or
+endorsed by any of them. These names are used only to describe inspiration and
+compatibility. No code, artwork or trademark of theirs is included in this
+repository, except the unmodified third-party components listed above (noVNC).

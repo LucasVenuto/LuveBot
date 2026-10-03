@@ -1,0 +1,29 @@
+.maestri/
+.env*
+__pycache__/
+.venv/
+node_modules/
+.next/
+*.db
+data/
+archive/
+docs/research/visual/
+.DS_Store
+
+# Agent instruction copies (local only; CLAUDE.md is the one tracked file)
+AGENTS.md
+GEMINI.md
+.claude/
+
+# Internal working notes of the team (local only)
+docs/contexto/
+docs/session-log.md
+docs/SETUP-CLAUDE-DOCS-v3.md
+
+# Test and tool output
+test-results/
+playwright-report/
+coverage/
+*.log
+.vscode/
+.idea/

@@ -1,0 +1,5 @@
+name: luvebot_hook_spike
+version: 0.0.0
+description: "DISPOSABLE T3.0c spike: registers pre_tool_call and does what /tmp/hook-spike/mode says. Never part of LuveBot."
+provides_hooks:
+  - pre_tool_call

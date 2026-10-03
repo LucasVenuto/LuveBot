@@ -1,0 +1,36 @@
+event: run.started
+data: {"user_message": {"role": "user", "content": "T08_TOOL_NORMAL: use the local terminal tool."}, "runtime": {"provider": "", "model": "", "route_source": "global", "requested": {"provider": "", "model": ""}}, "session_id": "api_1790821385_4f897be9", "run_id": "run_95a7e4c1ce084ae5b86dc14c088a4f7e", "seq": 1, "ts": 1790821385.0144184}
+
+event: message.started
+data: {"message": {"id": "msg_f30717e8cd42429fa0a4eaef85114db9", "role": "assistant"}, "session_id": "api_1790821385_4f897be9", "run_id": "run_95a7e4c1ce084ae5b86dc14c088a4f7e", "seq": 2, "ts": 1790821385.0144322}
+
+event: assistant.delta
+data: {"message_id": "msg_f30717e8cd42429fa0a4eaef85114db9", "delta": "Testing the local tool.", "session_id": "api_1790821385_4f897be9", "run_id": "run_95a7e4c1ce084ae5b86dc14c088a4f7e", "seq": 3, "ts": 1790821385.0849888}
+
+event: tool.progress
+data: {"message_id": "msg_f30717e8cd42429fa0a4eaef85114db9", "tool_name": "_thinking", "delta": "Testing the local tool.", "session_id": "api_1790821385_4f897be9", "run_id": "run_95a7e4c1ce084ae5b86dc14c088a4f7e", "seq": 4, "ts": 1790821385.0872557}
+
+event: assistant.commentary
+data: {"message_id": "msg_f30717e8cd42429fa0a4eaef85114db9", "text": "Testing the local tool.", "already_streamed": true, "session_id": "api_1790821385_4f897be9", "run_id": "run_95a7e4c1ce084ae5b86dc14c088a4f7e", "seq": 5, "ts": 1790821385.091719}
+
+event: tool.started
+data: {"message_id": "msg_f30717e8cd42429fa0a4eaef85114db9", "tool_name": "terminal", "preview": "printf luvebot-real-tool-frame", "args": {"command": "printf luvebot-real-tool-frame"}, "session_id": "api_1790821385_4f897be9", "run_id": "run_95a7e4c1ce084ae5b86dc14c088a4f7e", "seq": 6, "ts": 1790821385.0928473}
+
+event: tool.completed
+data: {"message_id": "msg_f30717e8cd42429fa0a4eaef85114db9", "tool_name": "terminal", "preview": null, "args": null, "session_id": "api_1790821385_4f897be9", "run_id": "run_95a7e4c1ce084ae5b86dc14c088a4f7e", "seq": 7, "ts": 1790821385.1688113}
+
+event: assistant.delta
+data: {"message_id": "msg_f30717e8cd42429fa0a4eaef85114db9", "delta": "\n\nHarness model response", "session_id": "api_1790821385_4f897be9", "run_id": "run_95a7e4c1ce084ae5b86dc14c088a4f7e", "seq": 8, "ts": 1790821385.1730332}
+
+event: tool.progress
+data: {"message_id": "msg_f30717e8cd42429fa0a4eaef85114db9", "tool_name": "_thinking", "delta": "Harness model response", "session_id": "api_1790821385_4f897be9", "run_id": "run_95a7e4c1ce084ae5b86dc14c088a4f7e", "seq": 9, "ts": 1790821385.1750824}
+
+event: assistant.completed
+data: {"session_id": "api_1790821385_4f897be9", "message_id": "msg_f30717e8cd42429fa0a4eaef85114db9", "content": "Harness model response", "completed": true, "partial": false, "interrupted": false, "runtime": {"provider": "custom", "model": "fake-harness", "route_source": "global", "requested": {"provider": "", "model": ""}}, "run_id": "run_95a7e4c1ce084ae5b86dc14c088a4f7e", "seq": 10, "ts": 1790821385.1909153}
+
+event: run.completed
+data: {"session_id": "api_1790821385_4f897be9", "message_id": "msg_f30717e8cd42429fa0a4eaef85114db9", "completed": true, "partial": false, "interrupted": false, "messages": [{"role": "assistant", "content": "Testing the local tool.", "tool_calls": [{"id": "call_harness_terminal", "call_id": "call_harness_terminal", "response_item_id": "fc_harness_terminal", "type": "function", "function": {"name": "terminal", "arguments": "{\"command\": \"printf luvebot-real-tool-frame\"}"}}], "timestamp": 1790821385.0877252, "finish_reason": "tool_calls", "reasoning": null}, {"role": "tool", "content": "{\"output\": \"luvebot-real-tool-frame\", \"exit_code\": 0, \"error\": null}", "tool_call_id": "call_harness_terminal", "tool_name": "terminal", "timestamp": 1790821385.1671026}, {"role": "assistant", "content": "Harness model response", "timestamp": 1790821385.1757913, "finish_reason": "stop", "reasoning": null}], "usage": {"input_tokens": 2, "output_tokens": 2, "total_tokens": 4, "runtime": {"provider": "custom", "model": "fake-harness", "route_source": "global", "requested": {"provider": "", "model": ""}}}, "runtime": {"provider": "custom", "model": "fake-harness", "route_source": "global", "requested": {"provider": "", "model": ""}}, "run_id": "run_95a7e4c1ce084ae5b86dc14c088a4f7e", "seq": 11, "ts": 1790821385.190929}
+
+event: done
+data: {"session_id": "api_1790821385_4f897be9", "run_id": "run_95a7e4c1ce084ae5b86dc14c088a4f7e", "seq": 12, "ts": 1790821385.1909428}
+
