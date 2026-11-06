@@ -1,0 +1,3 @@
+event: tool.started
+data: {"message_id": "msg_4d0346c33c4e456597f08b01dc519269", "tool_name": "terminal", "preview": "printf luvebot-real-tool-frame", "args": {"command": "printf luvebot-real-tool-frame"}, "session_id": "api_1790821825_d87a03f2", "run_id": "run_8d9d3f79ab2d4255bc7c5ca13eba188a", "seq": 6, "ts": 1790821825.1588187}
+

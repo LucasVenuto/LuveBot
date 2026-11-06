@@ -1,0 +1,76 @@
+# Changelog
+
+All notable changes to LuveBot. Versions follow the [Roadmap](README.md#roadmap). Português: [CHANGELOG.pt-BR.md](CHANGELOG.pt-BR.md).
+
+## v0.3: being tested, not released yet
+
+### Added
+- **Change a Bot's model** from its profile (Bot profile › 3. Model › Change, then Apply). It applies from the next message, also in conversations that are already open. A model that may cost a lot asks you to confirm. Helper tasks such as summaries keep the previous provider until you change them in Hermes, and the screen says so. The address and the key of a provider are never changed here.
+- **Your own image as a Bot's face** in the Luve studio (PNG, JPEG or WebP, up to 25 MB; on a phone you can take a photo on the spot). The image stays on your server and is part of LuveBot's backup; "Remove image" deletes it (an older backup still keeps it).
+- **Teach a Bot a skill by showing it:** "Save as a skill" in a conversation's menu. The Bot writes a draft in that conversation (one turn of the Bot, inside its spending cap), you read all of it and create it. The skill is created **off** and only counts once you turn it on. You can also **edit an existing skill** (a Bot's skills page › Edit): you read the change before saving, and a skill that comes from somewhere else, or that holds text LuveBot hides, is refused and sent to Hermes.
+- **Skip** a question a Bot asks you.
+- **Routine suggestions from Hermes** ("Suggestion from Hermes", in Routines and in Today): Create paused, Create and start, or Dismiss. One that LuveBot cannot create safely says why and tells you to accept it in Hermes.
+- **Evidence card:** an optional switch ("Ask for evidence in important answers", Bot profile › 2. Instructions) adds a short text to the Bot's instructions (saved only when you click Save; it applies to new conversations). When the Bot ends an answer with an evidence block, the conversation shows it as a card marked "Written by the Bot. LuveBot did not check it." It is text only, with the number of requests from that conversation waiting in Approvals.
+- **Phone notifications when a Bot waits on you outside the browser** (a question, a password, an approval on another channel), with "Send a test" for each device and a clear message when no contact is set up (see [Phone notifications](README.md#phone-notifications-the-senders-contact)).
+- A **"Guidance sent to the Bot"** note in the conversation: when you deny a request with a reason, the reason reaches the Bot inside its turn and shows as a note when you reopen the conversation.
+
+### Changed
+- Hermes v0.22.5 is the tested release. On a Hermes version LuveBot has not been tested with, Settings shows one calm line instead of a banner.
+- The work panel opens as a drawer on a narrow window.
+- "Always allow" says "not saved" when the draft was not saved, instead of looking as if it had. It still only creates a draft rule that you review and turn on.
+
+### Security
+- Only a person with a login counts as a person for actions that need one. The deployment token, or a machine on loopback, never does.
+- Rule matching is harder to fool: numeric forms of an IP address, percent-encoded text, a trailing dot, ideographic dots and invisible characters are read as what they stand for, and an allow rule cannot name letters such as ß and ς, whose upper and lower case do not match one to one.
+- Hidden characters in text from a Bot or a page are drawn as `[U+XXXX]` instead of staying invisible.
+- The summary of a page is computed in time proportional to its size.
+- A skill a Bot drafts is created off.
+
+### Upgrading from v0.2
+1. Back up first: `python3 scripts/backup_luvebot.py`, then `--check` the new file.
+2. **Never copy, `rsync` or `tar` `luvebot.db` while the dashboard or a gateway runs.** Use the script, or a disk or virtual-machine snapshot. See [Backup and restore](README.md#backup-and-restore).
+3. Update, then stop the dashboard and every gateway, start the dashboard first, then the gateways.
+4. Update the rules plugin of each Bot (Bot profile, Approvals, "Update this Bot's hook").
+5. If you want phone notifications about questions, set the sender's contact first (see [Phone notifications](README.md#phone-notifications-the-senders-contact)).
+6. LuveBot v0.3 is tested on Hermes v0.22.5; a Hermes older than 0.21.5 is refused.
+
+### Not proven against a real Hermes
+v0.3 is being tested. It passes LuveBot's own tests; the list of what has been run against a real Hermes will be written when v0.3 is released. Until then, read each item above as built, not as known to work. Little of v0.3 has been tried on a real phone or in Safari: the test notification reached a real iPhone, with the app added to the Home Screen and turned on from inside it, but notifications caused by a real question from a Bot, taking a photo for a face and the work panel as a drawer are not confirmed. Everything that v0.2 lists as not proven still is, and the live Screen tab is still experimental.
+
+## v0.2: ready for acceptance, not released yet
+
+### Added
+- **Seeing what Bots make:** open images, SVG and HTML pages from a Bot's files without downloading them (pages open isolated: no scripts, nothing from the internet, links inside them do nothing); files in rooms in both directions.
+- **Pages:** an editor with a toolbar and shortcuts (opening and closing a page never changes a byte) and an optional **Review before saving** switch that asks for your approval when a Bot writes a page and shows what it wants to write. It covers Hermes's file tools only; a Bot that writes through the terminal is not stopped. To replace a page that already exists, Hermes itself only lets a Bot write it if the Bot read the whole page first; if not, it refuses even after you approve (the page stays as it was) and the Bot reads it and asks again, so you may see a second request.
+- **Control:** skills per Bot; how long a Bot waits for an approval (5 minutes to 4 hours); editable memory, item by item; automatic pause after days of inactivity (off by default, routines only, never overrides a spending cap); pin, hide and reorder Bots.
+- **Free mode** per Bot (LuveBot stops asking; Block and Handback still stop it; Hermes's own prompts still apply), audited, with a screen of what it let through.
+- **Rule conditions** by the file a Bot writes and by who receives a task or a routine's output, with seals that say what a rule cannot see. The simulator also shows what Hermes's own gate would do with a command.
+- **Voice:** Radio (hold to talk) and Call (real time, needs an OpenAI key, counted on the spending cap). Voice never approves anything.
+- **Conversation and work:** threads and reactions (reactions are kept by Hermes, one per message for everybody); proactive research routines (read only); suggestions of rules and of Bots; a timeline and a heatmap; phone notifications from the installed app (the lock screen never shows what a Bot wants to do); "Needs you" in Today for what a Bot waits on outside LuveBot; a projection of the month's spending; the plan quota when Hermes reports it.
+- **Create your Luve** studio with a 3D preview, and "My Luve" in Settings.
+
+### Changed
+- LuveBot's database now runs in write-ahead-log mode: reading and writing no longer block each other, which removes the occasional slow action. `luvebot.db-wal` and `luvebot.db-shm` appear next to it.
+- Faster screens: the first message of a conversation takes two round trips instead of four; Today, Bots and the health check read less from the database.
+- A calm banner on Hermes versions LuveBot has not been tested with, with the line "Built, but not tested on this Hermes yet" for what has code and no proof yet, and "Does not work yet on this Hermes" for what has no code.
+- Approvals, questions from a Bot, lost runs and queued messages follow Hermes's newer session controls when Hermes has them.
+
+### Security
+- Links in an opened page, and the quoted text of a thread, cannot navigate away or close themselves.
+- "Continue in a copy" needs a signed-in person; resuming routines after an inactivity pause never re-enables a Bot that a spending cap paused.
+- Reactions accept a fixed list of emoji; a cut-off preview of a page edit is shown as cut, with an explicit "Approve without seeing everything".
+- The audit log is checked incrementally on each health check and in full every ten minutes. An edit of an old row is found within that window.
+
+### Upgrading from v0.1
+1. Back up first: `python3 scripts/backup_luvebot.py`, then `--check` the new file.
+2. **Never copy, `rsync` or `tar` `luvebot.db` while the dashboard or a gateway runs**; with the write-ahead log a copy of the `.db` alone silently misses recent data. Use the script, or a disk or virtual-machine snapshot. See [Backup and restore](README.md#backup-and-restore).
+3. Update, then stop the dashboard and every gateway, start the dashboard first (it switches the database mode), then the gateways.
+4. Update the rules plugin of each Bot (Bot profile, Approvals, "Update this Bot's hook").
+5. Check which tools your Bots have. On Hermes v0.22.5 a Bot whose `api_server` tools do not include `clarify` never asks a person anything (it decides on its own) and never shows up in "Needs you". The Bot profile now says so in one calm line ("This Bot cannot ask you questions") when LuveBot can read that the tool is off; turning the tool on is done in Hermes (it applies on the next run, no restart).
+
+### Not proven against a real Hermes
+**Run against a real Hermes and passing.** On Hermes 2026.9.24 in a test container: everything in v0.1, opening files, skills, files in rooms, the approval wait time, the voice routes (with a fake model provider), memory, and pin and order of Bots. Natively on **Hermes v0.22.5, the current stable release (batches run on 2026-10-30)**: the health report and the version banner, error naming, the restart request, no new port and no access without a session; the database in write-ahead-log mode with the dashboard and a gateway writing together; the rules plugin (hook 0.8.0), Free mode and the choice of where to approve; **approving and denying through Hermes's session controls, with the request tied to the exact call it came from**; a conversation from another channel and "continue in a copy"; the first message creating the conversation; threads and reactions; the rules API, **rule conditions by file and by recipient, the whole flow: a Bot stopped or left waiting by them, with a negative control (a call outside the condition goes through untouched)** and suggestions of rules; **the simulator's view of Hermes's own gate** (two Bots never mix, and "Always allow" reaches the configuration on disk); the whole Review-before-saving flow with a Bot really writing (the request with the preview and the diff, nothing written while it waits, approving writes exactly what was proposed, "the page changed" refused without deciding, and denying writes nothing); editing a routine's schedule; the inactivity pause (the setting, which only a person turns off or makes longer, with opening LuveBot resuming nothing; and the pause firing after its deadline through the running watcher and the real cron, with the days moved in LuveBot's own record instead of waited for, and "Resume" leaving a Bot the spending cap paused alone); the proactive research routine; the timeline and the hours heat map; the month projection and the plan quota; the notification routes on the server; the waiting list behind "Needs you" and the warning outside LuveBot when a Bot asks a question; whether a Bot can ask at all (the answer the Bot profile uses agrees with a Bot really asking or not, also with no tool list in its configuration); a Bot's question answered from the conversation (a question with options: an option it did not offer is refused, with no login nothing is sent, the right one resumes the run and repeating it is refused, and the attempt is audited), and one with no options answered by typing (an empty, non-text or too-long answer is refused with nothing sent, a machine in loopback is refused, and the text you write is never stored by LuveBot); a run Hermes loses track of (a run held by an approval becomes "unknown"; only a person with a login resolves it, a wrong generation is refused, the attempt is audited and a second try is refused) and the queue behind it (a turn accepted while another one runs waits, keeps waiting if the front run is lost, and runs exactly once after it is resolved); a turn Hermes accepted and kept queued while its owner restarts (it says "queued, do not send it again", runs once on the next owner, and sending again after the restart does not run it twice) and a request that arrives while the gateway drains (answered as "try again in a few seconds", not as a breakage); the reason you give when you deny, reaching the Bot even after its final answer and told as delivered only with proof; the Radio and the server side of the Call with fake speech providers (the eight routes, the spending cap on both, the minutes billed on the voice line, a lost call closed and billed by the sweeper, and voice never approving anything); item-by-item memory; and "My Luve" with the mascots. **Not yet run against a real Hermes:** the "this Bot cannot ask you questions" line on screen (the answer behind it is proven), the same answer staying absent on a real Hermes without session controls (v0.22.2 or older; so far only simulated inside the process), a gateway restarting on a real installation right after the rules plugin was installed (the test exists and needs a Linux container or an installation made by Hermes's own installer; see the update steps), and the real voice providers (the real audio path of the Call and real speech-to-text and text-to-speech services, with their real cost). **Tried on a real iPhone:** the test notification arrived, with the app added to the Home Screen and turned on from inside it; notifications caused by a real request from a Bot are not confirmed on a phone yet. **Never tried on a real phone or in Safari:** the HTML and SVG viewer, the page editor and the 3D preview. The live Screen tab is still experimental.
+
+## v0.1: 2026-10-03
+
+First release: a messenger-style home (Today, Bots, each Bot's profile); creating a Bot from a template; streaming conversations with tool steps, approvals in the conversation and a work panel (Activity, Terminal, Files); an approval inbox; rules with honest seals, drafts and a simulator, enforced by a per-profile plugin; Activity as a list and a board; routines with full history; costs with spending caps that pause; rooms on Hermes's Group Chat with `@` routing and handoffs through Kanban; a team map and search (`⌘K`); settings, the Luve theme, an installable app, Portuguese and English. The live Screen tab shipped as experimental.

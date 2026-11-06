@@ -1,0 +1,209 @@
+{
+ "chrome": "Chrome/156.0.8078.73",
+ "date": "2026-10-30T23:43:22.693Z",
+ "bot": "vendas",
+ "view": "desktop-light",
+ "checks": [
+  {
+   "name": "login no painel do Hermes",
+   "pass": true,
+   "detail": 200
+  },
+  {
+   "name": "o LuveBot abre dentro do painel e lista os Bots",
+   "pass": true
+  },
+  {
+   "name": "abrir o Bot vendas",
+   "pass": true
+  },
+  {
+   "name": "botão Perfil",
+   "pass": true
+  },
+  {
+   "name": "Identidade e instruções",
+   "pass": true
+  },
+  {
+   "name": "a identidade mostra Criar seu Luve",
+   "pass": true
+  },
+  {
+   "name": "abrir o estúdio",
+   "pass": true
+  },
+  {
+   "name": "estúdio aberto",
+   "pass": true
+  },
+  {
+   "name": "prévia 3D (WebGL por software)",
+   "pass": true
+  },
+  {
+   "name": "passo forma",
+   "pass": true
+  },
+  {
+   "name": "passo cor",
+   "pass": true
+  },
+  {
+   "name": "passo material",
+   "pass": true
+  },
+  {
+   "name": "passo acessório",
+   "pass": true
+  },
+  {
+   "name": "as ações e Usar aparecem inteiras na tela sem rolar (dock do estúdio)",
+   "pass": true
+  },
+  {
+   "name": "Baixar PNG",
+   "pass": true
+  },
+  {
+   "name": "PNG salvo pelo navegador",
+   "pass": true,
+   "detail": {
+    "name": "luve-nimbo.png"
+   }
+  },
+  {
+   "name": "PNG 1024 x 1024 válido",
+   "pass": true,
+   "detail": {
+    "bytes": 232623
+   }
+  },
+  {
+   "name": "PNG: fundo transparente e o personagem desenhado",
+   "pass": true,
+   "detail": {
+    "opaque": 0.178,
+    "corner": 0
+   }
+  },
+  {
+   "name": "Usar em vendas (fecha o estúdio)",
+   "pass": true
+  },
+  {
+   "name": "Salvar alterações",
+   "pass": true
+  },
+  {
+   "name": "o backend respondeu 200 ao PATCH do rosto",
+   "pass": true,
+   "detail": {
+    "method": "PATCH",
+    "url": "http://127.0.0.1:19119/api/plugins/luvebot/bots/vendas/display?profile=current",
+    "body": "{\"label\":\"Vendas\",\"role\":\"\",\"call_me\":null,\"color\":\"#60a5fa\",\"avatar\":{\"kind\":\"luve\",\"value\":\"nimbo.fosco.helice.a78bfa\"}}",
+    "status": 200
+   }
+  },
+  {
+   "name": "o backend guardou {kind:luve, value:<receita escolhida>}",
+   "pass": true,
+   "detail": {
+    "avatarAfter": {
+     "kind": "luve",
+     "value": "nimbo.fosco.helice.a78bfa"
+    },
+    "want": "nimbo.fosco.helice.a78bfa"
+   }
+  },
+  {
+   "name": "barra lateral: o rosto do Bot é <img blob:> e é o SVG da receita (byte a byte)",
+   "pass": true,
+   "detail": [
+    {
+     "w": 150,
+     "matches": [
+      "idle/mini"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "ir ao Mapa",
+   "pass": true
+  },
+  {
+   "name": "Mapa (grafo): o NÓ do Bot desenha a receita (<image blob:> do nó, byte a byte)",
+   "pass": true,
+   "detail": {
+    "panel": true,
+    "node": true,
+    "blob": true,
+    "matches": [
+     "idle/whole"
+    ]
+   }
+  },
+  {
+   "name": "Mapa (lista acessível): o Bot está na lista, em texto (esta visão não desenha rostos, é para leitor de tela)",
+   "pass": true,
+   "detail": {
+    "text": true,
+    "faces": 0
+   }
+  },
+  {
+   "name": "depois de recarregar a página, a barra lateral ainda desenha a receita",
+   "pass": true,
+   "detail": [
+    {
+     "w": 150,
+     "matches": [
+      "idle/mini"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "auditoria: bot.display.update gravada antes (intent) e depois (result), ok, pela pessoa logada, origem ui",
+   "pass": true,
+   "detail": [
+    [
+     "bot.display.update",
+     "basic:harness-human",
+     "ui",
+     "vendas",
+     "vendas",
+     "ok",
+     "result",
+     "64"
+    ],
+    [
+     "bot.display.update",
+     "basic:harness-human",
+     "ui",
+     "vendas",
+     "vendas",
+     "ok",
+     "intent",
+     "64"
+    ]
+   ]
+  },
+  {
+   "name": "auditoria: a receita não é gravada em claro (só o resumo da mudança)",
+   "pass": true
+  }
+ ],
+ "network": {
+  "requests": 188,
+  "foreign": []
+ },
+ "problems": [],
+ "summary": {
+  "checks": 29,
+  "failed": [],
+  "foreign": 0,
+  "consoleErrors": 0
+ }
+}

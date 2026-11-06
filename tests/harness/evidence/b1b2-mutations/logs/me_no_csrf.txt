@@ -1,0 +1,38 @@
+prepared /private/tmp/claude-501/-Users-lucasvenuto-dev-LuveBot--maestri-roles-3da4ec19-3fee-437f-87a6-1e4c785bca2d/f757f3e7-38ec-40aa-b474-b516a8b7a431/scratchpad/hm ports 19119 18642 18000
+ready
+scratch 477 MB (limit 1500)
+== test_person_display.py::test_no_csrf_no_change_and_no_audit_row
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+________________ test_no_csrf_no_change_and_no_audit_row[None] _________________
+test_person_display.py:48: in test_no_csrf_no_change_and_no_audit_row
+    assert response.status == 403 and error_of(response)['code'] == 'csrf_required', response.text()
+E   AssertionError: {"avatar":{"kind":"luve","value":"nimbo.fosco.lupa.38bdf8"}}
+E   assert (200 == 403)
+E    +  where 200 = <conftest.Response object at 0x10babaad0>.status
+        before     = 0
+        clean_face = None
+        human_browser = <conftest.Context object at 0x10ab28ad0>
+        response   = <conftest.Response object at 0x10babaad0>
+        token      = None
+_______________ test_no_csrf_no_change_and_no_audit_row[forged] ________________
+test_person_display.py:48: in test_no_csrf_no_change_and_no_audit_row
+    assert response.status == 403 and error_of(response)['code'] == 'csrf_required', response.text()
+E   AssertionError: {"avatar":{"kind":"luve","value":"nimbo.fosco.lupa.38bdf8"}}
+E   assert (200 == 403)
+E    +  where 200 = <conftest.Response object at 0x10babae90>.status
+        before     = 2
+        clean_face = None
+        human_browser = <conftest.Context object at 0x10ab28ad0>
+        response   = <conftest.Response object at 0x10babae90>
+        token      = 'forged'
+=========================== short test summary info ============================
+FAILED ../../../../../../../../../../../../dev::test_no_csrf_no_change_and_no_audit_row[None]
+FAILED ../../../../../../../../../../../../dev::test_no_csrf_no_change_and_no_audit_row[forged]
+2 failed in 0.45s
+scratch 477 MB (limit 1500)
+== stack listeners (pid ppid command -> socket)
+3988  3833 /opt/homebrew/Cellar/python@3.14/3.14.5/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/C -> 127.0.0.1:18000
+4002  3989 /opt/homebrew/Cellar/python@3.14/3.14.5/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/C -> 127.0.0.1:54728 127.0.0.1:18642 127.0.0.1:54752
+4433  3989 /opt/homebrew/Cellar/python@3.14/3.14.5/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/C -> 127.0.0.1:19119
+audit_failed=0  tick_failed=0

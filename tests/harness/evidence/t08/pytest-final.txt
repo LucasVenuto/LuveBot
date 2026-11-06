@@ -1,0 +1,21 @@
+============================= test session starts ==============================
+platform linux -- Python 3.14.7, pytest-9.1.1, pluggy-1.6.0 -- /usr/local/bin/python
+rootdir: /dev
+configfile: null
+plugins: anyio-4.15.1
+collecting ... collected 11 items
+
+../../dev::test_plugin_route_requires_dashboard_session PASSED           [  9%]
+../../dev::test_plugin_router_responds_with_human_session PASSED         [ 18%]
+../../dev::test_manifest_override_replaces_home_in_real_browser PASSED   [ 27%]
+../../dev::test_sdk_is_available_in_real_browser PASSED                  [ 36%]
+../../dev::test_capabilities_respond_for_both_real_profiles[default] PASSED [ 45%]
+../../dev::test_capabilities_respond_for_both_real_profiles[vendas] PASSED [ 54%]
+../../dev::test_real_hermes_uses_local_fake_model_provider PASSED        [ 63%]
+../../dev::test_plugin_page_calls_authenticated_groups_rpc PASSED        [ 72%]
+../../dev::test_display_ticket_or_actual_container_blocker PASSED        [ 81%]
+../../dev::test_handler_reads_verified_actor_and_profile_key_without_leak PASSED [ 90%]
+../../dev::test_capture_real_run_and_chat_sse_frames_including_approval PASSED [100%]
+
+-------------- generated xml file: /spike/evidence/t08-final.xml ---------------
+============================== 11 passed in 5.89s ==============================

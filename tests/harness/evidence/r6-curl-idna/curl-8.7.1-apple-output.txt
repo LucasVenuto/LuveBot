@@ -1,0 +1,13 @@
+curl 8.7.1 (x86_64-apple-darwin26.0) libcurl/8.7.1 (SecureTransport) LibreSSL/3.3.6 zlib/1.2.12 nghttp2/1.69.0
+U+034F CGJ           curl rc=0  http=200 arrived=True  host-header='localÍ\x8fhost:61302'
+U+180B               curl rc=0  http=200 arrived=True  host-header='localá\xa0\x8bhost:61302'
+U+180C               curl rc=0  http=200 arrived=True  host-header='localá\xa0\x8chost:61302'
+U+180D               curl rc=0  http=200 arrived=True  host-header='localá\xa0\x8dhost:61302'
+U+FE0F               curl rc=0  http=200 arrived=True  host-header='localï¸\x8fhost:61302'
+U+00AD               curl rc=0  http=200 arrived=True  host-header='localÂ\xadhost:61302'
+U+1806               curl rc=6  http=000 arrived=False host-header=None curl: (6) Could not resolve host: local᠆host
+U+3002 as dot        curl rc=6  http=000 arrived=False host-header=None curl: (6) Could not resolve host: 127。0。0。1
+U+FF61 as dot        curl rc=6  http=000 arrived=False host-header=None curl: (6) Could not resolve host: 127｡0｡0｡1
+U+FF0E as dot        curl rc=6  http=000 arrived=False host-header=None curl: (6) Could not resolve host: 127．0．0．1
+control: localhost   curl rc=0  http=200 arrived=True  host-header='localhost:61302'
+control: 127.0.0.1   curl rc=0  http=200 arrived=True  host-header='127.0.0.1:61302'

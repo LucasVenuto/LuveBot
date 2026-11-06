@@ -1,0 +1,10 @@
+code: serving_proven
+result: pass
+hermes_commit: bf0203a794a07aac3ff764972ab9087baa4e4f4e
+proof: native harness (no Docker) on Hermes v0.22.5 (git checkout of the tag, source git, dirty False), the whole invariants suite in one session on the tree that holds this list: 626 passed, 0 failed, 8 skipped (7 screen tests on macOS, 1 can_ask without session authority), 1 xfailed
+case_1_dashboard: a dashboard serves and runs the watcher - serving is (True, lifespan_ran), one budget thread, 24 heartbeats in 40-45 s (r44 S1)
+case_2_importer_only: a process that only imports hermes_cli.web_server answers (False, no_lifespan) and writes 0 heartbeats in 40 s (r44 S5); a stock gateway DOES serve (lifespan run inside gateway/run_api.py ensure), answers True and runs the watcher, so the lease keeps ONE watcher per database
+case_3_doubt_runs: a build that is not pinned answers (None, hermes_not_pinned) in both processes and the watcher runs (r44 S4)
+pin_by_tag: test_zz_watcher_lease.py::test_the_hermes_internals_the_serving_check_and_the_lease_read - event_lock set before the yield in both lifespans, the lifespan chosen by app.state.gateway_runner, the plugin routes mounted at import, /health watcher without pid or host
+lease: test_zz_watcher_lease.py (lease S3 both up one sequence, lease S5 the owner dies and the other takes over within the lease with the cap still pausing, lease S4 the dashboard comes back, the non-owner gateway killed) 5 passed with SERVING_PROVEN empty and with it filled
+mutants: three, each red - the lease never yielded (S3: 40 heartbeat rows in 30 s, one watcher writes about 20), no dashboard preference (S4 times out), an owner that never expires (S5: the gateway did not take the lease)

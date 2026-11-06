@@ -1,0 +1,10 @@
+{
+ "delegation_id": "deleg_27d82790",
+ "origin_session": "run_f5956b66ec704276b31f6ad3ac325a4f",
+ "origin_ui_session_id": "",
+ "parent_session_id": "api_1791007458_77b687b4",
+ "state": "completed",
+ "delivery_state": "pending",
+ "delivery_attempts": 0,
+ "summary": "Causa: pedidos.js:88 lê pedido.total antes de somar os itens, então o total sai vazio. Correção: somar os itens antes."
+}

@@ -1,0 +1,3 @@
+id: 0
+data: {"event": "message.delta", "run_id": "run_b7d2e18234ac414d9f0158ff7a10e402", "timestamp": 1790821824.9230897, "delta": "Testing the local tool.", "seq": 0}
+

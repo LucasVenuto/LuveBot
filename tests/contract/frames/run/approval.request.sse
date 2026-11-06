@@ -1,0 +1,3 @@
+id: 4
+data: {"command": "rm -rf /tmp/luvebot-approval-canary", "pattern_key": "delete in root path", "pattern_keys": ["delete in root path"], "description": "delete in root path", "allow_permanent": true, "allow_session": true, "request_id": "2b64abb99cdf4478a30fd50edc86897c", "event": "approval.request", "run_id": "run_32b48f7b1e044f9eb997b4e2b406b958", "timestamp": 1790821825.5279176, "choices": ["once", "session", "always", "deny"], "seq": 4}
+

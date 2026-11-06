@@ -1,0 +1,20 @@
+prepared /private/tmp/claude-501/-Users-lucasvenuto-dev-LuveBot--maestri-roles-3da4ec19-3fee-437f-87a6-1e4c785bca2d/f757f3e7-38ec-40aa-b474-b516a8b7a431/scratchpad/hm ports 19119 18642 18000
+ready
+scratch 477 MB (limit 1500)
+== test_mascot.py::test_an_unknown_mascot_or_an_image_is_refused_on_both_routes_and_writes_nothing
+...........                                                              [100%]
+11 passed in 2.51s
+scratch 477 MB (limit 1500)
+== test_mascot.py::test_a_luve_recipe_off_the_lists_is_refused_on_both_routes_and_writes_nothing
+........                                                                 [100%]
+8 passed in 2.67s
+scratch 477 MB (limit 1500)
+== test_person_display.py::test_no_csrf_no_change_and_no_audit_row
+..                                                                       [100%]
+2 passed in 1.63s
+scratch 477 MB (limit 1500)
+== stack listeners (pid ppid command -> socket)
+99562 99544 /opt/homebrew/Cellar/python@3.14/3.14.5/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/C -> 127.0.0.1:18000
+99594 99563 /opt/homebrew/Cellar/python@3.14/3.14.5/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/C -> 127.0.0.1:53709 127.0.0.1:18642 127.0.0.1:53718
+99782 99563 /opt/homebrew/Cellar/python@3.14/3.14.5/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/C -> 127.0.0.1:19119
+audit_failed=0  tick_failed=0

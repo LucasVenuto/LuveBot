@@ -1,0 +1,11 @@
+# Actual T0.8 commands from /Users/lucasvenuto/dev/LuveBot
+python3 tests/harness/prepare_spike_t08.py
+docker compose -f tests/harness/compose.yaml up -d --force-recreate
+docker compose -f tests/harness/compose.yaml restart fake-openai
+# Disposable mutation: replace actor.user_id with "mutated-principal" in
+# /tmp/luvebot-spike/dashboard/plugin_api.py, restart hermes, run:
+docker compose -f tests/harness/compose.yaml exec -T hermes python -m pytest -c /dev/null -s -v /harness/test_spike_t08.py -k handler_reads -p no:cacheprovider --basetemp=/tmp/t08-mutation
+# Restore generated plugin_api.py, restart hermes.
+docker compose -f tests/harness/compose.yaml restart hermes
+docker compose -f tests/harness/compose.yaml exec -T hermes python -m pytest -c /dev/null -s -v /harness/test_spike_t08.py -p no:cacheprovider --basetemp=/tmp/t08-cancel
+docker compose -f tests/harness/compose.yaml exec -T hermes python -m pytest -c /dev/null -v /harness/test_spike.py /harness/test_spike_t08.py -p no:cacheprovider --basetemp=/tmp/t08-final --junitxml=/spike/evidence/t08-final.xml

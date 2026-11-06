@@ -1,0 +1,42 @@
+prepared /private/tmp/claude-501/-Users-lucasvenuto-dev-LuveBot--maestri-roles-3da4ec19-3fee-437f-87a6-1e4c785bca2d/f757f3e7-38ec-40aa-b474-b516a8b7a431/scratchpad/hm ports 19119 18642 18000
+ready
+scratch 477 MB (limit 1500)
+== test_mascot.py::test_an_unknown_mascot_or_an_image_is_refused_on_both_routes_and_writes_nothing
+.........FF                                                              [100%]
+=================================== FAILURES ===================================
+_ test_an_unknown_mascot_or_an_image_is_refused_on_both_routes_and_writes_nothing[{"kind": "image", "value": "abc"}] _
+test_mascot.py:82: in test_an_unknown_mascot_or_an_image_is_refused_on_both_routes_and_writes_nothing
+    assert patched.status == 422 and error_of(patched)['code'] == 'invalid_field' and 'avatar' in error_of(patched)['message'], patched.text()
+E   AssertionError: {"name":"vendas","is_default":false,"display":{"label":"vendas","role":"","call_me":null,"color":"#60a5fa","avatar":{"kind":"image","value":"abc"},"hidden":false,"pinned":false,"position":null},"description":"","model":{"provider":"custom","name":"fake-harness"},"status":"idle","status_reason":null,"status_basis":null,"status_partial":[],"current_task":null,"unread":{"count":0,"replies":0,"routine_results":0,"since":0.0},"pause_scope":null,"cost_today_usd":null,"channels":[],"capabilities":{"runs":true,"session_chat_stream":true,"approval_response":false},"hook":{"status":"live","version":"0.8.0","heartbeat_age_s":4.0,"table_digest":"4e56c251b9ade4a139cf6f8eed3bdce8bec28e4cc11a1c8981e9227c4e697c73"},"approval_mode":"luvebot","approval_applied":"applied"}
+E   assert (200 == 422)
+E    +  where 200 = <conftest.Response object at 0x107f64f30>.status
+        avatar     = {'kind': 'image', 'value': 'abc'}
+        creates    = 0
+        display    = 0
+        human_browser = <conftest.Context object at 0x1069acad0>
+        name       = 't83d-1edc0e5d'
+        patched    = <conftest.Response object at 0x107f64f30>
+        vendas_display = None
+_ test_an_unknown_mascot_or_an_image_is_refused_on_both_routes_and_writes_nothing[{"kind": "image", "value": "/etc/passwd"}] _
+test_mascot.py:82: in test_an_unknown_mascot_or_an_image_is_refused_on_both_routes_and_writes_nothing
+    assert patched.status == 422 and error_of(patched)['code'] == 'invalid_field' and 'avatar' in error_of(patched)['message'], patched.text()
+E   AssertionError: {"name":"vendas","is_default":false,"display":{"label":"vendas","role":"","call_me":null,"color":"#60a5fa","avatar":{"kind":"image","value":"/etc/passwd"},"hidden":false,"pinned":false,"position":null},"description":"","model":{"provider":"custom","name":"fake-harness"},"status":"idle","status_reason":null,"status_basis":null,"status_partial":[],"current_task":null,"unread":{"count":0,"replies":0,"routine_results":0,"since":0.0},"pause_scope":null,"cost_today_usd":null,"channels":[],"capabilities":{"runs":true,"session_chat_stream":true,"approval_response":false},"hook":{"status":"live","version":"0.8.0","heartbeat_age_s":4.2,"table_digest":"4e56c251b9ade4a139cf6f8eed3bdce8bec28e4cc11a1c8981e9227c4e697c73"},"approval_mode":"luvebot","approval_applied":"applied"}
+E   assert (200 == 422)
+E    +  where 200 = <conftest.Response object at 0x107f65400>.status
+        avatar     = {'kind': 'image', 'value': '/etc/passwd'}
+        creates    = 0
+        display    = 2
+        human_browser = <conftest.Context object at 0x1069acad0>
+        name       = 't83d-39e51d2c'
+        patched    = <conftest.Response object at 0x107f65400>
+        vendas_display = None
+=========================== short test summary info ============================
+FAILED ../../../../../../../../../../../../dev::test_an_unknown_mascot_or_an_image_is_refused_on_both_routes_and_writes_nothing[{"kind": "image", "value": "abc"}]
+FAILED ../../../../../../../../../../../../dev::test_an_unknown_mascot_or_an_image_is_refused_on_both_routes_and_writes_nothing[{"kind": "image", "value": "/etc/passwd"}]
+2 failed, 9 passed in 1.91s
+scratch 477 MB (limit 1500)
+== stack listeners (pid ppid command -> socket)
+955   887 /opt/homebrew/Cellar/python@3.14/3.14.5/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/C -> 127.0.0.1:18000
+975   956 /opt/homebrew/Cellar/python@3.14/3.14.5/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/C -> 127.0.0.1:54051 127.0.0.1:54063 127.0.0.1:18642
+1170   956 /opt/homebrew/Cellar/python@3.14/3.14.5/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/C -> 127.0.0.1:19119
+audit_failed=0  tick_failed=0

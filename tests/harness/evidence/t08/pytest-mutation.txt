@@ -1,0 +1,45 @@
+============================= test session starts ==============================
+platform linux -- Python 3.14.7, pytest-9.1.1, pluggy-1.6.0 -- /usr/local/bin/python
+rootdir: /dev
+configfile: null
+plugins: anyio-4.15.1
+collecting ... collected 4 items / 3 deselected / 1 selected
+
+../../dev::test_handler_reads_verified_actor_and_profile_key_without_leak 
+Human password login: HTTP 200, real session cookie present (value omitted)
+FAILED
+
+=================================== FAILURES ===================================
+________ test_handler_reads_verified_actor_and_profile_key_without_leak ________
+
+plugin_page = <Page url='http://127.0.0.1:9119/?profile=default'>
+human_browser = <BrowserContext browser=<Browser type=<BrowserType name=chromium executable_path=/root/.cache/ms-playwright/chromium-1234/chrome-linux/chrome> version=151.0.7922.34>>
+
+    def test_handler_reads_verified_actor_and_profile_key_without_leak(plugin_page, human_browser):
+        assert CREDS['api_key'] != CREDS['vendas_api_key']
+        reports = []
+        cookie_values = [cookie['value'] for cookie in human_browser.cookies() if cookie['name'] in {'hermes_session_at', 'hermes_session_rt'}]
+        for profile, own, other in [('default', 'api_key', 'vendas_api_key'), ('vendas', 'vendas_api_key', 'api_key')]:
+            # Actual SDK authedFetch FROM the plugin page; key never provided to JS.
+            response = plugin_page.evaluate('(profile) => window.__T08_SPIKE__.identity(profile)', profile)
+            assert response['status'] == 200, response
+            text = response['text']
+            for secret in [CREDS['api_key'], CREDS['vendas_api_key'], *cookie_values]:
+                assert secret not in text, 'Server secret/session token reached the browser'
+            data = json.loads(text)
+>           assert data['actor'] == {'user_id': CREDS['username'], 'provider': 'basic'}
+E           AssertionError: assert {'user_id': '...der': 'basic'} == {'user_id': '...der': 'basic'}
+E             
+E             Omitting 1 identical items, use -vv to show
+E             Differing items:
+E             {'user_id': 'mutated-principal'} != {'user_id': 'harness-human'}
+E             
+E             Full diff:
+E               {...
+E             
+E             ...Full output truncated (4 lines hidden), use '-vv' to show
+
+/harness/test_spike_t08.py:92: AssertionError
+=========================== short test summary info ============================
+FAILED ../../dev::test_handler_reads_verified_actor_and_profile_key_without_leak
+======================= 1 failed, 3 deselected in 6.23s ========================

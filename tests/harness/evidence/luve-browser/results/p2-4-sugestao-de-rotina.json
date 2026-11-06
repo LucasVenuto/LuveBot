@@ -1,0 +1,74 @@
+{
+ "chrome": "Chrome/156.0.8078.73",
+ "results": [
+  {
+   "label": "desktop-claro-pt",
+   "ok": true,
+   "sw": 1000,
+   "iw": 1000,
+   "cards": 4,
+   "buttons": [
+    "Criar pausada",
+    "Criar e iniciar",
+    "Dispensar",
+    "Criar pausada",
+    "Criar e iniciar",
+    "Dispensar",
+    "Dispensar",
+    "Dispensar"
+   ],
+   "minBtn": 32
+  },
+  {
+   "label": "celular-escuro-pt",
+   "ok": true,
+   "sw": 390,
+   "iw": 390,
+   "cards": 4,
+   "buttons": [
+    "Criar pausada",
+    "Criar e iniciar",
+    "Dispensar",
+    "Criar pausada",
+    "Criar e iniciar",
+    "Dispensar",
+    "Dispensar",
+    "Dispensar"
+   ],
+   "minBtn": 44
+  },
+  {
+   "label": "desktop-claro-en",
+   "ok": true,
+   "sw": 1000,
+   "iw": 1000,
+   "cards": 4,
+   "buttons": [
+    "Create paused",
+    "Create and start",
+    "Dismiss",
+    "Create paused",
+    "Create and start",
+    "Dismiss",
+    "Dismiss",
+    "Dismiss"
+   ],
+   "minBtn": 32
+  },
+  {
+   "label": "celular-loopback-pt",
+   "ok": true,
+   "sw": 390,
+   "iw": 390,
+   "cards": 4,
+   "buttons": [
+    "Dispensar",
+    "Dispensar",
+    "Dispensar",
+    "Dispensar"
+   ],
+   "minBtn": 44
+  }
+ ],
+ "problems": []
+}
