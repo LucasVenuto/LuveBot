@@ -1,0 +1,332 @@
+[
+  {
+    "id": "luvi",
+    "name": "Luvi",
+    "role": "Assistente geral",
+    "roleEn": "General assistant",
+    "shape": "blob",
+    "note": "O mascote oficial, em vetor. A matriarca da família.",
+    "colors": {
+      "light": "#c4b2ff",
+      "base": "#6a70f8",
+      "deep": "#2346f2",
+      "rim": "#22c3f7"
+    },
+    "file": "luvi.svg",
+    "face": "luvi-rosto.svg",
+    "accent": "#6a70f8",
+    "states": {
+      "idle": "",
+      "working": "is-working | #lb-working",
+      "needsYou": "needs-you | #lb-needs-you"
+    }
+  },
+  {
+    "id": "brisa",
+    "name": "Brisa",
+    "role": "Suporte",
+    "roleEn": "Support",
+    "shape": "mochi",
+    "note": "Mochi macio de fone: escuta primeiro, resolve depois.",
+    "colors": {
+      "light": "#c6f7e2",
+      "base": "#34d399",
+      "deep": "#0a9b72",
+      "rim": "#5ee6f0"
+    },
+    "file": "brisa.svg",
+    "face": "brisa-rosto.svg",
+    "accent": "#34d399",
+    "states": {
+      "idle": "",
+      "working": "is-working | #lb-working",
+      "needsYou": "needs-you | #lb-needs-you"
+    }
+  },
+  {
+    "id": "faro",
+    "name": "Faro",
+    "role": "Pesquisa",
+    "roleEn": "Research",
+    "shape": "estrela macia",
+    "note": "Estrela curiosa de lupa: acha a fonte antes de opinar.",
+    "colors": {
+      "light": "#fff0b3",
+      "base": "#fbbf24",
+      "deep": "#e57c06",
+      "rim": "#ff8a6b"
+    },
+    "file": "faro.svg",
+    "face": "faro-rosto.svg",
+    "accent": "#fbbf24",
+    "states": {
+      "idle": "",
+      "working": "is-working | #lb-working",
+      "needsYou": "needs-you | #lb-needs-you"
+    }
+  },
+  {
+    "id": "pipo",
+    "name": "Pipo",
+    "role": "Dev",
+    "roleEn": "Developer",
+    "shape": "feijão",
+    "note": "Feijão de gorro com hélice: quanto mais código, mais rápido gira.",
+    "colors": {
+      "light": "#e4dcff",
+      "base": "#a78bfa",
+      "deep": "#6d3df0",
+      "rim": "#f0abfc"
+    },
+    "file": "pipo.svg",
+    "face": "pipo-rosto.svg",
+    "accent": "#a78bfa",
+    "states": {
+      "idle": "",
+      "working": "is-working | #lb-working",
+      "needsYou": "needs-you | #lb-needs-you"
+    }
+  },
+  {
+    "id": "nimbo",
+    "name": "Nimbo",
+    "role": "Ops",
+    "roleEn": "Ops",
+    "shape": "nuvem",
+    "note": "Nuvem de antena: vigia tudo e pisca verde quando está tudo bem.",
+    "colors": {
+      "light": "#ccf2ff",
+      "base": "#38bdf8",
+      "deep": "#0377c4",
+      "rim": "#a5b4fc"
+    },
+    "file": "nimbo.svg",
+    "face": "nimbo-rosto.svg",
+    "accent": "#38bdf8",
+    "states": {
+      "idle": "",
+      "working": "is-working | #lb-working",
+      "needsYou": "needs-you | #lb-needs-you"
+    }
+  },
+  {
+    "id": "tinta",
+    "name": "Tinta",
+    "role": "Conteúdo",
+    "roleEn": "Content",
+    "shape": "gota",
+    "note": "Gota sonhadora de lápis atrás da cabeça: olha para cima procurando a frase.",
+    "colors": {
+      "light": "#ffd6de",
+      "base": "#fb7185",
+      "deep": "#e11d48",
+      "rim": "#fdba74"
+    },
+    "file": "tinta.svg",
+    "face": "tinta-rosto.svg",
+    "accent": "#fb7185",
+    "states": {
+      "idle": "",
+      "working": "is-working | #lb-working",
+      "needsYou": "needs-you | #lb-needs-you"
+    }
+  },
+  {
+    "id": "rumo",
+    "name": "Rumo",
+    "role": "Chefe de gabinete",
+    "roleEn": "Chief of staff",
+    "shape": "seixo",
+    "note": "Seixo firme com três satélites do time em volta: coordena quem faz o quê.",
+    "colors": {
+      "light": "#ffe2c4",
+      "base": "#fb923c",
+      "deep": "#e05206",
+      "rim": "#fde047"
+    },
+    "file": "rumo.svg",
+    "face": "rumo-rosto.svg",
+    "accent": "#fb923c",
+    "states": {
+      "idle": "",
+      "working": "is-working | #lb-working",
+      "needsYou": "needs-you | #lb-needs-you"
+    }
+  },
+  {
+    "id": "vera",
+    "name": "Vera",
+    "role": "Revisor",
+    "roleEn": "Reviewer",
+    "shape": "marshmallow",
+    "note": "Marshmallow de sobrancelha erguida: só sai com o selo verde.",
+    "colors": {
+      "light": "#fbd6ff",
+      "base": "#e879f9",
+      "deep": "#b021c8",
+      "rim": "#a78bfa"
+    },
+    "file": "vera.svg",
+    "face": "vera-rosto.svg",
+    "accent": "#e879f9",
+    "states": {
+      "idle": "",
+      "working": "is-working | #lb-working",
+      "needsYou": "needs-you | #lb-needs-you"
+    }
+  },
+  {
+    "id": "zuca",
+    "name": "Zuca",
+    "role": "Vendas",
+    "roleEn": "Sales",
+    "shape": "balão",
+    "note": "Balão de piscadinha e sorrisão: cada sim vira uma seta para cima.",
+    "colors": {
+      "light": "#d6e7ff",
+      "base": "#60a5fa",
+      "deep": "#2160e8",
+      "rim": "#67e8f9"
+    },
+    "file": "zuca.svg",
+    "face": "zuca-rosto.svg",
+    "accent": "#60a5fa",
+    "states": {
+      "idle": "",
+      "working": "is-working | #lb-working",
+      "needsYou": "needs-you | #lb-needs-you"
+    }
+  },
+  {
+    "id": "niquel",
+    "name": "Níquel",
+    "role": "Finanças",
+    "roleEn": "Finance",
+    "shape": "pudim",
+    "note": "Pudim tranquilo com satélite de moeda: conta cada centavo sem drama.",
+    "colors": {
+      "light": "#efffcf",
+      "base": "#a3e635",
+      "deep": "#5a9a0b",
+      "rim": "#fde047"
+    },
+    "file": "niquel.svg",
+    "face": "niquel-rosto.svg",
+    "accent": "#a3e635",
+    "states": {
+      "idle": "",
+      "working": "is-working | #lb-working",
+      "needsYou": "needs-you | #lb-needs-you"
+    }
+  },
+  {
+    "id": "quadra",
+    "name": "Quadra",
+    "role": "Dados",
+    "roleEn": "Data",
+    "shape": "trevo",
+    "note": "Trevo de quatro lobos e plaquinha de gráfico: encontra o padrão.",
+    "colors": {
+      "light": "#e2e7ff",
+      "base": "#818cf8",
+      "deep": "#4a3fe0",
+      "rim": "#5eead4"
+    },
+    "file": "quadra.svg",
+    "face": "quadra-rosto.svg",
+    "accent": "#818cf8",
+    "states": {
+      "idle": "",
+      "working": "is-working | #lb-working",
+      "needsYou": "needs-you | #lb-needs-you"
+    }
+  },
+  {
+    "id": "flora",
+    "name": "Flora",
+    "role": "Design",
+    "roleEn": "Design",
+    "shape": "flor macia",
+    "note": "Flor de boina: põe cor e ritmo em tudo que toca.",
+    "colors": {
+      "light": "#ffe0f0",
+      "base": "#f472b6",
+      "deep": "#d6246f",
+      "rim": "#c4b5fd"
+    },
+    "file": "flora.svg",
+    "face": "flora-rosto.svg",
+    "accent": "#f472b6",
+    "states": {
+      "idle": "",
+      "working": "is-working | #lb-working",
+      "needsYou": "needs-you | #lb-needs-you"
+    }
+  },
+  {
+    "id": "eco",
+    "name": "Eco",
+    "role": "Social",
+    "roleEn": "Social media",
+    "shape": "coração",
+    "note": "Coração falante: transforma conversa em comunidade.",
+    "colors": {
+      "light": "#ffd9d9",
+      "base": "#f87171",
+      "deep": "#d42020",
+      "rim": "#fda4af"
+    },
+    "file": "eco.svg",
+    "face": "eco-rosto.svg",
+    "accent": "#f87171",
+    "states": {
+      "idle": "",
+      "working": "is-working | #lb-working",
+      "needsYou": "needs-you | #lb-needs-you"
+    }
+  },
+  {
+    "id": "lacre",
+    "name": "Lacre",
+    "role": "Segurança",
+    "roleEn": "Security",
+    "shape": "escudo",
+    "note": "Escudo calmo de cadeado: ninguém passa sem permissão.",
+    "colors": {
+      "light": "#cffcf2",
+      "base": "#2dd4bf",
+      "deep": "#0b8a7e",
+      "rim": "#93c5fd"
+    },
+    "file": "lacre.svg",
+    "face": "lacre-rosto.svg",
+    "accent": "#2dd4bf",
+    "states": {
+      "idle": "",
+      "working": "is-working | #lb-working",
+      "needsYou": "needs-you | #lb-needs-you"
+    }
+  },
+  {
+    "id": "tico",
+    "name": "Tico",
+    "role": "Agenda",
+    "roleEn": "Scheduling",
+    "shape": "ovo",
+    "note": "Ovo de sininhos: nunca deixa um compromisso passar.",
+    "colors": {
+      "light": "#f3efff",
+      "base": "#c4b5fd",
+      "deep": "#7655ee",
+      "rim": "#f9a8d4"
+    },
+    "file": "tico.svg",
+    "face": "tico-rosto.svg",
+    "accent": "#c4b5fd",
+    "states": {
+      "idle": "",
+      "working": "is-working | #lb-working",
+      "needsYou": "needs-you | #lb-needs-you"
+    }
+  }
+]

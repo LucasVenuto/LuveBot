@@ -1,0 +1,5 @@
+code: run_unknown
+result: pass
+hermes_commit: bf0203a794a07aac3ff764972ab9087baa4e4f4e
+proof: native harness (no Docker) on Hermes v0.22.5, the whole invariants suite in one session, 625 passed and 0 failed
+tests: test_zz_lost_execution.py (the gateway that owns a run is killed and restarted: the run reads unknown, resolve-unknown needs a person with login and the generation the person saw, a second one is 409, the queue behind the lost head is told)

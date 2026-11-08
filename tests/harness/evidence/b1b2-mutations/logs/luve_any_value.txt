@@ -1,0 +1,90 @@
+prepared /private/tmp/claude-501/-Users-lucasvenuto-dev-LuveBot--maestri-roles-3da4ec19-3fee-437f-87a6-1e4c785bca2d/f757f3e7-38ec-40aa-b474-b516a8b7a431/scratchpad/hm ports 19119 18642 18000
+ready
+scratch 477 MB (limit 1500)
+== test_mascot.py::test_a_luve_recipe_off_the_lists_is_refused_on_both_routes_and_writes_nothing
+_ test_a_luve_recipe_off_the_lists_is_refused_on_both_routes_and_writes_nothing["gato.fosco.lupa.38bdf8"] _
+test_mascot.py:113: in test_a_luve_recipe_off_the_lists_is_refused_on_both_routes_and_writes_nothing
+    assert patched.status == 422 and error_of(patched)['code'] == 'invalid_field', patched.text()
+E   AssertionError: {"name":"vendas","is_default":false,"display":{"label":"vendas","role":"","call_me":null,"color":"#60a5fa","avatar":{"kind":"luve","value":"gato.fosco.lupa.38bdf8"},"hidden":false,"pinned":false,"position":null},"description":"","model":{"provider":"custom","name":"fake-harness"},"status":"idle","status_reason":null,"status_basis":null,"status_partial":[],"current_task":null,"unread":{"count":0,"replies":0,"routine_results":0,"since":0.0},"pause_scope":null,"cost_today_usd":null,"channels":[],"capabilities":{"runs":true,"session_chat_stream":true,"approval_response":false},"hook":{"status":"live","version":"0.8.0","heartbeat_age_s":2.9,"table_digest":"4e56c251b9ade4a139cf6f8eed3bdce8bec28e4cc11a1c8981e9227c4e697c73"},"approval_mode":"luvebot","approval_applied":"applied"}
+E   assert (200 == 422)
+E    +  where 200 = <conftest.Response object at 0x108a40aa0>.status
+        avatar     = {'kind': 'luve', 'value': 'gato.fosco.lupa.38bdf8'}
+        creates    = 0
+        display    = 6
+        human_browser = <conftest.Context object at 0x10748cad0>
+        name       = 't83d-da25762b'
+        patched    = <conftest.Response object at 0x108a40aa0>
+        value      = 'gato.fosco.lupa.38bdf8'
+        vendas_display = None
+_ test_a_luve_recipe_off_the_lists_is_refused_on_both_routes_and_writes_nothing["nimbo.fosco.espada.38bdf8"] _
+test_mascot.py:113: in test_a_luve_recipe_off_the_lists_is_refused_on_both_routes_and_writes_nothing
+    assert patched.status == 422 and error_of(patched)['code'] == 'invalid_field', patched.text()
+E   AssertionError: {"name":"vendas","is_default":false,"display":{"label":"vendas","role":"","call_me":null,"color":"#60a5fa","avatar":{"kind":"luve","value":"nimbo.fosco.espada.38bdf8"},"hidden":false,"pinned":false,"position":null},"description":"","model":{"provider":"custom","name":"fake-harness"},"status":"idle","status_reason":null,"status_basis":null,"status_partial":[],"current_task":null,"unread":{"count":0,"replies":0,"routine_results":0,"since":0.0},"pause_scope":null,"cost_today_usd":null,"channels":[],"capabilities":{"runs":true,"session_chat_stream":true,"approval_response":false},"hook":{"status":"live","version":"0.8.0","heartbeat_age_s":3.0,"table_digest":"4e56c251b9ade4a139cf6f8eed3bdce8bec28e4cc11a1c8981e9227c4e697c73"},"approval_mode":"luvebot","approval_applied":"applied"}
+E   assert (200 == 422)
+E    +  where 200 = <conftest.Response object at 0x107ef58b0>.status
+        avatar     = {'kind': 'luve', 'value': 'nimbo.fosco.espada.38bdf8'}
+        creates    = 0
+        display    = 8
+        human_browser = <conftest.Context object at 0x10748cad0>
+        name       = 't83d-fb946864'
+        patched    = <conftest.Response object at 0x107ef58b0>
+        value      = 'nimbo.fosco.espada.38bdf8'
+        vendas_display = None
+_ test_a_luve_recipe_off_the_lists_is_refused_on_both_routes_and_writes_nothing["nimbo.fosco.lupa.38bdf8.x"] _
+test_mascot.py:113: in test_a_luve_recipe_off_the_lists_is_refused_on_both_routes_and_writes_nothing
+    assert patched.status == 422 and error_of(patched)['code'] == 'invalid_field', patched.text()
+E   AssertionError: {"name":"vendas","is_default":false,"display":{"label":"vendas","role":"","call_me":null,"color":"#60a5fa","avatar":{"kind":"luve","value":"nimbo.fosco.lupa.38bdf8.x"},"hidden":false,"pinned":false,"position":null},"description":"","model":{"provider":"custom","name":"fake-harness"},"status":"idle","status_reason":null,"status_basis":null,"status_partial":[],"current_task":null,"unread":{"count":0,"replies":0,"routine_results":0,"since":0.0},"pause_scope":null,"cost_today_usd":null,"channels":[],"capabilities":{"runs":true,"session_chat_stream":true,"approval_response":false},"hook":{"status":"live","version":"0.8.0","heartbeat_age_s":3.0,"table_digest":"4e56c251b9ade4a139cf6f8eed3bdce8bec28e4cc11a1c8981e9227c4e697c73"},"approval_mode":"luvebot","approval_applied":"applied"}
+E   assert (200 == 422)
+E    +  where 200 = <conftest.Response object at 0x1089e66d0>.status
+        avatar     = {'kind': 'luve', 'value': 'nimbo.fosco.lupa.38bdf8.x'}
+        creates    = 0
+        display    = 10
+        human_browser = <conftest.Context object at 0x10748cad0>
+        name       = 't83d-921038ab'
+        patched    = <conftest.Response object at 0x1089e66d0>
+        value      = 'nimbo.fosco.lupa.38bdf8.x'
+        vendas_display = None
+_ test_a_luve_recipe_off_the_lists_is_refused_on_both_routes_and_writes_nothing["https://x/y.svg"] _
+test_mascot.py:113: in test_a_luve_recipe_off_the_lists_is_refused_on_both_routes_and_writes_nothing
+    assert patched.status == 422 and error_of(patched)['code'] == 'invalid_field', patched.text()
+E   AssertionError: {"name":"vendas","is_default":false,"display":{"label":"vendas","role":"","call_me":null,"color":"#60a5fa","avatar":{"kind":"luve","value":"https://x/y.svg"},"hidden":false,"pinned":false,"position":null},"description":"","model":{"provider":"custom","name":"fake-harness"},"status":"idle","status_reason":null,"status_basis":null,"status_partial":[],"current_task":null,"unread":{"count":0,"replies":0,"routine_results":0,"since":0.0},"pause_scope":null,"cost_today_usd":null,"channels":[],"capabilities":{"runs":true,"session_chat_stream":true,"approval_response":false},"hook":{"status":"live","version":"0.8.0","heartbeat_age_s":3.1,"table_digest":"4e56c251b9ade4a139cf6f8eed3bdce8bec28e4cc11a1c8981e9227c4e697c73"},"approval_mode":"luvebot","approval_applied":"applied"}
+E   assert (200 == 422)
+E    +  where 200 = <conftest.Response object at 0x108a1d310>.status
+        avatar     = {'kind': 'luve', 'value': 'https://x/y.svg'}
+        creates    = 0
+        display    = 12
+        human_browser = <conftest.Context object at 0x10748cad0>
+        name       = 't83d-a9329e58'
+        patched    = <conftest.Response object at 0x108a1d310>
+        value      = 'https://x/y.svg'
+        vendas_display = None
+_ test_a_luve_recipe_off_the_lists_is_refused_on_both_routes_and_writes_nothing[7] _
+test_mascot.py:113: in test_a_luve_recipe_off_the_lists_is_refused_on_both_routes_and_writes_nothing
+    assert patched.status == 422 and error_of(patched)['code'] == 'invalid_field', patched.text()
+E   AssertionError: {"name":"vendas","is_default":false,"display":{"label":"vendas","role":"","call_me":null,"color":"#60a5fa","avatar":{"kind":"luve","value":"7"},"hidden":false,"pinned":false,"position":null},"description":"","model":{"provider":"custom","name":"fake-harness"},"status":"idle","status_reason":null,"status_basis":null,"status_partial":[],"current_task":null,"unread":{"count":0,"replies":0,"routine_results":0,"since":0.0},"pause_scope":null,"cost_today_usd":null,"channels":[],"capabilities":{"runs":true,"session_chat_stream":true,"approval_response":false},"hook":{"status":"live","version":"0.8.0","heartbeat_age_s":3.1,"table_digest":"4e56c251b9ade4a139cf6f8eed3bdce8bec28e4cc11a1c8981e9227c4e697c73"},"approval_mode":"luvebot","approval_applied":"applied"}
+E   assert (200 == 422)
+E    +  where 200 = <conftest.Response object at 0x108a4dbd0>.status
+        avatar     = {'kind': 'luve', 'value': 7}
+        creates    = 0
+        display    = 14
+        human_browser = <conftest.Context object at 0x10748cad0>
+        name       = 't83d-ea390403'
+        patched    = <conftest.Response object at 0x108a4dbd0>
+        value      = 7
+        vendas_display = None
+=========================== short test summary info ============================
+FAILED ../../../../../../../../../../../../dev::test_a_luve_recipe_off_the_lists_is_refused_on_both_routes_and_writes_nothing["nimbo.fosco.lupa.38BDF8"]
+FAILED ../../../../../../../../../../../../dev::test_a_luve_recipe_off_the_lists_is_refused_on_both_routes_and_writes_nothing["nimbo.fosco.lupa.#38bdf8"]
+FAILED ../../../../../../../../../../../../dev::test_a_luve_recipe_off_the_lists_is_refused_on_both_routes_and_writes_nothing["nimbo.ouro.lupa.38bdf8"]
+FAILED ../../../../../../../../../../../../dev::test_a_luve_recipe_off_the_lists_is_refused_on_both_routes_and_writes_nothing["gato.fosco.lupa.38bdf8"]
+FAILED ../../../../../../../../../../../../dev::test_a_luve_recipe_off_the_lists_is_refused_on_both_routes_and_writes_nothing["nimbo.fosco.espada.38bdf8"]
+FAILED ../../../../../../../../../../../../dev::test_a_luve_recipe_off_the_lists_is_refused_on_both_routes_and_writes_nothing["nimbo.fosco.lupa.38bdf8.x"]
+FAILED ../../../../../../../../../../../../dev::test_a_luve_recipe_off_the_lists_is_refused_on_both_routes_and_writes_nothing["https://x/y.svg"]
+FAILED ../../../../../../../../../../../../dev::test_a_luve_recipe_off_the_lists_is_refused_on_both_routes_and_writes_nothing[7]
+8 failed in 1.08s
+scratch 477 MB (limit 1500)
+== stack listeners (pid ppid command -> socket)
+2074  1884 /opt/homebrew/Cellar/python@3.14/3.14.5/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/C -> 127.0.0.1:18000
+2118  2075 /opt/homebrew/Cellar/python@3.14/3.14.5/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/C -> 127.0.0.1:54466 127.0.0.1:18642 127.0.0.1:54474
+2765  2075 /opt/homebrew/Cellar/python@3.14/3.14.5/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/C -> 127.0.0.1:19119
+audit_failed=0  tick_failed=0

@@ -1,0 +1,117 @@
+{
+ "_about": "Rules as the REAL API says them (rules.draft_from_always_allow -> rules_store.api_dict, AA-1 and AA-1b). Regenerate: REGEN_RULES_FIXTURE=1 python -m pytest tests/unit/backend/test_rules_screen_fixture.py",
+ "exact": {
+  "id": "aa-1",
+  "label": "Permitir curl no Vendas",
+  "level": "allow",
+  "scope": {
+   "kind": "bot",
+   "ref": "vendas"
+  },
+  "match": {
+   "tools": [
+    "terminal"
+   ],
+   "toolsets": [],
+   "mcp_servers": [],
+   "commands": [
+    "curl -x post https://api.example.com/sync"
+   ],
+   "conditions": []
+  },
+  "state": "draft",
+  "origin": "always_allow",
+  "builtin": false,
+  "applied": [],
+  "version": 1,
+  "updated_by": "",
+  "exact": true,
+  "covers": "command"
+ },
+ "wider": {
+  "id": "aa-2",
+  "label": "Permitir curl no Vendas",
+  "level": "allow",
+  "scope": {
+   "kind": "bot",
+   "ref": "vendas"
+  },
+  "match": {
+   "tools": [
+    "terminal"
+   ],
+   "toolsets": [],
+   "mcp_servers": [],
+   "commands": [
+    "curl *"
+   ],
+   "conditions": []
+  },
+  "state": "draft",
+  "origin": "always_allow",
+  "builtin": false,
+  "applied": [],
+  "version": 1,
+  "updated_by": "",
+  "exact": false,
+  "covers": "wider"
+ },
+ "whole_tool": {
+  "id": "aa-3",
+  "label": "Permitir web_search no Vendas",
+  "level": "allow",
+  "scope": {
+   "kind": "bot",
+   "ref": "vendas"
+  },
+  "match": {
+   "tools": [
+    "web_search"
+   ],
+   "toolsets": [],
+   "mcp_servers": [],
+   "commands": [],
+   "conditions": []
+  },
+  "state": "draft",
+  "origin": "always_allow",
+  "builtin": false,
+  "applied": [],
+  "version": 1,
+  "updated_by": "",
+  "exact": true,
+  "covers": "tool"
+ },
+ "file": {
+  "id": "aa-4",
+  "label": "Permitir write_file no Vendas",
+  "level": "allow",
+  "scope": {
+   "kind": "bot",
+   "ref": "vendas"
+  },
+  "match": {
+   "tools": [
+    "write_file"
+   ],
+   "toolsets": [],
+   "mcp_servers": [],
+   "commands": [],
+   "conditions": [
+    {
+     "fact": "path",
+     "op": "eq",
+     "value": "workspace:notas/a.md"
+    }
+   ]
+  },
+  "state": "draft",
+  "origin": "always_allow",
+  "builtin": false,
+  "applied": [],
+  "version": 1,
+  "updated_by": "",
+  "exact": true,
+  "covers": "facts"
+ }
+}

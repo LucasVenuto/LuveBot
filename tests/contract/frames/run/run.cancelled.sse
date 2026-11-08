@@ -1,0 +1,3 @@
+id: 6
+data: {"event": "run.cancelled", "run_id": "run_32b48f7b1e044f9eb997b4e2b406b958", "timestamp": 1790821826.6039355, "completed": false, "partial": false, "interrupted": true, "turn_exit_reason": "interrupted_by_user", "seq": 6}
+

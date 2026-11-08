@@ -1,0 +1,6 @@
+diff --git a/dashboard/plugin_api.py b/dashboard/plugin_api.py
+index 0eb8952..acfaafa 100644
+--- a/dashboard/plugin_api.py
++++ b/dashboard/plugin_api.py
+@@ -646 +645,0 @@ async def patch_my_display(request: Request):
+-    _require_csrf(request, credential)

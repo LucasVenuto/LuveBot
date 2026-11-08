@@ -1,0 +1,3 @@
+event: message.started
+data: {"message": {"id": "msg_4d0346c33c4e456597f08b01dc519269", "role": "assistant"}, "session_id": "api_1790821825_d87a03f2", "run_id": "run_8d9d3f79ab2d4255bc7c5ca13eba188a", "seq": 2, "ts": 1790821825.0811224}
+

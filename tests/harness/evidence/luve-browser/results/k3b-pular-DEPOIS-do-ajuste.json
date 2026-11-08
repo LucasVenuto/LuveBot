@@ -1,0 +1,658 @@
+{
+ "chrome": "Chrome/156.0.8078.73",
+ "results": [
+  {
+   "name": "desktop-claro-pt: the card is there",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "desktop-claro-pt: Skip comes AFTER Answer in the DOM, inside the card, no sideways scroll",
+   "ok": true,
+   "detail": "{\"after\":true,\"inside\":true,\"sw\":1000,\"iw\":1000}"
+  },
+  {
+   "name": "desktop-claro-pt: Skip is apart from Answer (>= 24px between them)",
+   "ok": true,
+   "detail": "gap 182px same row"
+  },
+  {
+   "name": "desktop-claro-pt: visible text is a word of its accessible name (\"Pular\" in \"Pular esta pergunta\")",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "desktop-claro-pt: target size of both buttons >= 24px",
+   "ok": true,
+   "detail": "send 96x32, skip 45x32"
+  },
+  {
+   "name": "desktop-claro-pt: Skip text contrast >= 4.5",
+   "ok": true,
+   "detail": "4.70"
+  },
+  {
+   "name": "desktop-escuro-pt: the card is there",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "desktop-escuro-pt: Skip comes AFTER Answer in the DOM, inside the card, no sideways scroll",
+   "ok": true,
+   "detail": "{\"after\":true,\"inside\":true,\"sw\":1000,\"iw\":1000}"
+  },
+  {
+   "name": "desktop-escuro-pt: Skip is apart from Answer (>= 24px between them)",
+   "ok": true,
+   "detail": "gap 182px same row"
+  },
+  {
+   "name": "desktop-escuro-pt: visible text is a word of its accessible name (\"Pular\" in \"Pular esta pergunta\")",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "desktop-escuro-pt: target size of both buttons >= 24px",
+   "ok": true,
+   "detail": "send 96x32, skip 45x32"
+  },
+  {
+   "name": "desktop-escuro-pt: Skip text contrast >= 4.5",
+   "ok": true,
+   "detail": "8.27"
+  },
+  {
+   "name": "desktop-claro-en: the card is there",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "desktop-claro-en: Skip comes AFTER Answer in the DOM, inside the card, no sideways scroll",
+   "ok": true,
+   "detail": "{\"after\":true,\"inside\":true,\"sw\":1000,\"iw\":1000}"
+  },
+  {
+   "name": "desktop-claro-en: Skip is apart from Answer (>= 24px between them)",
+   "ok": true,
+   "detail": "gap 204px same row"
+  },
+  {
+   "name": "desktop-claro-en: visible text is a word of its accessible name (\"Skip\" in \"Skip this question\")",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "desktop-claro-en: target size of both buttons >= 24px",
+   "ok": true,
+   "detail": "send 75x32, skip 44x32"
+  },
+  {
+   "name": "desktop-claro-en: Skip text contrast >= 4.5",
+   "ok": true,
+   "detail": "4.70"
+  },
+  {
+   "name": "celular-claro-pt: the card is there",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "celular-claro-pt: Skip comes AFTER Answer in the DOM, inside the card, no sideways scroll",
+   "ok": true,
+   "detail": "{\"after\":true,\"inside\":true,\"sw\":390,\"iw\":390}"
+  },
+  {
+   "name": "celular-claro-pt: Skip is apart from Answer (>= 24px between them)",
+   "ok": true,
+   "detail": "gap 157px same row"
+  },
+  {
+   "name": "celular-claro-pt: visible text is a word of its accessible name (\"Pular\" in \"Pular esta pergunta\")",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "celular-claro-pt: target size of both buttons >= 44px",
+   "ok": true,
+   "detail": "send 96x44, skip 45x44"
+  },
+  {
+   "name": "celular-claro-pt: Skip text contrast >= 4.5",
+   "ok": true,
+   "detail": "4.70"
+  },
+  {
+   "name": "celular-escuro-en: the card is there",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "celular-escuro-en: Skip comes AFTER Answer in the DOM, inside the card, no sideways scroll",
+   "ok": true,
+   "detail": "{\"after\":true,\"inside\":true,\"sw\":390,\"iw\":390}"
+  },
+  {
+   "name": "celular-escuro-en: Skip is apart from Answer (>= 24px between them)",
+   "ok": true,
+   "detail": "gap 179px same row"
+  },
+  {
+   "name": "celular-escuro-en: visible text is a word of its accessible name (\"Skip\" in \"Skip this question\")",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "celular-escuro-en: target size of both buttons >= 44px",
+   "ok": true,
+   "detail": "send 75x44, skip 44x44"
+  },
+  {
+   "name": "celular-escuro-en: Skip text contrast >= 4.5",
+   "ok": true,
+   "detail": "8.27"
+  },
+  {
+   "name": "estreito320-claro-pt: the card is there",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "estreito320-claro-pt: Skip comes AFTER Answer in the DOM, inside the card, no sideways scroll",
+   "ok": true,
+   "detail": "{\"after\":true,\"inside\":true,\"sw\":332,\"iw\":332}"
+  },
+  {
+   "name": "estreito320-claro-pt: Skip is apart from Answer (>= 24px between them)",
+   "ok": true,
+   "detail": "gap 107px same row"
+  },
+  {
+   "name": "estreito320-claro-pt: visible text is a word of its accessible name (\"Pular\" in \"Pular esta pergunta\")",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "estreito320-claro-pt: target size of both buttons >= 44px",
+   "ok": true,
+   "detail": "send 96x44, skip 45x44"
+  },
+  {
+   "name": "estreito320-claro-pt: Skip text contrast >= 4.5",
+   "ok": true,
+   "detail": "4.70"
+  },
+  {
+   "name": "wrapped (170px card): Skip is still after Answer, on its own line with a >= 12px row gap",
+   "ok": true,
+   "detail": "{\"gap\":12,\"same\":false}"
+  },
+  {
+   "name": "[Enter] the answer field has focus",
+   "ok": true,
+   "detail": "textarea(Sua resposta)"
+  },
+  {
+   "name": "[Enter] Tab from the empty answer field lands on \"Pular esta pergunta\" (Answer is disabled)",
+   "ok": true,
+   "detail": "button(Pular esta pergunta)"
+  },
+  {
+   "name": "[Enter] the focus ring shows (focus-visible, solid, >= 2px)",
+   "ok": true,
+   "detail": "{\"style\":\"solid\",\"width\":\"2px\",\"color\":\"rgb(37, 99, 235)\",\"matches\":true}"
+  },
+  {
+   "name": "[Enter] the focus ring contrast against the card >= 3",
+   "ok": true,
+   "detail": "4.70"
+  },
+  {
+   "name": "[Enter] the next Tab leaves the card (attach button), Skip is not a trap",
+   "ok": true,
+   "detail": "button(Anexar arquivo)"
+  },
+  {
+   "name": "[Enter] Shift+Tab comes back to Skip",
+   "ok": true,
+   "detail": "button(Pular esta pergunta)"
+  },
+  {
+   "name": "[Enter] ONE request, exactly {request_id, execution_generation, skip: true}",
+   "ok": true,
+   "detail": "[{\"request_id\":\"q1\",\"execution_generation\":7,\"skip\":true}]"
+  },
+  {
+   "name": "[Enter] observed",
+   "ok": true,
+   "detail": "{\"during\":{\"active\":\"BODY\",\"posts\":[{\"request_id\":\"q1\",\"execution_generation\":7,\"skip\":true}]},\"after\":\"p(status)\",\"t\":{\"statusAt\":84,\"cardGoneAt\":null,\"texts\":[\"Pulada. O Bot segue daqui.\"]},\"focusLog\":[\"out button(\\\"Pular esta pergunta\\\") -> null\",\"in p[role=status](\\\"status\\\")\"]}"
+  },
+  {
+   "name": "[Enter] after the skip the focus is NOT lost to the page body",
+   "ok": true,
+   "detail": "focus now: p(status)"
+  },
+  {
+   "name": "[Enter] AX: the card is named \"Pergunta do Bot\" (no longer \"esperando\"), the focused node is a status saying it was skipped, no button is left",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "[Enter] the confirmation \"Pulada…\" stays on screen long enough to be read (>= 2 s) or is announced by a live region that outlives the card",
+   "ok": true,
+   "detail": "shown at 84 ms, card gone at null ms"
+  },
+  {
+   "name": "[Space] the answer field has focus",
+   "ok": true,
+   "detail": "textarea(Sua resposta)"
+  },
+  {
+   "name": "[Space] Tab from the empty answer field lands on \"Pular esta pergunta\" (Answer is disabled)",
+   "ok": true,
+   "detail": "button(Pular esta pergunta)"
+  },
+  {
+   "name": "[Space] the focus ring shows (focus-visible, solid, >= 2px)",
+   "ok": true,
+   "detail": "{\"style\":\"solid\",\"width\":\"2px\",\"color\":\"rgb(37, 99, 235)\",\"matches\":true}"
+  },
+  {
+   "name": "[Space] the focus ring contrast against the card >= 3",
+   "ok": true,
+   "detail": "4.70"
+  },
+  {
+   "name": "[Space] the next Tab leaves the card (attach button), Skip is not a trap",
+   "ok": true,
+   "detail": "button(Anexar arquivo)"
+  },
+  {
+   "name": "[Space] Shift+Tab comes back to Skip",
+   "ok": true,
+   "detail": "button(Pular esta pergunta)"
+  },
+  {
+   "name": "[Space] ONE request, exactly {request_id, execution_generation, skip: true}",
+   "ok": true,
+   "detail": "[{\"request_id\":\"q1\",\"execution_generation\":7,\"skip\":true}]"
+  },
+  {
+   "name": "[Space] observed",
+   "ok": true,
+   "detail": "{\"during\":{\"active\":\"BODY\",\"posts\":[{\"request_id\":\"q1\",\"execution_generation\":7,\"skip\":true}]},\"after\":\"p(status)\",\"t\":{\"statusAt\":85,\"cardGoneAt\":null,\"texts\":[\"Pulada. O Bot segue daqui.\"]},\"focusLog\":[\"out button(\\\"Pular esta pergunta\\\") -> null\",\"in p[role=status](\\\"status\\\")\"]}"
+  },
+  {
+   "name": "[Space] after the skip the focus is NOT lost to the page body",
+   "ok": true,
+   "detail": "focus now: p(status)"
+  },
+  {
+   "name": "[Space] AX: the card is named \"Pergunta do Bot\" (no longer \"esperando\"), the focused node is a status saying it was skipped, no button is left",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "[Space] the confirmation \"Pulada…\" stays on screen long enough to be read (>= 2 s) or is announced by a live region that outlives the card",
+   "ok": true,
+   "detail": "shown at 85 ms, card gone at null ms"
+  },
+  {
+   "name": "[dark phone] Tab reaches Skip",
+   "ok": true,
+   "detail": "button(Skip this question)"
+  },
+  {
+   "name": "[dark phone] the confirmation line holds the focus and shows a ring, no sideways scroll",
+   "ok": true,
+   "detail": "{\"tag\":\"P\",\"role\":\"status\",\"style\":\"auto\",\"width\":\"1px\",\"color\":\"rgb(238, 238, 238)\",\"matches\":true,\"w\":304,\"sw\":390,\"iw\":390}"
+  },
+  {
+   "name": "[text] plain Enter in the field sends nothing",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "[text] Tab reaches \"Responder\" by keyboard",
+   "ok": true,
+   "detail": "button(Responder)"
+  },
+  {
+   "name": "[text] answer observed",
+   "ok": true,
+   "detail": "{\"after\":\"p(status)\",\"t\":{\"statusAt\":84,\"cardGoneAt\":null,\"texts\":[\"Resposta enviada. O Bot segue daqui.\"]},\"fl\":[\"out button(\\\"Enviando…\\\") -> null\",\"in p[role=status](\\\"status\\\")\"]}"
+  },
+  {
+   "name": "[text] after the answer the focus is NOT lost to the page body",
+   "ok": true,
+   "detail": "focus now: p(status)"
+  },
+  {
+   "name": "[text] \"Resposta enviada\" stays long enough to be read (>= 2 s) or a live region outlives the card",
+   "ok": true,
+   "detail": "shown at 84 ms, card gone at null ms"
+  },
+  {
+   "name": "[one] Tab reaches \"Responder\" by keyboard",
+   "ok": true,
+   "detail": "button(Responder)"
+  },
+  {
+   "name": "[one] answer observed",
+   "ok": true,
+   "detail": "{\"after\":\"p(status)\",\"t\":{\"statusAt\":83,\"cardGoneAt\":null,\"texts\":[\"Resposta enviada. O Bot segue daqui.\"]},\"fl\":[\"out button(\\\"Enviando…\\\") -> null\",\"in p[role=status](\\\"status\\\")\"]}"
+  },
+  {
+   "name": "[one] after the answer the focus is NOT lost to the page body",
+   "ok": true,
+   "detail": "focus now: p(status)"
+  },
+  {
+   "name": "[one] \"Resposta enviada\" stays long enough to be read (>= 2 s) or a live region outlives the card",
+   "ok": true,
+   "detail": "shown at 83 ms, card gone at null ms"
+  },
+  {
+   "name": "[many] Tab reaches \"Responder\" by keyboard",
+   "ok": true,
+   "detail": "button(Responder)"
+  },
+  {
+   "name": "[many] answer observed",
+   "ok": true,
+   "detail": "{\"after\":\"p(status)\",\"t\":{\"statusAt\":83,\"cardGoneAt\":null,\"texts\":[\"Resposta enviada. O Bot segue daqui.\"]},\"fl\":[\"out button(\\\"Enviando…\\\") -> null\",\"in p[role=status](\\\"status\\\")\"]}"
+  },
+  {
+   "name": "[many] after the answer the focus is NOT lost to the page body",
+   "ok": true,
+   "detail": "focus now: p(status)"
+  },
+  {
+   "name": "[many] \"Resposta enviada\" stays long enough to be read (>= 2 s) or a live region outlives the card",
+   "ok": true,
+   "detail": "shown at 83 ms, card gone at null ms"
+  },
+  {
+   "name": "[refused] the refusal is said in words, in an alert",
+   "ok": true,
+   "detail": "Este pedido não está mais esperando: o Bot seguiu em frente, alguém já respondeu ou o Hermes reiniciou. Detalhe técnico"
+  },
+  {
+   "name": "[refused] the focus is NOT lost to the page body, and the button works again",
+   "ok": true,
+   "detail": "focus now: button(Pular esta pergunta)"
+  },
+  {
+   "name": "[refused] Skip is enabled again",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "[loopback] Skip is disabled and the card says why",
+   "ok": true,
+   "detail": "{\"skipDisabled\":true,\"said\":\"Sem login, o LuveBot não deixa responder pelo Bot. Entre no painel do Hermes com senha.\"}"
+  },
+  {
+   "name": "[loopback] Tab goes past both disabled buttons, out of the card",
+   "ok": true,
+   "detail": "button(Anexar arquivo)"
+  },
+  {
+   "name": "[ax texto] the button is exposed as a button named \"Pular esta pergunta\", not ignored",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "[ax texto] the card is a group named by its heading, the Answer button is separate from Skip",
+   "ok": true,
+   "detail": "card: group \"O Bot está esperando a sua resposta\""
+  },
+  {
+   "name": "[ax texto] tree",
+   "ok": true,
+   "detail": "group \"O Bot está esperando a sua resposta\" |   StaticText \"O Bot está esperando a sua resposta\" |     InlineTextBox \"O Bot está esperando a sua resposta\" |   paragraph |     StaticText \"Qual cliente devo usar na proposta?\" |       InlineTextBox \"Qual cliente devo usar na proposta?\" |   paragraph |     StaticText \"O Bot espera até 2 min pela sua resposta.\" |       InlineTextBox \"O Bot espera até 2 min pela sua resposta.\" |   textbox \"Sua resposta\" [focusable=true,required=false] |   button \"Responder\" [disabled=true] |     StaticText \"Responder\" |       InlineTextBox \"Responder\" |   button \"Pular esta pergunta\" [focusable=true] |     StaticText \"Pular\" |       InlineTextBox \"Pular\""
+  },
+  {
+   "name": "[ax uma-escolha] the button is exposed as a button named \"Pular esta pergunta\", not ignored",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "[ax uma-escolha] the card is a group named by its heading, the Answer button is separate from Skip",
+   "ok": true,
+   "detail": "card: group \"O Bot está esperando a sua resposta\""
+  },
+  {
+   "name": "[ax uma-escolha] tree",
+   "ok": true,
+   "detail": "group \"O Bot está esperando a sua resposta\" |   StaticText \"O Bot está esperando a sua resposta\" |     InlineTextBox \"O Bot está esperando a sua resposta\" |   paragraph |     StaticText \"Qual cliente devo usar na proposta?\" |       InlineTextBox \"Qual cliente devo usar na proposta?\" |   paragraph |     StaticText \"O Bot espera até 2 min pela sua resposta.\" |       InlineTextBox \"O Bot espera até 2 min pela sua resposta.\" |   radiogroup \"Escolha uma opção\" [required=false] |     LabelText |       radio \"Acme Ltda\" [focusable=true,checked=false] |       StaticText \"Acme Ltda\" |         InlineTextBox \"Acme Ltda\" |     LabelText |       radio \"Beta Comércio\" [focusable=true,checked=false] |       StaticText \"Beta Comércio\" |         InlineTextBox \"Beta Comércio\" |     LabelText |       radio \"Gama Serviços\" [focusable=true,checked=false] |       StaticText \"Gama Serviços\" |         InlineTextBox \"Gama Serviços\" |   button \"Responder\" [disabled=true] |     StaticText \"Responder\" |       InlineTextBox \"Responder\" |   button \"Pular esta pergunta\" [focusable=true] |     StaticText \"Pular\" |       InlineTextBox \"Pular\""
+  },
+  {
+   "name": "[ax varias] the button is exposed as a button named \"Skip this question\", not ignored",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "[ax varias] the card is a group named by its heading, the Answer button is separate from Skip",
+   "ok": true,
+   "detail": "card: group \"The Bot is waiting for your answer\""
+  },
+  {
+   "name": "[ax varias] tree",
+   "ok": true,
+   "detail": "group \"The Bot is waiting for your answer\" |   StaticText \"The Bot is waiting for your answer\" |     InlineTextBox \"The Bot is waiting for your answer\" |   paragraph |     StaticText \"Qual cliente devo usar na proposta?\" |       InlineTextBox \"Qual cliente devo usar na proposta?\" |   paragraph |     StaticText \"The Bot waits up to 2 min for your answer.\" |       InlineTextBox \"The Bot waits up to 2 min for your answer.\" |   group \"Pick one or more options\" |     LabelText |       checkbox \"Acme Ltda\" [focusable=true,checked=false] |       StaticText \"Acme Ltda\" |         InlineTextBox \"Acme Ltda\" |     LabelText |       checkbox \"Beta Comércio\" [focusable=true,checked=false] |       StaticText \"Beta Comércio\" |         InlineTextBox \"Beta Comércio\" |     LabelText |       checkbox \"Gama Serviços\" [focusable=true,checked=false] |       StaticText \"Gama Serviços\" |         InlineTextBox \"Gama Serviços\" |   button \"Answer\" [disabled=true] |     StaticText \"Answer\" |       InlineTextBox \"Answer\" |   button \"Skip this question\" [focusable=true] |     StaticText \"Skip\" |       InlineTextBox \"Skip\""
+  }
+ ],
+ "geoms": {
+  "desktop-claro-pt": {
+   "send": {
+    "x": 34,
+    "y": 326,
+    "w": 96,
+    "h": 32,
+    "r": 130,
+    "b": 358
+   },
+   "skip": {
+    "x": 312,
+    "y": 326,
+    "w": 45,
+    "h": 32,
+    "r": 357,
+    "b": 358
+   },
+   "card": {
+    "x": 20,
+    "y": 179,
+    "w": 351,
+    "h": 191,
+    "r": 371,
+    "b": 370
+   },
+   "sameRow": true,
+   "gap": 182,
+   "after": true,
+   "inside": true,
+   "sw": 1000,
+   "iw": 1000,
+   "skipText": "Pular",
+   "skipName": "Pular esta pergunta",
+   "sendText": "Responder"
+  },
+  "desktop-escuro-pt": {
+   "send": {
+    "x": 34,
+    "y": 355,
+    "w": 96,
+    "h": 32,
+    "r": 130,
+    "b": 387
+   },
+   "skip": {
+    "x": 312,
+    "y": 355,
+    "w": 45,
+    "h": 32,
+    "r": 357,
+    "b": 387
+   },
+   "card": {
+    "x": 20,
+    "y": 179,
+    "w": 351,
+    "h": 220,
+    "r": 371,
+    "b": 399
+   },
+   "sameRow": true,
+   "gap": 182,
+   "after": true,
+   "inside": true,
+   "sw": 1000,
+   "iw": 1000,
+   "skipText": "Pular",
+   "skipName": "Pular esta pergunta",
+   "sendText": "Responder"
+  },
+  "desktop-claro-en": {
+   "send": {
+    "x": 34,
+    "y": 355,
+    "w": 75,
+    "h": 32,
+    "r": 109,
+    "b": 387
+   },
+   "skip": {
+    "x": 313,
+    "y": 355,
+    "w": 44,
+    "h": 32,
+    "r": 357,
+    "b": 387
+   },
+   "card": {
+    "x": 20,
+    "y": 179,
+    "w": 351,
+    "h": 220,
+    "r": 371,
+    "b": 399
+   },
+   "sameRow": true,
+   "gap": 204,
+   "after": true,
+   "inside": true,
+   "sw": 1000,
+   "iw": 1000,
+   "skipText": "Skip",
+   "skipName": "Skip this question",
+   "sendText": "Answer"
+  },
+  "celular-claro-pt": {
+   "send": {
+    "x": 34,
+    "y": 414,
+    "w": 96,
+    "h": 44,
+    "r": 130,
+    "b": 458
+   },
+   "skip": {
+    "x": 287,
+    "y": 414,
+    "w": 45,
+    "h": 44,
+    "r": 332,
+    "b": 458
+   },
+   "card": {
+    "x": 20,
+    "y": 179,
+    "w": 326,
+    "h": 291,
+    "r": 346,
+    "b": 470
+   },
+   "sameRow": true,
+   "gap": 157,
+   "after": true,
+   "inside": true,
+   "sw": 390,
+   "iw": 390,
+   "skipText": "Pular",
+   "skipName": "Pular esta pergunta",
+   "sendText": "Responder"
+  },
+  "celular-escuro-en": {
+   "send": {
+    "x": 34,
+    "y": 443,
+    "w": 75,
+    "h": 44,
+    "r": 109,
+    "b": 487
+   },
+   "skip": {
+    "x": 288,
+    "y": 443,
+    "w": 44,
+    "h": 44,
+    "r": 332,
+    "b": 487
+   },
+   "card": {
+    "x": 20,
+    "y": 179,
+    "w": 326,
+    "h": 320,
+    "r": 346,
+    "b": 499
+   },
+   "sameRow": true,
+   "gap": 179,
+   "after": true,
+   "inside": true,
+   "sw": 390,
+   "iw": 390,
+   "skipText": "Skip",
+   "skipName": "Skip this question",
+   "sendText": "Answer"
+  },
+  "estreito320-claro-pt": {
+   "send": {
+    "x": 34,
+    "y": 509,
+    "w": 96,
+    "h": 44,
+    "r": 130,
+    "b": 553
+   },
+   "skip": {
+    "x": 237,
+    "y": 509,
+    "w": 45,
+    "h": 44,
+    "r": 282,
+    "b": 553
+   },
+   "card": {
+    "x": 20,
+    "y": 179,
+    "w": 276,
+    "h": 386,
+    "r": 296,
+    "b": 565
+   },
+   "sameRow": true,
+   "gap": 107,
+   "after": true,
+   "inside": true,
+   "sw": 332,
+   "iw": 332,
+   "skipText": "Pular",
+   "skipName": "Pular esta pergunta",
+   "sendText": "Responder"
+  }
+ },
+ "problems": []
+}

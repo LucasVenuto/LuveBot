@@ -1,0 +1,83 @@
+{
+  "rpc": {
+    "origin": "http://127.0.0.1:9119",
+    "path": "/api/ws",
+    "ticketAuth": true,
+    "opened": true,
+    "replies": [
+      {
+        "method": "display.status",
+        "reply": {
+          "jsonrpc": "2.0",
+          "id": "t08-0",
+          "result": {
+            "profile": "default",
+            "supported": true,
+            "installed": false,
+            "missing": [
+              "Xvnc",
+              "xfwm4",
+              "xfce4-panel",
+              "xfdesktop",
+              "xfsettingsd",
+              "dbus-run-session",
+              "xauth",
+              "xdpyinfo",
+              "xprop"
+            ],
+            "running": false,
+            "pid": null,
+            "display": null,
+            "socket": null,
+            "geometry": "1440x900",
+            "install_command": "apt-get install -y --no-install-recommends tigervnc-standalone-server xfce4-panel xfwm4 xfdesktop4 xfce4-settings xfce4-terminal dbus-x11 x11-xserver-utils x11-utils x11-xkb-utils xauth fonts-dejavu-core",
+            "browser": null,
+            "blocker": null,
+            "memory_available_mb": 2374,
+            "memory_limit_mb": 3918,
+            "placement": "gateway",
+            "image_switch": null,
+            "lease": {
+              "holder": "agent",
+              "viewer_id": null,
+              "since": 1790821384.6072464,
+              "reason": "",
+              "epoch": 0,
+              "viewer_hash": null
+            },
+            "profile_key": "/root/.hermes"
+          }
+        }
+      },
+      {
+        "method": "display.start",
+        "reply": {
+          "jsonrpc": "2.0",
+          "id": "t08-1",
+          "error": {
+            "code": 5300,
+            "message": "Bot Desktop needs Xvnc, xfwm4, xfce4-panel, xfdesktop, xfsettingsd, dbus-run-session, xauth, xdpyinfo, xprop on the gateway host. Install: apt-get install -y --no-install-recommends tigervnc-standalone-server xfce4-panel xfwm4 xfdesktop4 xfce4-settings xfce4-terminal dbus-x11 x11-xserver-utils x11-utils x11-xkb-utils xauth fonts-dejavu-core"
+          }
+        }
+      },
+      {
+        "method": "display.observe",
+        "reply": {
+          "jsonrpc": "2.0",
+          "id": "t08-2",
+          "error": {
+            "code": 5300,
+            "message": "this profile's Bot Desktop is not running; call display.start first"
+          }
+        }
+      }
+    ]
+  },
+  "socket": {
+    "opened": true,
+    "code": 4401,
+    "reason": "display ticket missing, expired or used"
+  },
+  "Xvnc": null,
+  "outcome": "container lacks Xvnc/Xfce; no observe ticket or RFB proof"
+}

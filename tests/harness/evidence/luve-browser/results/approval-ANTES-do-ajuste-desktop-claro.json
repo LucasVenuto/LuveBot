@@ -1,0 +1,546 @@
+{
+ "chrome": "Chrome/156.0.8078.73",
+ "date": "2026-10-31T04:37:03.071Z",
+ "view": "desktop-light",
+ "fails": [
+  "1st gate by mouse: the FOCUS is on that line (not the page body)",
+  "1st gate by mouse: the line is a live region reachable for focus() but not a Tab stop",
+  "1st gate by mouse: Chrome's accessibility tree has a status node saying it, focused",
+  "1st gate by mouse: still there and still holding the focus 1.5 s later (it did not live a round trip)",
+  "2nd gate by keyboard (Enter): the FOCUS is on that line (not the page body)",
+  "2nd gate by keyboard (Enter): the line is a live region reachable for focus() but not a Tab stop",
+  "2nd gate by keyboard (Enter): Chrome's accessibility tree has a status node saying it, focused",
+  "2nd gate by keyboard (Enter): still there and still holding the focus 1.5 s later (it did not live a round trip)",
+  "closed cards lost the warning edge (calm border)",
+  "Negar… opens the reason form and the FOCUS goes into the reason field",
+  "Cancelar gives the focus back to the button that opened it",
+  "Tab from the reason goes to Confirmar negação (real keyboard)",
+  "Negada. appears and holds the focus",
+  "Chrome's accessibility tree has the status node saying Negada., focused",
+  "and it still holds it 1.5 s later",
+  "Sempre permitir… opens the draft form and the FOCUS goes into the rule's name",
+  "Cancelar gives the focus back to Sempre permitir…",
+  "Tab from the name goes to the confirm button",
+  "the draft's confirmation appears and holds the focus",
+  "Hoje: the row says Permitida uma vez. and holds the FOCUS",
+  "Hoje: Chrome's accessibility tree has the status node, focused",
+  "Hoje: after the read that drops it from the list the row is still there, without buttons, holding the focus",
+  "Hoje: the kept row keeps its place (first)",
+  "Hoje: it survives a live refresh of the screen and the focus is still on it"
+ ],
+ "checks": [
+  {
+   "name": "sign in on the Hermes panel",
+   "ok": true,
+   "detail": 200
+  },
+  {
+   "name": "LuveBot opens inside the panel and lists the Bots",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "open the Bot vendas",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "the Bot asks (first gate: LuveBot's rule)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "the card offers exactly Permitir uma vez / Sempre permitir… / Negar…",
+   "ok": true,
+   "detail": {
+    "buttons": [
+     "Permitir uma vez",
+     "Sempre permitir…",
+     "Negar…"
+    ],
+    "name": "Pedido de aprovação",
+    "noForm": true
+   }
+  },
+  {
+   "name": "1st gate by mouse: the card is asking (warning edge, Permitir uma vez)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "1st gate by mouse: Permitir uma vez was pressed",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "1st gate by mouse: the confirmation line \"Permitida uma vez.\" appears",
+   "ok": true,
+   "detail": {
+    "ms": 340,
+    "before": "textarea(Mensagem)"
+   }
+  },
+  {
+   "name": "1st gate by mouse: the FOCUS is on that line (not the page body)",
+   "ok": false,
+   "detail": {
+    "active": "BODY"
+   }
+  },
+  {
+   "name": "1st gate by mouse: the line is a live region reachable for focus() but not a Tab stop",
+   "ok": false,
+   "detail": {
+    "text": "Permitida uma vez.",
+    "focused": false,
+    "tabindex": null,
+    "inTabOrder": false
+   }
+  },
+  {
+   "name": "1st gate by mouse: Chrome's accessibility tree has a status node saying it, focused",
+   "ok": false,
+   "detail": {
+    "found": true,
+    "focused": false,
+    "live": "polite"
+   }
+  },
+  {
+   "name": "1st gate by mouse: still there and still holding the focus 1.5 s later (it did not live a round trip)",
+   "ok": false,
+   "detail": {
+    "active": "BODY"
+   }
+  },
+  {
+   "name": "1st gate by mouse: the focus rested on the page body for under 300 ms after the line was there (70-150 ms measured; a passive effect runs after the paint)",
+   "ok": true,
+   "detail": {
+    "bodyAfterMs": 216
+   }
+  },
+  {
+   "name": "the second gate (Hermes's own command gate) asks next",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "2nd gate by keyboard (Enter): the card is asking (warning edge, Permitir uma vez)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "2nd gate by keyboard (Enter): Permitir uma vez was pressed",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "2nd gate by keyboard (Enter): the confirmation line \"Permitida uma vez.\" appears",
+   "ok": true,
+   "detail": {
+    "ms": 10,
+    "before": "BODY"
+   }
+  },
+  {
+   "name": "2nd gate by keyboard (Enter): the FOCUS is on that line (not the page body)",
+   "ok": false,
+   "detail": {
+    "active": "BODY"
+   }
+  },
+  {
+   "name": "2nd gate by keyboard (Enter): the line is a live region reachable for focus() but not a Tab stop",
+   "ok": false,
+   "detail": {
+    "text": "Permitida uma vez.",
+    "focused": false,
+    "tabindex": null,
+    "inTabOrder": false
+   }
+  },
+  {
+   "name": "2nd gate by keyboard (Enter): Chrome's accessibility tree has a status node saying it, focused",
+   "ok": false,
+   "detail": {
+    "found": true,
+    "focused": false,
+    "live": "polite"
+   }
+  },
+  {
+   "name": "2nd gate by keyboard (Enter): still there and still holding the focus 1.5 s later (it did not live a round trip)",
+   "ok": false,
+   "detail": {
+    "active": "BODY"
+   }
+  },
+  {
+   "name": "2nd gate by keyboard (Enter): the focus rested on the page body for under 300 ms after the line was there (70-150 ms measured; a passive effect runs after the paint)",
+   "ok": true,
+   "detail": {
+    "bodyAfterMs": 88
+   }
+  },
+  {
+   "name": "both closed cards stay on screen as their confirmations, and no card of the first turn is asking any more",
+   "ok": true,
+   "detail": [
+    "Permitida uma vez.",
+    "Permitida uma vez."
+   ]
+  },
+  {
+   "name": "closed cards lost the warning edge (calm border)",
+   "ok": false,
+   "detail": [
+    "max-width: min(85%, 640px); margin: 8px 0px; padding: 12px 14px; border-radius: 18px 18px 18px 6px; background: var(--co",
+    "max-width: min(85%, 640px); margin: 8px 0px; padding: 12px 14px; border-radius: 18px 18px 18px 6px; background: var(--co"
+   ]
+  },
+  {
+   "name": "when the run ends the closed cards are still there",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "a new run asks again",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "Negar… opens the reason form and the FOCUS goes into the reason field",
+   "ok": false,
+   "detail": {
+    "active": "BODY"
+   }
+  },
+  {
+   "name": "Cancelar gives the focus back to the button that opened it",
+   "ok": false,
+   "detail": {
+    "active": "BODY"
+   }
+  },
+  {
+   "name": "Tab from the reason goes to Confirmar negação (real keyboard)",
+   "ok": false,
+   "detail": {
+    "active": "button(Parar)"
+   }
+  },
+  {
+   "name": "Negada. appears and holds the focus",
+   "ok": false,
+   "detail": {
+    "active": "button(Enviar)",
+    "lines": [
+     "Permitida uma vez.",
+     "Permitida uma vez."
+    ]
+   }
+  },
+  {
+   "name": "Chrome's accessibility tree has the status node saying Negada., focused",
+   "ok": false,
+   "detail": {
+    "found": false
+   }
+  },
+  {
+   "name": "and it still holds it 1.5 s later",
+   "ok": false,
+   "detail": ""
+  },
+  {
+   "name": "a new run asks again",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "Sempre permitir… opens the draft form and the FOCUS goes into the rule's name",
+   "ok": false,
+   "detail": {
+    "active": "BODY"
+   }
+  },
+  {
+   "name": "Cancelar gives the focus back to Sempre permitir…",
+   "ok": false,
+   "detail": {
+    "active": "BODY"
+   }
+  },
+  {
+   "name": "Tab from the name goes to the confirm button",
+   "ok": false,
+   "detail": {
+    "active": "summary"
+   }
+  },
+  {
+   "name": "the draft's confirmation appears and holds the focus",
+   "ok": false,
+   "detail": {
+    "active": "summary"
+   }
+  },
+  {
+   "name": "a new run asks again",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "go to Hoje with the request pending",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "Hoje: the pending request is a row with its decision (a bare card)",
+   "ok": true,
+   "detail": {
+    "rowsBefore": [
+     "needs-you-item-1361cc46b3824362919302b34610eaf5"
+    ],
+    "countBefore": "1"
+   }
+  },
+  {
+   "name": "Hoje: the row says Permitida uma vez. and holds the FOCUS",
+   "ok": false,
+   "detail": {
+    "active": "BODY"
+   }
+  },
+  {
+   "name": "Hoje: Chrome's accessibility tree has the status node, focused",
+   "ok": false,
+   "detail": {
+    "found": false
+   }
+  },
+  {
+   "name": "Hoje: after the read that drops it from the list the row is still there, without buttons, holding the focus",
+   "ok": false,
+   "detail": {
+    "present": false,
+    "buttons": -1,
+    "focused": false
+   }
+  },
+  {
+   "name": "Hoje: the count follows what is pending (rows still asking), not the kept row",
+   "ok": true,
+   "detail": {
+    "countNow": "1",
+    "rowsNow": [
+     {
+      "id": "needs-you-item-cc636d2c48a74c7d8e13e79c3a6383b0",
+      "asking": true
+     }
+    ]
+   }
+  },
+  {
+   "name": "Hoje: the kept row keeps its place (first)",
+   "ok": false,
+   "detail": [
+    "needs-you-item-cc636d2c48a74c7d8e13e79c3a6383b0"
+   ]
+  },
+  {
+   "name": "Hoje: it survives a live refresh of the screen and the focus is still on it",
+   "ok": false,
+   "detail": {
+    "present": false,
+    "focused": false
+   }
+  },
+  {
+   "name": "no request left 127.0.0.1",
+   "ok": true,
+   "detail": []
+  },
+  {
+   "name": "no credential of this harness (password, keys) in a URL the page asked for",
+   "ok": true,
+   "detail": {
+    "secretsChecked": 5
+   }
+  },
+  {
+   "name": "...nor in anything the page shows",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "no console error or exception",
+   "ok": true,
+   "detail": []
+  }
+ ],
+ "focusTimeline": [
+  {
+   "t": 10,
+   "active": "div",
+   "statusLines": 0
+  },
+  {
+   "t": 1514,
+   "active": "textarea(Mensagem)",
+   "statusLines": 0
+  },
+  {
+   "t": 2285,
+   "w": "before 1st gate by mouse"
+  },
+  {
+   "t": 2403,
+   "active": "BODY",
+   "statusLines": 0
+  },
+  {
+   "t": 2619,
+   "active": "BODY",
+   "statusLines": 1
+  },
+  {
+   "t": 4583,
+   "w": "before 2nd gate by keyboard (Enter)"
+  },
+  {
+   "t": 4585,
+   "active": "button(Permitir uma vez)",
+   "statusLines": 1
+  },
+  {
+   "t": 4601,
+   "active": "BODY",
+   "statusLines": 1
+  },
+  {
+   "t": 4689,
+   "active": "BODY",
+   "statusLines": 2
+  },
+  {
+   "t": 7515,
+   "active": "textarea(Mensagem)",
+   "statusLines": 2
+  },
+  {
+   "t": 7984,
+   "active": "BODY",
+   "statusLines": 2
+  },
+  {
+   "t": 20330,
+   "active": "textarea(Mensagem)",
+   "statusLines": 2
+  },
+  {
+   "t": 20342,
+   "w": "before deny"
+  },
+  {
+   "t": 20348,
+   "active": "button(Parar)",
+   "statusLines": 2
+  },
+  {
+   "t": 21059,
+   "active": "button(Enviar)",
+   "statusLines": 2
+  },
+  {
+   "t": 48410,
+   "active": "textarea(Mensagem)",
+   "statusLines": 2
+  },
+  {
+   "t": 48939,
+   "active": "button(Sempre permitir…)",
+   "statusLines": 2
+  },
+  {
+   "t": 48957,
+   "active": "BODY",
+   "statusLines": 2
+  },
+  {
+   "t": 61190,
+   "active": "summary",
+   "statusLines": 2
+  },
+  {
+   "t": 81264,
+   "active": "BODY",
+   "statusLines": 2
+  },
+  {
+   "t": 81318,
+   "active": "BODY",
+   "statusLines": 3
+  },
+  {
+   "t": 82834,
+   "active": "BODY",
+   "statusLines": 4
+  },
+  {
+   "t": 90716,
+   "active": "textarea(Mensagem)",
+   "statusLines": 4
+  },
+  {
+   "t": 91163,
+   "active": "BODY",
+   "statusLines": 0
+  },
+  {
+   "t": 91409,
+   "w": "before hoje"
+  },
+  {
+   "t": 91563,
+   "active": "button(Permitir uma vez)",
+   "statusLines": 0
+  },
+  {
+   "t": 91570,
+   "active": "BODY",
+   "statusLines": 0
+  },
+  {
+   "t": 91658,
+   "active": "BODY",
+   "statusLines": 1
+  },
+  {
+   "t": 91769,
+   "active": "BODY",
+   "statusLines": 0
+  },
+  {
+   "t": 131737,
+   "active": "button(Permitir uma vez)",
+   "statusLines": 0
+  },
+  {
+   "t": 131767,
+   "active": "BODY",
+   "statusLines": 0
+  },
+  {
+   "t": 131902,
+   "active": "BODY",
+   "statusLines": 1
+  },
+  {
+   "t": 132004,
+   "active": "BODY",
+   "statusLines": 0
+  }
+ ]
+}

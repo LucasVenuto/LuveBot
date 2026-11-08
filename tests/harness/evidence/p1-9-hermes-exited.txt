@@ -1,0 +1,9 @@
+code: p1_9_hermes_exited
+result: pass
+hermes_commit: bf0203a794a07aac3ff764972ab9087baa4e4f4e
+luvebot: main bcfe889 (P1-8 included, commit 5f4b112)
+test: tests/invariants/test_zz_config_boundary.py::test_a_plain_sys_exit_out_of_the_worker_is_a_502_hermes_exited_every_time_and_the_next_request_answers
+what: a plain SystemExit(3) (not the config outage) raised from LuveBot's config read inside the boundary's AnyIO worker thread, GET /bots/vendas, native harness on Hermes v0.22.5
+runs: 10 (first measurement) and 40 (second, P19_RUNS=40): 50 of 50 answered 502 hermes_exited in 0.0 s (rounded to 0.1 s), the request right after answered 200 every time, on the SAME dashboard process (pid unchanged)
+before P1-8 (main 11285bd, three runs of the plain-exit test): 2 of 3 timed out (30 s) leaving the dashboard alive but unable to answer for 120 s with the pid unchanged, 1 of 3 answered 500 and the process went away and was relaunched
+also measured: the budget watcher's pass never reads the config on this Hermes (no raise from the watcher's thread; 6 heartbeats in the last 9 s of a 21 s outage, the normal rate): the tick's guard is proven in the unit tests only

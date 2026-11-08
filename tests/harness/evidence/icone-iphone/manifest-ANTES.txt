@@ -1,0 +1,22 @@
+pwa.json sem sessão: 200 application/json
+start_url / | scope / | tipos: ['image/png', 'image/svg+xml']
+
+prefixo '(nenhum)': start_url -> / ok
+  ok   /dashboard-plugins/luvebot/icons/icon-192.png              200 image/png (192, 192) declarado 192x192 any
+  ok   /dashboard-plugins/luvebot/icons/icon-512.png              200 image/png (512, 512) declarado 512x512 any
+  ok   /dashboard-plugins/luvebot/icons/icon-maskable-512.png     200 image/png (512, 512) declarado 512x512 maskable
+  ok   /dashboard-plugins/luvebot/icons/icon.svg                  200 image/svg+xml None declarado any -
+
+prefixo '/hermes': start_url -> / ERRADO
+  FAIL /dashboard-plugins/luvebot/icons/icon-192.png              o navegador pede na RAIZ do domínio, fora de /hermes: não chega ao Hermes (image/png, 192x192)
+  FAIL /dashboard-plugins/luvebot/icons/icon-512.png              o navegador pede na RAIZ do domínio, fora de /hermes: não chega ao Hermes (image/png, 512x512)
+  FAIL /dashboard-plugins/luvebot/icons/icon-maskable-512.png     o navegador pede na RAIZ do domínio, fora de /hermes: não chega ao Hermes (image/png, 512x512)
+  FAIL /dashboard-plugins/luvebot/icons/icon.svg                  o navegador pede na RAIZ do domínio, fora de /hermes: não chega ao Hermes (image/svg+xml, any)
+
+prefixo '/a/b': start_url -> / ERRADO
+  FAIL /dashboard-plugins/luvebot/icons/icon-192.png              o navegador pede na RAIZ do domínio, fora de /a/b: não chega ao Hermes (image/png, 192x192)
+  FAIL /dashboard-plugins/luvebot/icons/icon-512.png              o navegador pede na RAIZ do domínio, fora de /a/b: não chega ao Hermes (image/png, 512x512)
+  FAIL /dashboard-plugins/luvebot/icons/icon-maskable-512.png     o navegador pede na RAIZ do domínio, fora de /a/b: não chega ao Hermes (image/png, 512x512)
+  FAIL /dashboard-plugins/luvebot/icons/icon.svg                  o navegador pede na RAIZ do domínio, fora de /a/b: não chega ao Hermes (image/svg+xml, any)
+
+RESULTADO: 10 problema(s)

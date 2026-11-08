@@ -1,0 +1,22 @@
+pwa.json sem sessão: 200 application/json
+start_url ../../ | scope ../../ | tipos: ['image/png']
+
+prefixo '(nenhum)': start_url -> / ok
+  ok   /dashboard-plugins/luvebot/icons/apple-touch-icon.png      200 image/png (180, 180) declarado 180x180 any
+  ok   /dashboard-plugins/luvebot/icons/icon-192.png              200 image/png (192, 192) declarado 192x192 any
+  ok   /dashboard-plugins/luvebot/icons/icon-512.png              200 image/png (512, 512) declarado 512x512 any
+  ok   /dashboard-plugins/luvebot/icons/icon-maskable-512.png     200 image/png (512, 512) declarado 512x512 maskable
+
+prefixo '/hermes': start_url -> /hermes/ ok
+  ok   /hermes/dashboard-plugins/luvebot/icons/apple-touch-icon.png 200 image/png (180, 180) declarado 180x180 any
+  ok   /hermes/dashboard-plugins/luvebot/icons/icon-192.png       200 image/png (192, 192) declarado 192x192 any
+  ok   /hermes/dashboard-plugins/luvebot/icons/icon-512.png       200 image/png (512, 512) declarado 512x512 any
+  ok   /hermes/dashboard-plugins/luvebot/icons/icon-maskable-512.png 200 image/png (512, 512) declarado 512x512 maskable
+
+prefixo '/a/b': start_url -> /a/b/ ok
+  ok   /a/b/dashboard-plugins/luvebot/icons/apple-touch-icon.png  200 image/png (180, 180) declarado 180x180 any
+  ok   /a/b/dashboard-plugins/luvebot/icons/icon-192.png          200 image/png (192, 192) declarado 192x192 any
+  ok   /a/b/dashboard-plugins/luvebot/icons/icon-512.png          200 image/png (512, 512) declarado 512x512 any
+  ok   /a/b/dashboard-plugins/luvebot/icons/icon-maskable-512.png 200 image/png (512, 512) declarado 512x512 maskable
+
+RESULTADO: tudo certo

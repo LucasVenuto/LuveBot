@@ -1,0 +1,25 @@
+: open
+
+id: 0
+data: {"event": "message.delta", "run_id": "run_52e1554fc491428bb3a93b28eb5d3ca6", "timestamp": 1790821385.3060753, "delta": "Testing the local tool.", "seq": 0}
+
+id: 1
+data: {"event": "reasoning.available", "run_id": "run_52e1554fc491428bb3a93b28eb5d3ca6", "timestamp": 1790821385.309247, "text": "Testing the local tool.", "seq": 1}
+
+id: 2
+data: {"event": "message.interim", "run_id": "run_52e1554fc491428bb3a93b28eb5d3ca6", "timestamp": 1790821385.3135145, "text": "Testing the local tool.", "already_streamed": true, "seq": 2}
+
+id: 3
+data: {"event": "tool.started", "run_id": "run_52e1554fc491428bb3a93b28eb5d3ca6", "timestamp": 1790821385.3147504, "tool": "terminal", "preview": "rm -rf /tmp/luvebot-approval-canary", "seq": 3}
+
+id: 4
+data: {"command": "rm -rf /tmp/luvebot-approval-canary", "pattern_key": "delete in root path", "pattern_keys": ["delete in root path"], "description": "delete in root path", "allow_permanent": true, "allow_session": true, "request_id": "981918305f2743b18f358a19fcfa7611", "event": "approval.request", "run_id": "run_52e1554fc491428bb3a93b28eb5d3ca6", "timestamp": 1790821385.463853, "choices": ["once", "session", "always", "deny"], "seq": 4}
+
+id: 5
+data: {"event": "tool.completed", "run_id": "run_52e1554fc491428bb3a93b28eb5d3ca6", "timestamp": 1790821386.478012, "tool": "terminal", "duration": 1.155, "error": true, "preview": "{\"output\": \"\", \"exit_code\": -1, \"error\": \"BLOCKED: Command approval was withdrawn before the user answered (explicit stop requested). The user has NOT consented to this action. Do NOT retry this command, do NOT rephrase it, and do NOT attempt the same outcome via a different command. Stop the current workflow and wait for the user to respond before taking any further destructive or irreversible action.\", \"status\": \"blocked\", \"user_summary\": \"The approval prompt was withdrawn or never reached ...", "seq": 5}
+
+id: 6
+data: {"event": "run.cancelled", "run_id": "run_52e1554fc491428bb3a93b28eb5d3ca6", "timestamp": 1790821386.5044239, "completed": false, "partial": false, "interrupted": true, "turn_exit_reason": "interrupted_by_user", "seq": 6}
+
+: stream closed
+

@@ -1,0 +1,1166 @@
+{
+ "chrome": "Chrome/156.0.8078.73",
+ "date": "2026-10-30T21:33:32.719Z",
+ "runs": [
+  {
+   "label": "desktop",
+   "viewport": "1280x900",
+   "checks": [
+    {
+     "name": "o estúdio abre como diálogo",
+     "pass": true
+    },
+    {
+     "name": "prévia: 3D quando há WebGL, 2D (plano B) quando não",
+     "pass": true,
+     "detail": {
+      "webgl": true,
+      "view": "3d"
+     }
+    },
+    {
+     "name": "passo 1 (forma)",
+     "pass": true
+    },
+    {
+     "name": "passo 2 (cor)",
+     "pass": true
+    },
+    {
+     "name": "passo 3 (material)",
+     "pass": true
+    },
+    {
+     "name": "passo 4 (acessório)",
+     "pass": true
+    },
+    {
+     "name": "Surpreenda-me, Baixar PNG e Voltar / Próximo / Usar aparecem inteiros na tela, sem rolar a janela, nos 4 passos",
+     "pass": true,
+     "detail": [
+      "735-767,735-767,787-819,787-819 sheet 61-839 ih 900",
+      "719-751,719-751,771-803,771-803 sheet 77-823 ih 900",
+      "655-687,655-687,707-739,707-739 sheet 141-759 ih 900",
+      "735-767,735-767,787-819,787-819 sheet 61-839 ih 900"
+     ]
+    },
+    {
+     "name": "o resumo diz a cor escolhida",
+     "pass": true,
+     "detail": "Pipo, cor #fbbf24, laca, com lupa"
+    },
+    {
+     "name": "no último passo o botão é 'Usar em vendas'",
+     "pass": true,
+     "detail": "Usar em vendas"
+    },
+    {
+     "name": "sem rolagem horizontal da página",
+     "pass": true,
+     "detail": {
+      "sw": 1280,
+      "iw": 1280,
+      "ih": 900,
+      "dialog": [
+       0,
+       0,
+       1280,
+       900
+      ],
+      "minBtn": 32
+     }
+    },
+    {
+     "name": "o diálogo cabe na largura da tela",
+     "pass": true,
+     "detail": [
+      0,
+      0,
+      1280,
+      900
+     ]
+    },
+    {
+     "name": "Baixar PNG",
+     "pass": true
+    },
+    {
+     "name": "o navegador salvou luve-<forma>.png",
+     "pass": true,
+     "detail": {
+      "file": "luve-pipo.png",
+      "downloads": [
+       {
+        "name": "luve-pipo.png",
+        "state": "begin"
+       },
+       {
+        "state": "completed",
+        "guid": "0bc0498d-0081-452e-ac18-590c1f80d890"
+       }
+      ]
+     }
+    },
+    {
+     "name": "arquivo é PNG 1024 x 1024",
+     "pass": true,
+     "detail": {
+      "sig": true,
+      "w": 1024,
+      "h": 1024,
+      "bytes": 321634
+     }
+    },
+    {
+     "name": "PNG: fundo transparente e o personagem desenhado (não em branco)",
+     "pass": true,
+     "detail": {
+      "w": 1024,
+      "h": 1024,
+      "opaqueFraction": 0.268,
+      "bbox": [
+       199,
+       195,
+       880,
+       829
+      ],
+      "cornerAlpha": 0
+     }
+    },
+    {
+     "name": "onUse recebeu a receita escolhida, e só uma vez",
+     "pass": true,
+     "detail": {
+      "used": [
+       "pipo.laca.lupa.fbbf24"
+      ],
+      "expected": "pipo.laca.lupa.fbbf24"
+     }
+    },
+    {
+     "name": "o estúdio fechou ao usar",
+     "pass": true
+    },
+    {
+     "name": "6 rostos desenhados (24/40/64/96 + trabalhando + precisa de você)",
+     "pass": true,
+     "detail": 6
+    },
+    {
+     "name": "cada rosto é <img blob:> carregada, e o SVG é byte a byte o que o kit manda para a receita",
+     "pass": true,
+     "detail": [
+      "idle/mini",
+      "idle/mini",
+      "idle/whole",
+      "idle/whole",
+      "working/mini",
+      "needs_you/mini"
+     ]
+    },
+    {
+     "name": "controle negativo: o SVG de outra cor (mesma receita) NÃO bate com nenhum rosto",
+     "pass": true
+    },
+    {
+     "name": "abrir o estúdio cria URLs de prévia e fechar (Esc) devolve todas",
+     "pass": true,
+     "detail": {
+      "faces": 4,
+      "open": 19,
+      "afterEsc": 4
+     }
+    },
+    {
+     "name": "Esc fecha sem usar nada (nada muda)",
+     "pass": true,
+     "detail": {
+      "closed": 1,
+      "usedAfter": 1
+     }
+    }
+   ],
+   "preview": {
+    "webgl": true,
+    "view": "3d"
+   },
+   "expected": "pipo.laca.lupa.fbbf24",
+   "footers": [
+    {
+     "ih": 900,
+     "sheet": [
+      61,
+      839
+     ],
+     "footer": [
+      [
+       735,
+       767
+      ],
+      [
+       735,
+       767
+      ],
+      [
+       787,
+       819
+      ],
+      [
+       787,
+       819
+      ]
+     ],
+     "bodyScrolls": false,
+     "scrollTop": 0
+    },
+    {
+     "ih": 900,
+     "sheet": [
+      77,
+      823
+     ],
+     "footer": [
+      [
+       719,
+       751
+      ],
+      [
+       719,
+       751
+      ],
+      [
+       771,
+       803
+      ],
+      [
+       771,
+       803
+      ]
+     ],
+     "bodyScrolls": false,
+     "scrollTop": 0
+    },
+    {
+     "ih": 900,
+     "sheet": [
+      141,
+      759
+     ],
+     "footer": [
+      [
+       655,
+       687
+      ],
+      [
+       655,
+       687
+      ],
+      [
+       707,
+       739
+      ],
+      [
+       707,
+       739
+      ]
+     ],
+     "bodyScrolls": false,
+     "scrollTop": 0
+    },
+    {
+     "ih": 900,
+     "sheet": [
+      61,
+      839
+     ],
+     "footer": [
+      [
+       735,
+       767
+      ],
+      [
+       735,
+       767
+      ],
+      [
+       787,
+       819
+      ],
+      [
+       787,
+       819
+      ]
+     ],
+     "bodyScrolls": false,
+     "scrollTop": 0
+    }
+   ],
+   "geometry": {
+    "sw": 1280,
+    "iw": 1280,
+    "ih": 900,
+    "dialog": [
+     0,
+     0,
+     1280,
+     900
+    ],
+    "minBtn": 32
+   },
+   "png": {
+    "w": 1024,
+    "h": 1024,
+    "opaqueFraction": 0.268,
+    "bbox": [
+     199,
+     195,
+     880,
+     829
+    ],
+    "cornerAlpha": 0
+   },
+   "faces": [
+    {
+     "negative": false,
+     "blob": true,
+     "w": 150,
+     "complete": true,
+     "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" ",
+     "matches": [
+      "idle/mini"
+     ]
+    },
+    {
+     "negative": false,
+     "blob": true,
+     "w": 150,
+     "complete": true,
+     "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" ",
+     "matches": [
+      "idle/mini"
+     ]
+    },
+    {
+     "negative": false,
+     "blob": true,
+     "w": 150,
+     "complete": true,
+     "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" ",
+     "matches": [
+      "idle/whole"
+     ]
+    },
+    {
+     "negative": false,
+     "blob": true,
+     "w": 150,
+     "complete": true,
+     "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" ",
+     "matches": [
+      "idle/whole"
+     ]
+    },
+    {
+     "negative": false,
+     "blob": true,
+     "w": 150,
+     "complete": true,
+     "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" ",
+     "matches": [
+      "working/mini"
+     ]
+    },
+    {
+     "negative": false,
+     "blob": true,
+     "w": 150,
+     "complete": true,
+     "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" ",
+     "matches": [
+      "needs_you/mini"
+     ]
+    }
+   ]
+  },
+  {
+   "label": "celular",
+   "viewport": "390x844 mobile",
+   "checks": [
+    {
+     "name": "o estúdio abre como diálogo",
+     "pass": true
+    },
+    {
+     "name": "prévia: 3D quando há WebGL, 2D (plano B) quando não",
+     "pass": true,
+     "detail": {
+      "webgl": true,
+      "view": "3d"
+     }
+    },
+    {
+     "name": "passo 1 (forma)",
+     "pass": true
+    },
+    {
+     "name": "passo 2 (cor)",
+     "pass": true
+    },
+    {
+     "name": "passo 3 (material)",
+     "pass": true
+    },
+    {
+     "name": "passo 4 (acessório)",
+     "pass": true
+    },
+    {
+     "name": "Surpreenda-me, Baixar PNG e Voltar / Próximo / Usar aparecem inteiros na tela, sem rolar a janela, nos 4 passos",
+     "pass": false,
+     "detail": [
+      "754-798,754-798,818-862,818-862 sheet 68-844 ih 844",
+      "774-818,774-818,838-882,838-882 sheet 68-844 ih 844",
+      "716-760,716-760,780-824,780-824 sheet 190-844 ih 844",
+      "754-798,754-798,818-862,818-862 sheet 68-844 ih 844"
+     ]
+    },
+    {
+     "name": "o resumo diz a cor escolhida",
+     "pass": true,
+     "detail": "Tinta, cor #6a70f8, fosco, com headset"
+    },
+    {
+     "name": "no último passo o botão é 'Usar em vendas'",
+     "pass": true,
+     "detail": "Usar em vendas"
+    },
+    {
+     "name": "sem rolagem horizontal da página",
+     "pass": true,
+     "detail": {
+      "sw": 390,
+      "iw": 390,
+      "ih": 844,
+      "dialog": [
+       0,
+       0,
+       390,
+       844
+      ],
+      "minBtn": 44
+     }
+    },
+    {
+     "name": "o diálogo cabe na largura da tela",
+     "pass": true,
+     "detail": [
+      0,
+      0,
+      390,
+      844
+     ]
+    },
+    {
+     "name": "Baixar PNG",
+     "pass": true
+    },
+    {
+     "name": "o navegador salvou luve-<forma>.png",
+     "pass": true,
+     "detail": {
+      "file": "luve-tinta.png",
+      "downloads": [
+       {
+        "name": "luve-tinta.png",
+        "state": "begin"
+       },
+       {
+        "state": "completed",
+        "guid": "f78a038a-01cc-4ecc-a9f9-de5e83056dc7"
+       }
+      ]
+     }
+    },
+    {
+     "name": "arquivo é PNG 1024 x 1024",
+     "pass": true,
+     "detail": {
+      "sig": true,
+      "w": 1024,
+      "h": 1024,
+      "bytes": 353337
+     }
+    },
+    {
+     "name": "PNG: fundo transparente e o personagem desenhado (não em branco)",
+     "pass": true,
+     "detail": {
+      "w": 1024,
+      "h": 1024,
+      "opaqueFraction": 0.365,
+      "bbox": [
+       147,
+       91,
+       871,
+       925
+      ],
+      "cornerAlpha": 0
+     }
+    },
+    {
+     "name": "onUse recebeu a receita escolhida, e só uma vez",
+     "pass": true,
+     "detail": {
+      "used": [
+       "tinta.fosco.headset.6a70f8"
+      ],
+      "expected": "tinta.fosco.headset.6a70f8"
+     }
+    },
+    {
+     "name": "o estúdio fechou ao usar",
+     "pass": true
+    },
+    {
+     "name": "6 rostos desenhados (24/40/64/96 + trabalhando + precisa de você)",
+     "pass": true,
+     "detail": 6
+    },
+    {
+     "name": "cada rosto é <img blob:> carregada, e o SVG é byte a byte o que o kit manda para a receita",
+     "pass": true,
+     "detail": [
+      "idle/mini",
+      "idle/mini",
+      "idle/whole",
+      "idle/whole",
+      "working/mini",
+      "needs_you/mini"
+     ]
+    },
+    {
+     "name": "controle negativo: o SVG de outra cor (mesma receita) NÃO bate com nenhum rosto",
+     "pass": true
+    },
+    {
+     "name": "abrir o estúdio cria URLs de prévia e fechar (Esc) devolve todas",
+     "pass": true,
+     "detail": {
+      "faces": 4,
+      "open": 19,
+      "afterEsc": 4
+     }
+    },
+    {
+     "name": "Esc fecha sem usar nada (nada muda)",
+     "pass": true,
+     "detail": {
+      "closed": 1,
+      "usedAfter": 1
+     }
+    }
+   ],
+   "preview": {
+    "webgl": true,
+    "view": "3d"
+   },
+   "expected": "tinta.fosco.headset.6a70f8",
+   "footers": [
+    {
+     "ih": 844,
+     "sheet": [
+      68,
+      844
+     ],
+     "footer": [
+      [
+       754,
+       798
+      ],
+      [
+       754,
+       798
+      ],
+      [
+       818,
+       862
+      ],
+      [
+       818,
+       862
+      ]
+     ],
+     "bodyScrolls": true,
+     "scrollTop": 0
+    },
+    {
+     "ih": 844,
+     "sheet": [
+      68,
+      844
+     ],
+     "footer": [
+      [
+       774,
+       818
+      ],
+      [
+       774,
+       818
+      ],
+      [
+       838,
+       882
+      ],
+      [
+       838,
+       882
+      ]
+     ],
+     "bodyScrolls": true,
+     "scrollTop": 0
+    },
+    {
+     "ih": 844,
+     "sheet": [
+      190,
+      844
+     ],
+     "footer": [
+      [
+       716,
+       760
+      ],
+      [
+       716,
+       760
+      ],
+      [
+       780,
+       824
+      ],
+      [
+       780,
+       824
+      ]
+     ],
+     "bodyScrolls": false,
+     "scrollTop": 0
+    },
+    {
+     "ih": 844,
+     "sheet": [
+      68,
+      844
+     ],
+     "footer": [
+      [
+       754,
+       798
+      ],
+      [
+       754,
+       798
+      ],
+      [
+       818,
+       862
+      ],
+      [
+       818,
+       862
+      ]
+     ],
+     "bodyScrolls": true,
+     "scrollTop": 0
+    }
+   ],
+   "geometry": {
+    "sw": 390,
+    "iw": 390,
+    "ih": 844,
+    "dialog": [
+     0,
+     0,
+     390,
+     844
+    ],
+    "minBtn": 44
+   },
+   "png": {
+    "w": 1024,
+    "h": 1024,
+    "opaqueFraction": 0.365,
+    "bbox": [
+     147,
+     91,
+     871,
+     925
+    ],
+    "cornerAlpha": 0
+   },
+   "faces": [
+    {
+     "negative": false,
+     "blob": true,
+     "w": 150,
+     "complete": true,
+     "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" ",
+     "matches": [
+      "idle/mini"
+     ]
+    },
+    {
+     "negative": false,
+     "blob": true,
+     "w": 150,
+     "complete": true,
+     "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" ",
+     "matches": [
+      "idle/mini"
+     ]
+    },
+    {
+     "negative": false,
+     "blob": true,
+     "w": 150,
+     "complete": true,
+     "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" ",
+     "matches": [
+      "idle/whole"
+     ]
+    },
+    {
+     "negative": false,
+     "blob": true,
+     "w": 150,
+     "complete": true,
+     "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" ",
+     "matches": [
+      "idle/whole"
+     ]
+    },
+    {
+     "negative": false,
+     "blob": true,
+     "w": 150,
+     "complete": true,
+     "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" ",
+     "matches": [
+      "working/mini"
+     ]
+    },
+    {
+     "negative": false,
+     "blob": true,
+     "w": 150,
+     "complete": true,
+     "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" ",
+     "matches": [
+      "needs_you/mini"
+     ]
+    }
+   ]
+  },
+  {
+   "label": "escuro",
+   "viewport": "1000x800 dark",
+   "checks": [
+    {
+     "name": "o estúdio abre como diálogo",
+     "pass": true
+    },
+    {
+     "name": "prévia: 3D quando há WebGL, 2D (plano B) quando não",
+     "pass": true,
+     "detail": {
+      "webgl": true,
+      "view": "3d"
+     }
+    },
+    {
+     "name": "passo 1 (forma)",
+     "pass": true
+    },
+    {
+     "name": "passo 2 (cor)",
+     "pass": true
+    },
+    {
+     "name": "passo 3 (material)",
+     "pass": true
+    },
+    {
+     "name": "passo 4 (acessório)",
+     "pass": true
+    },
+    {
+     "name": "Surpreenda-me, Baixar PNG e Voltar / Próximo / Usar aparecem inteiros na tela, sem rolar a janela, nos 4 passos",
+     "pass": false,
+     "detail": [
+      "714-746,714-746,766-798,766-798 sheet 40-760 ih 800",
+      "682-714,682-714,734-766,734-766 sheet 40-760 ih 800",
+      "605-637,605-637,657-689,657-689 sheet 91-709 ih 800",
+      "714-746,714-746,766-798,766-798 sheet 40-760 ih 800"
+     ]
+    },
+    {
+     "name": "o resumo diz a cor escolhida",
+     "pass": true,
+     "detail": "Brisa, cor #38bdf8, vinil, com gorro de hélice"
+    },
+    {
+     "name": "no último passo o botão é 'Usar em vendas'",
+     "pass": true,
+     "detail": "Usar em vendas"
+    },
+    {
+     "name": "sem rolagem horizontal da página",
+     "pass": true,
+     "detail": {
+      "sw": 1000,
+      "iw": 1000,
+      "ih": 800,
+      "dialog": [
+       0,
+       0,
+       1000,
+       800
+      ],
+      "minBtn": 32
+     }
+    },
+    {
+     "name": "o diálogo cabe na largura da tela",
+     "pass": true,
+     "detail": [
+      0,
+      0,
+      1000,
+      800
+     ]
+    },
+    {
+     "name": "Baixar PNG",
+     "pass": true
+    },
+    {
+     "name": "o navegador salvou luve-<forma>.png",
+     "pass": true,
+     "detail": {
+      "file": "luve-brisa.png",
+      "downloads": [
+       {
+        "name": "luve-brisa.png",
+        "state": "begin"
+       },
+       {
+        "state": "completed",
+        "guid": "5a5fab37-9275-461f-9115-c66eb6402176"
+       }
+      ]
+     }
+    },
+    {
+     "name": "arquivo é PNG 1024 x 1024",
+     "pass": true,
+     "detail": {
+      "sig": true,
+      "w": 1024,
+      "h": 1024,
+      "bytes": 308216
+     }
+    },
+    {
+     "name": "PNG: fundo transparente e o personagem desenhado (não em branco)",
+     "pass": true,
+     "detail": {
+      "w": 1024,
+      "h": 1024,
+      "opaqueFraction": 0.28,
+      "bbox": [
+       176,
+       169,
+       869,
+       846
+      ],
+      "cornerAlpha": 0
+     }
+    },
+    {
+     "name": "onUse recebeu a receita escolhida, e só uma vez",
+     "pass": true,
+     "detail": {
+      "used": [
+       "brisa.vinil.helice.38bdf8"
+      ],
+      "expected": "brisa.vinil.helice.38bdf8"
+     }
+    },
+    {
+     "name": "o estúdio fechou ao usar",
+     "pass": true
+    },
+    {
+     "name": "6 rostos desenhados (24/40/64/96 + trabalhando + precisa de você)",
+     "pass": true,
+     "detail": 6
+    },
+    {
+     "name": "cada rosto é <img blob:> carregada, e o SVG é byte a byte o que o kit manda para a receita",
+     "pass": true,
+     "detail": [
+      "idle/mini",
+      "idle/mini",
+      "idle/whole",
+      "idle/whole",
+      "working/mini",
+      "needs_you/mini"
+     ]
+    },
+    {
+     "name": "controle negativo: o SVG de outra cor (mesma receita) NÃO bate com nenhum rosto",
+     "pass": true
+    },
+    {
+     "name": "abrir o estúdio cria URLs de prévia e fechar (Esc) devolve todas",
+     "pass": true,
+     "detail": {
+      "faces": 4,
+      "open": 19,
+      "afterEsc": 4
+     }
+    },
+    {
+     "name": "Esc fecha sem usar nada (nada muda)",
+     "pass": true,
+     "detail": {
+      "closed": 1,
+      "usedAfter": 1
+     }
+    }
+   ],
+   "preview": {
+    "webgl": true,
+    "view": "3d"
+   },
+   "expected": "brisa.vinil.helice.38bdf8",
+   "footers": [
+    {
+     "ih": 800,
+     "sheet": [
+      40,
+      760
+     ],
+     "footer": [
+      [
+       714,
+       746
+      ],
+      [
+       714,
+       746
+      ],
+      [
+       766,
+       798
+      ],
+      [
+       766,
+       798
+      ]
+     ],
+     "bodyScrolls": true,
+     "scrollTop": 0
+    },
+    {
+     "ih": 800,
+     "sheet": [
+      40,
+      760
+     ],
+     "footer": [
+      [
+       682,
+       714
+      ],
+      [
+       682,
+       714
+      ],
+      [
+       734,
+       766
+      ],
+      [
+       734,
+       766
+      ]
+     ],
+     "bodyScrolls": true,
+     "scrollTop": 0
+    },
+    {
+     "ih": 800,
+     "sheet": [
+      91,
+      709
+     ],
+     "footer": [
+      [
+       605,
+       637
+      ],
+      [
+       605,
+       637
+      ],
+      [
+       657,
+       689
+      ],
+      [
+       657,
+       689
+      ]
+     ],
+     "bodyScrolls": false,
+     "scrollTop": 0
+    },
+    {
+     "ih": 800,
+     "sheet": [
+      40,
+      760
+     ],
+     "footer": [
+      [
+       714,
+       746
+      ],
+      [
+       714,
+       746
+      ],
+      [
+       766,
+       798
+      ],
+      [
+       766,
+       798
+      ]
+     ],
+     "bodyScrolls": true,
+     "scrollTop": 0
+    }
+   ],
+   "geometry": {
+    "sw": 1000,
+    "iw": 1000,
+    "ih": 800,
+    "dialog": [
+     0,
+     0,
+     1000,
+     800
+    ],
+    "minBtn": 32
+   },
+   "png": {
+    "w": 1024,
+    "h": 1024,
+    "opaqueFraction": 0.28,
+    "bbox": [
+     176,
+     169,
+     869,
+     846
+    ],
+    "cornerAlpha": 0
+   },
+   "faces": [
+    {
+     "negative": false,
+     "blob": true,
+     "w": 150,
+     "complete": true,
+     "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" ",
+     "matches": [
+      "idle/mini"
+     ]
+    },
+    {
+     "negative": false,
+     "blob": true,
+     "w": 150,
+     "complete": true,
+     "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" ",
+     "matches": [
+      "idle/mini"
+     ]
+    },
+    {
+     "negative": false,
+     "blob": true,
+     "w": 150,
+     "complete": true,
+     "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" ",
+     "matches": [
+      "idle/whole"
+     ]
+    },
+    {
+     "negative": false,
+     "blob": true,
+     "w": 150,
+     "complete": true,
+     "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" ",
+     "matches": [
+      "idle/whole"
+     ]
+    },
+    {
+     "negative": false,
+     "blob": true,
+     "w": 150,
+     "complete": true,
+     "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" ",
+     "matches": [
+      "working/mini"
+     ]
+    },
+    {
+     "negative": false,
+     "blob": true,
+     "w": 150,
+     "complete": true,
+     "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" ",
+     "matches": [
+      "needs_you/mini"
+     ]
+    }
+   ]
+  }
+ ],
+ "network": {
+  "requests": 187,
+  "foreign": []
+ },
+ "problems": [
+  "warning [.WebGL-0x11c000cd800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels http://127.0.0.1:18811/?scheme=light",
+  "warning [.WebGL-0x11c000cd800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels http://127.0.0.1:18811/?scheme=light",
+  "warning [.WebGL-0x11c000cd800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels http://127.0.0.1:18811/?scheme=light",
+  "warning [.WebGL-0x11c000cd800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat) http://127.0.0.1:18811/?scheme=light",
+  "error Failed to load resource: the server responded with a status of 404 (Not Found) http://127.0.0.1:18811/favicon.ico"
+ ],
+ "summary": {
+  "checks": 66,
+  "failed": [
+   "Surpreenda-me, Baixar PNG e Voltar / Próximo / Usar aparecem inteiros na tela, sem rolar a janela, nos 4 passos",
+   "Surpreenda-me, Baixar PNG e Voltar / Próximo / Usar aparecem inteiros na tela, sem rolar a janela, nos 4 passos"
+  ],
+  "foreignRequests": 0,
+  "consoleProblems": 5
+ }
+}

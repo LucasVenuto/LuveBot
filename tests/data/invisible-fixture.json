@@ -1,0 +1,2502 @@
+{
+ "about": "Shared by the Python test (tests/unit/backend/test_unicode_invisible.py) and the Vitest of the dashboard: the same strings must get the same verdict, count and positions on both sides. Lines count from 1 by LF; a column counts from 1 in CODE POINTS (not UTF-16 units). `ok`: count and where = every marked character [line, column]; `too_many`: more than 50 marked, count only; `refuse`: the first refused character: `code` (\"U+XXXX\", upper-case hex, at least 4 digits), `code_point`, `line` and `column`; line 1 is the first line of the file and a column counts code points. The strings are ASCII-escaped on purpose: nobody can review a character that is not drawn. `emptiness` (a separate list: `cases` keeps its shape): whole skill files, `text` = `header` + `body`, whose verdict is `empty_body` (the body is only whitespace and marked characters), `hidden_characters` (a refused character wins over the cut) or `ok`; the two sides agree because every character on which `str.strip()` and the JS `\\s` differ (U+FEFF, U+001C..U+001F, U+0085) is marked or refused before the cut.",
+ "max_marked": 50,
+ "cases": [
+  {
+   "id": "ascii",
+   "note": "",
+   "text": "hello world",
+   "verdict": "ok",
+   "count": 0,
+   "where": [],
+   "refused": null
+  },
+  {
+   "id": "tab-lf-cr-are-allowed",
+   "note": "TAB, LF and CR are the controls that stay",
+   "text": "a\tb\r\nc\n",
+   "verdict": "ok",
+   "count": 0,
+   "where": [],
+   "refused": null
+  },
+  {
+   "id": "accents-and-scripts",
+   "note": "",
+   "text": "a\u00e7\u00e3o \u2014 \u00fcn\u00efc\u00f6d\u00e9 \u65e5\u672c\u8a9e \u05e9\u05dc\u05d5\u05dd",
+   "verdict": "ok",
+   "count": 0,
+   "where": [],
+   "refused": null
+  },
+  {
+   "id": "emoji-presentation-selectors-are-not-marked",
+   "note": "U+FE0F and U+FE0E are ordinary text: neither marked nor refused",
+   "text": "\u2764\ufe0f \u2764\ufe0e",
+   "verdict": "ok",
+   "count": 0,
+   "where": [],
+   "refused": null
+  },
+  {
+   "id": "persian-zwnj-is-marked-not-refused",
+   "note": "a Persian skill needs ZWNJ: allowed, counted, shown",
+   "text": "\u0645\u06cc\u200c\u062e\u0648\u0627\u0647\u0645",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     3
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "emoji-family-zwj-is-marked",
+   "note": "ZWJ in an emoji sequence is marked: two of them",
+   "text": "\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67",
+   "verdict": "ok",
+   "count": 2,
+   "where": [
+    [
+     1,
+     2
+    ],
+    [
+     1,
+     4
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "zwnj-and-lrm-over-two-lines",
+   "note": "",
+   "text": "x\u200cy\u200c\n\u200e\u200ez\u200c\u200c",
+   "verdict": "ok",
+   "count": 6,
+   "where": [
+    [
+     1,
+     2
+    ],
+    [
+     1,
+     4
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     2,
+     2
+    ],
+    [
+     2,
+     4
+    ],
+    [
+     2,
+     5
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "column-counts-code-points",
+   "note": "the column counts code points, not UTF-16 units: an emoji before it is ONE",
+   "text": "\ud83d\ude00\u200c",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "lines-count-by-lf",
+   "note": "CRLF: the line is the number of LF before it plus one; the CR is a column of the line before",
+   "text": "a\r\nb\u200c",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     2,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "fifty-marked-is-allowed",
+   "note": "",
+   "text": "a\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200cb",
+   "verdict": "ok",
+   "count": 50,
+   "where": [
+    [
+     1,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     1,
+     4
+    ],
+    [
+     1,
+     5
+    ],
+    [
+     1,
+     6
+    ],
+    [
+     1,
+     7
+    ],
+    [
+     1,
+     8
+    ],
+    [
+     1,
+     9
+    ],
+    [
+     1,
+     10
+    ],
+    [
+     1,
+     11
+    ],
+    [
+     1,
+     12
+    ],
+    [
+     1,
+     13
+    ],
+    [
+     1,
+     14
+    ],
+    [
+     1,
+     15
+    ],
+    [
+     1,
+     16
+    ],
+    [
+     1,
+     17
+    ],
+    [
+     1,
+     18
+    ],
+    [
+     1,
+     19
+    ],
+    [
+     1,
+     20
+    ],
+    [
+     1,
+     21
+    ],
+    [
+     1,
+     22
+    ],
+    [
+     1,
+     23
+    ],
+    [
+     1,
+     24
+    ],
+    [
+     1,
+     25
+    ],
+    [
+     1,
+     26
+    ],
+    [
+     1,
+     27
+    ],
+    [
+     1,
+     28
+    ],
+    [
+     1,
+     29
+    ],
+    [
+     1,
+     30
+    ],
+    [
+     1,
+     31
+    ],
+    [
+     1,
+     32
+    ],
+    [
+     1,
+     33
+    ],
+    [
+     1,
+     34
+    ],
+    [
+     1,
+     35
+    ],
+    [
+     1,
+     36
+    ],
+    [
+     1,
+     37
+    ],
+    [
+     1,
+     38
+    ],
+    [
+     1,
+     39
+    ],
+    [
+     1,
+     40
+    ],
+    [
+     1,
+     41
+    ],
+    [
+     1,
+     42
+    ],
+    [
+     1,
+     43
+    ],
+    [
+     1,
+     44
+    ],
+    [
+     1,
+     45
+    ],
+    [
+     1,
+     46
+    ],
+    [
+     1,
+     47
+    ],
+    [
+     1,
+     48
+    ],
+    [
+     1,
+     49
+    ],
+    [
+     1,
+     50
+    ],
+    [
+     1,
+     51
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "fifty-one-marked-is-refused",
+   "note": "",
+   "text": "a\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200cb",
+   "verdict": "too_many",
+   "count": 51,
+   "where": null,
+   "refused": null
+  },
+  {
+   "id": "mixed-kinds-count-together",
+   "note": "",
+   "text": "1. \u200b\u200c\u200d\u2060\u00ad\u200e\u200f\u061c\u2066\ufeff\u200b\u200c\u200d\u2060\u00ad\u200e\u200f\u061c\u2066\ufeff\u200b\u200c\u200d\u2060\u00ad\u200e\u200f\u061c\u2066\ufeff\u200b\u200c\u200d\u2060\u00ad\u200e\u200f\u061c\u2066\ufeff\u200b\u200c\u200d\u2060\u00ad\u200e\u200f\u061c\u2066\ufeff\u200b\u200c\u200d\u2060\u00ad\u200e\u200f\u061c\u2066\ufeff",
+   "verdict": "too_many",
+   "count": 60,
+   "where": null,
+   "refused": null
+  },
+  {
+   "id": "refuse-after-fifty-marked",
+   "note": "the 50 marked are fine, the Tag after them is not",
+   "text": "a\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\udb40\udc41",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+E0041",
+    "code_point": 917569,
+    "line": 1,
+    "column": 52
+   }
+  },
+  {
+   "id": "refuse-beats-the-count-after",
+   "note": "more than 50 marked AND a refused one: the verdict is the refusal",
+   "text": "a\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u202e",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+202E",
+    "code_point": 8238,
+    "line": 1,
+    "column": 82
+   }
+  },
+  {
+   "id": "refuse-beats-the-count-before",
+   "note": "the same, the other way round",
+   "text": "\u202ea\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+202E",
+    "code_point": 8238,
+    "line": 1,
+    "column": 1
+   }
+  },
+  {
+   "id": "first-refused-is-reported",
+   "note": "the FIRST refused character, with its line and column",
+   "text": "a\nb\u200c\u0000c\u202e",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+0000",
+    "code_point": 0,
+    "line": 2,
+    "column": 3
+   }
+  },
+  {
+   "id": "refuse-nul",
+   "note": "",
+   "text": "a\u0000b",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+0000",
+    "code_point": 0,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-bell",
+   "note": "",
+   "text": "a\u0007b",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+0007",
+    "code_point": 7,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-backspace",
+   "note": "",
+   "text": "a\bb",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+0008",
+    "code_point": 8,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-vt",
+   "note": "",
+   "text": "a\u000bb",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+000B",
+    "code_point": 11,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-ff",
+   "note": "",
+   "text": "a\fb",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+000C",
+    "code_point": 12,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-so",
+   "note": "",
+   "text": "a\u000eb",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+000E",
+    "code_point": 14,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-esc",
+   "note": "",
+   "text": "a\u001bb",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+001B",
+    "code_point": 27,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-us",
+   "note": "",
+   "text": "a\u001fb",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+001F",
+    "code_point": 31,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-del",
+   "note": "",
+   "text": "a\u007fb",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+007F",
+    "code_point": 127,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-c1-first",
+   "note": "",
+   "text": "a\u0080b",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+0080",
+    "code_point": 128,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-nel",
+   "note": "",
+   "text": "a\u0085b",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+0085",
+    "code_point": 133,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-c1-last",
+   "note": "",
+   "text": "a\u009fb",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+009F",
+    "code_point": 159,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-ls",
+   "note": "",
+   "text": "a\u2028b",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+2028",
+    "code_point": 8232,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-ps",
+   "note": "",
+   "text": "a\u2029b",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+2029",
+    "code_point": 8233,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-lre",
+   "note": "",
+   "text": "a\u202ab",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+202A",
+    "code_point": 8234,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-rlo",
+   "note": "",
+   "text": "a\u202eb",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+202E",
+    "code_point": 8238,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-nonchar-first",
+   "note": "",
+   "text": "a\ufdd0b",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+FDD0",
+    "code_point": 64976,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-nonchar-last",
+   "note": "",
+   "text": "a\ufdefb",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+FDEF",
+    "code_point": 65007,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-fffe",
+   "note": "",
+   "text": "a\ufffeb",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+FFFE",
+    "code_point": 65534,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-ffff",
+   "note": "",
+   "text": "a\uffffb",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+FFFF",
+    "code_point": 65535,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-tag-first",
+   "note": "",
+   "text": "a\udb40\udc00b",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+E0000",
+    "code_point": 917504,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-tag-a",
+   "note": "",
+   "text": "a\udb40\udc41b",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+E0041",
+    "code_point": 917569,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-tag-last",
+   "note": "",
+   "text": "a\udb40\udc7fb",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+E007F",
+    "code_point": 917631,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-vs-supplement-first",
+   "note": "",
+   "text": "a\udb40\udd00b",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+E0100",
+    "code_point": 917760,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-vs-supplement-last",
+   "note": "",
+   "text": "a\udb40\uddefb",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+E01EF",
+    "code_point": 917999,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-lone-high-surrogate",
+   "note": "",
+   "text": "a\ud800b",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+D800",
+    "code_point": 55296,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-lone-low-surrogate",
+   "note": "",
+   "text": "a\udfffb",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+DFFF",
+    "code_point": 57343,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "mark-zero-width-space-joiners-U+200B",
+   "note": "",
+   "text": "a\u200bb",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-zero-width-space-joiners-U+200C",
+   "note": "",
+   "text": "a\u200cb",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-zero-width-space-joiners-U+200D",
+   "note": "",
+   "text": "a\u200db",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-word-joiner-and-invisible-operators-U+2060",
+   "note": "",
+   "text": "a\u2060b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-word-joiner-and-invisible-operators-U+2061",
+   "note": "",
+   "text": "a\u2061b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-word-joiner-and-invisible-operators-U+2062",
+   "note": "",
+   "text": "a\u2062b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-word-joiner-and-invisible-operators-U+2063",
+   "note": "",
+   "text": "a\u2063b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-word-joiner-and-invisible-operators-U+2064",
+   "note": "",
+   "text": "a\u2064b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-soft-hyphen-U+00AD",
+   "note": "",
+   "text": "a\u00adb",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-lrm-rlm-alm-U+200E",
+   "note": "",
+   "text": "a\u200eb",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-lrm-rlm-alm-U+200F",
+   "note": "",
+   "text": "a\u200fb",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-lrm-rlm-alm-U+061C",
+   "note": "",
+   "text": "a\u061cb",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-bidi-isolates-U+2066",
+   "note": "",
+   "text": "a\u2066b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-bidi-isolates-U+2067",
+   "note": "",
+   "text": "a\u2067b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-bidi-isolates-U+2068",
+   "note": "",
+   "text": "a\u2068b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-bidi-isolates-U+2069",
+   "note": "",
+   "text": "a\u2069b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-bom-anywhere-U+FEFF",
+   "note": "",
+   "text": "a\ufeffb",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-fillers-U+115F",
+   "note": "",
+   "text": "a\u115fb",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-fillers-U+1160",
+   "note": "",
+   "text": "a\u1160b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-fillers-U+3164",
+   "note": "",
+   "text": "a\u3164b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-fillers-U+FFA0",
+   "note": "",
+   "text": "a\uffa0b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-fillers-U+180E",
+   "note": "",
+   "text": "a\u180eb",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-variation-selectors-1-14-U+FE00",
+   "note": "",
+   "text": "a\ufe00b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-variation-selectors-1-14-U+FE01",
+   "note": "",
+   "text": "a\ufe01b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-variation-selectors-1-14-U+FE02",
+   "note": "",
+   "text": "a\ufe02b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-variation-selectors-1-14-U+FE03",
+   "note": "",
+   "text": "a\ufe03b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-variation-selectors-1-14-U+FE04",
+   "note": "",
+   "text": "a\ufe04b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-variation-selectors-1-14-U+FE05",
+   "note": "",
+   "text": "a\ufe05b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-variation-selectors-1-14-U+FE06",
+   "note": "",
+   "text": "a\ufe06b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-variation-selectors-1-14-U+FE07",
+   "note": "",
+   "text": "a\ufe07b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-variation-selectors-1-14-U+FE08",
+   "note": "",
+   "text": "a\ufe08b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-variation-selectors-1-14-U+FE09",
+   "note": "",
+   "text": "a\ufe09b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-variation-selectors-1-14-U+FE0A",
+   "note": "",
+   "text": "a\ufe0ab",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-variation-selectors-1-14-U+FE0B",
+   "note": "",
+   "text": "a\ufe0bb",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-variation-selectors-1-14-U+FE0C",
+   "note": "",
+   "text": "a\ufe0cb",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-variation-selectors-1-14-U+FE0D",
+   "note": "",
+   "text": "a\ufe0db",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-combining-grapheme-joiner-U+034F",
+   "note": "",
+   "text": "a\u034fb",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-khmer-inherent-vowels-U+17B4",
+   "note": "",
+   "text": "a\u17b4b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-khmer-inherent-vowels-U+17B5",
+   "note": "",
+   "text": "a\u17b5b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-mongolian-selectors-U+180B",
+   "note": "",
+   "text": "a\u180bb",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-mongolian-selectors-U+180C",
+   "note": "",
+   "text": "a\u180cb",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-mongolian-selectors-U+180D",
+   "note": "",
+   "text": "a\u180db",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-mongolian-selectors-U+180F",
+   "note": "",
+   "text": "a\u180fb",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-deprecated-format-206a-206f-U+206A",
+   "note": "",
+   "text": "a\u206ab",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-deprecated-format-206a-206f-U+206B",
+   "note": "",
+   "text": "a\u206bb",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-deprecated-format-206a-206f-U+206C",
+   "note": "",
+   "text": "a\u206cb",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-deprecated-format-206a-206f-U+206D",
+   "note": "",
+   "text": "a\u206db",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-deprecated-format-206a-206f-U+206E",
+   "note": "",
+   "text": "a\u206eb",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-deprecated-format-206a-206f-U+206F",
+   "note": "",
+   "text": "a\u206fb",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-reserved-2065-U+2065",
+   "note": "",
+   "text": "a\u2065b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-shorthand-1bca0-U+1BCA0",
+   "note": "",
+   "text": "a\ud82f\udca0b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-shorthand-1bca0-U+1BCA1",
+   "note": "",
+   "text": "a\ud82f\udca1b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-shorthand-1bca0-U+1BCA2",
+   "note": "",
+   "text": "a\ud82f\udca2b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-shorthand-1bca0-U+1BCA3",
+   "note": "",
+   "text": "a\ud82f\udca3b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-musical-1d173-U+1D173",
+   "note": "",
+   "text": "a\ud834\udd73b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-musical-1d173-U+1D174",
+   "note": "",
+   "text": "a\ud834\udd74b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-musical-1d173-U+1D175",
+   "note": "",
+   "text": "a\ud834\udd75b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-musical-1d173-U+1D176",
+   "note": "",
+   "text": "a\ud834\udd76b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-musical-1d173-U+1D177",
+   "note": "",
+   "text": "a\ud834\udd77b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-musical-1d173-U+1D178",
+   "note": "",
+   "text": "a\ud834\udd78b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-musical-1d173-U+1D179",
+   "note": "",
+   "text": "a\ud834\udd79b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-musical-1d173-U+1D17A",
+   "note": "",
+   "text": "a\ud834\udd7ab",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-tags-reserved-e0080-e00ff-U+E0080",
+   "note": "",
+   "text": "a\udb40\udc80b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-tags-reserved-e0080-e00ff-U+E00FF",
+   "note": "",
+   "text": "a\udb40\udcffb",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-tags-reserved-e01f0-e0fff-U+E01F0",
+   "note": "",
+   "text": "a\udb40\uddf0b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-tags-reserved-e01f0-e0fff-U+E0FFF",
+   "note": "",
+   "text": "a\udb43\udfffb",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-specials-fff0-fff8-U+FFF0",
+   "note": "",
+   "text": "a\ufff0b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-specials-fff0-fff8-U+FFF1",
+   "note": "",
+   "text": "a\ufff1b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-specials-fff0-fff8-U+FFF2",
+   "note": "",
+   "text": "a\ufff2b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-specials-fff0-fff8-U+FFF3",
+   "note": "",
+   "text": "a\ufff3b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-specials-fff0-fff8-U+FFF4",
+   "note": "",
+   "text": "a\ufff4b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-specials-fff0-fff8-U+FFF5",
+   "note": "",
+   "text": "a\ufff5b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-specials-fff0-fff8-U+FFF6",
+   "note": "",
+   "text": "a\ufff6b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-specials-fff0-fff8-U+FFF7",
+   "note": "",
+   "text": "a\ufff7b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-specials-fff0-fff8-U+FFF8",
+   "note": "",
+   "text": "a\ufff8b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-blank-braille-U+2800",
+   "note": "",
+   "text": "a\u2800b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "refuse-astral-nonchar-U+1FFFE",
+   "note": "the last two code points of every plane are noncharacters",
+   "text": "a\ud83f\udffeb",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+1FFFE",
+    "code_point": 131070,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-astral-nonchar-U+1FFFF",
+   "note": "the last two code points of every plane are noncharacters",
+   "text": "a\ud83f\udfffb",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+1FFFF",
+    "code_point": 131071,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-astral-nonchar-U+2FFFE",
+   "note": "the last two code points of every plane are noncharacters",
+   "text": "a\ud87f\udffeb",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+2FFFE",
+    "code_point": 196606,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-astral-nonchar-U+2FFFF",
+   "note": "the last two code points of every plane are noncharacters",
+   "text": "a\ud87f\udfffb",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+2FFFF",
+    "code_point": 196607,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-astral-nonchar-U+3FFFE",
+   "note": "the last two code points of every plane are noncharacters",
+   "text": "a\ud8bf\udffeb",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+3FFFE",
+    "code_point": 262142,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-astral-nonchar-U+3FFFF",
+   "note": "the last two code points of every plane are noncharacters",
+   "text": "a\ud8bf\udfffb",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+3FFFF",
+    "code_point": 262143,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-astral-nonchar-U+4FFFE",
+   "note": "the last two code points of every plane are noncharacters",
+   "text": "a\ud8ff\udffeb",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+4FFFE",
+    "code_point": 327678,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-astral-nonchar-U+4FFFF",
+   "note": "the last two code points of every plane are noncharacters",
+   "text": "a\ud8ff\udfffb",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+4FFFF",
+    "code_point": 327679,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-astral-nonchar-U+5FFFE",
+   "note": "the last two code points of every plane are noncharacters",
+   "text": "a\ud93f\udffeb",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+5FFFE",
+    "code_point": 393214,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-astral-nonchar-U+5FFFF",
+   "note": "the last two code points of every plane are noncharacters",
+   "text": "a\ud93f\udfffb",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+5FFFF",
+    "code_point": 393215,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-astral-nonchar-U+6FFFE",
+   "note": "the last two code points of every plane are noncharacters",
+   "text": "a\ud97f\udffeb",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+6FFFE",
+    "code_point": 458750,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-astral-nonchar-U+6FFFF",
+   "note": "the last two code points of every plane are noncharacters",
+   "text": "a\ud97f\udfffb",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+6FFFF",
+    "code_point": 458751,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-astral-nonchar-U+7FFFE",
+   "note": "the last two code points of every plane are noncharacters",
+   "text": "a\ud9bf\udffeb",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+7FFFE",
+    "code_point": 524286,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-astral-nonchar-U+7FFFF",
+   "note": "the last two code points of every plane are noncharacters",
+   "text": "a\ud9bf\udfffb",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+7FFFF",
+    "code_point": 524287,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-astral-nonchar-U+8FFFE",
+   "note": "the last two code points of every plane are noncharacters",
+   "text": "a\ud9ff\udffeb",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+8FFFE",
+    "code_point": 589822,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-astral-nonchar-U+8FFFF",
+   "note": "the last two code points of every plane are noncharacters",
+   "text": "a\ud9ff\udfffb",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+8FFFF",
+    "code_point": 589823,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-astral-nonchar-U+9FFFE",
+   "note": "the last two code points of every plane are noncharacters",
+   "text": "a\uda3f\udffeb",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+9FFFE",
+    "code_point": 655358,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-astral-nonchar-U+9FFFF",
+   "note": "the last two code points of every plane are noncharacters",
+   "text": "a\uda3f\udfffb",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+9FFFF",
+    "code_point": 655359,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-astral-nonchar-U+AFFFE",
+   "note": "the last two code points of every plane are noncharacters",
+   "text": "a\uda7f\udffeb",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+AFFFE",
+    "code_point": 720894,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-astral-nonchar-U+AFFFF",
+   "note": "the last two code points of every plane are noncharacters",
+   "text": "a\uda7f\udfffb",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+AFFFF",
+    "code_point": 720895,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-astral-nonchar-U+BFFFE",
+   "note": "the last two code points of every plane are noncharacters",
+   "text": "a\udabf\udffeb",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+BFFFE",
+    "code_point": 786430,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-astral-nonchar-U+BFFFF",
+   "note": "the last two code points of every plane are noncharacters",
+   "text": "a\udabf\udfffb",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+BFFFF",
+    "code_point": 786431,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-astral-nonchar-U+CFFFE",
+   "note": "the last two code points of every plane are noncharacters",
+   "text": "a\udaff\udffeb",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+CFFFE",
+    "code_point": 851966,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-astral-nonchar-U+CFFFF",
+   "note": "the last two code points of every plane are noncharacters",
+   "text": "a\udaff\udfffb",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+CFFFF",
+    "code_point": 851967,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-astral-nonchar-U+DFFFE",
+   "note": "the last two code points of every plane are noncharacters",
+   "text": "a\udb3f\udffeb",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+DFFFE",
+    "code_point": 917502,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-astral-nonchar-U+DFFFF",
+   "note": "the last two code points of every plane are noncharacters",
+   "text": "a\udb3f\udfffb",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+DFFFF",
+    "code_point": 917503,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-astral-nonchar-U+EFFFE",
+   "note": "the last two code points of every plane are noncharacters",
+   "text": "a\udb7f\udffeb",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+EFFFE",
+    "code_point": 983038,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-astral-nonchar-U+EFFFF",
+   "note": "the last two code points of every plane are noncharacters",
+   "text": "a\udb7f\udfffb",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+EFFFF",
+    "code_point": 983039,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-astral-nonchar-U+FFFFE",
+   "note": "the last two code points of every plane are noncharacters",
+   "text": "a\udbbf\udffeb",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+FFFFE",
+    "code_point": 1048574,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-astral-nonchar-U+FFFFF",
+   "note": "the last two code points of every plane are noncharacters",
+   "text": "a\udbbf\udfffb",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+FFFFF",
+    "code_point": 1048575,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-astral-nonchar-U+10FFFE",
+   "note": "the last two code points of every plane are noncharacters",
+   "text": "a\udbff\udffeb",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+10FFFE",
+    "code_point": 1114110,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "refuse-astral-nonchar-U+10FFFF",
+   "note": "the last two code points of every plane are noncharacters",
+   "text": "a\udbff\udfffb",
+   "verdict": "refuse",
+   "count": null,
+   "where": null,
+   "refused": {
+    "code": "U+10FFFF",
+    "code_point": 1114111,
+    "line": 1,
+    "column": 2
+   }
+  },
+  {
+   "id": "mark-format-outside-default-ignorable-U+FFF9",
+   "note": "drawn as nothing and kept out of the Unicode property on purpose: marked",
+   "text": "a\ufff9b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-format-outside-default-ignorable-U+FFFA",
+   "note": "drawn as nothing and kept out of the Unicode property on purpose: marked",
+   "text": "a\ufffab",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-format-outside-default-ignorable-U+FFFB",
+   "note": "drawn as nothing and kept out of the Unicode property on purpose: marked",
+   "text": "a\ufffbb",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-format-outside-default-ignorable-U+13430",
+   "note": "drawn as nothing and kept out of the Unicode property on purpose: marked",
+   "text": "a\ud80d\udc30b",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  },
+  {
+   "id": "mark-format-outside-default-ignorable-U+1343F",
+   "note": "drawn as nothing and kept out of the Unicode property on purpose: marked",
+   "text": "a\ud80d\udc3fb",
+   "verdict": "ok",
+   "count": 1,
+   "where": [
+    [
+     1,
+     2
+    ]
+   ],
+   "refused": null
+  }
+ ],
+ "emptiness": [
+  {
+   "id": "empty-body-nbsp",
+   "note": "U+00A0 is whitespace to str.strip() and to JS `\\s`",
+   "header": "---\nname: x\ndescription: d\n---\n",
+   "body": "\u00a0\u00a0\n",
+   "text": "---\nname: x\ndescription: d\n---\n\u00a0\u00a0\n",
+   "verdict": "empty_body"
+  },
+  {
+   "id": "empty-body-ideographic-space",
+   "note": "",
+   "header": "---\nname: x\ndescription: d\n---\n",
+   "body": "\u3000\u3000",
+   "text": "---\nname: x\ndescription: d\n---\n\u3000\u3000",
+   "verdict": "empty_body"
+  },
+  {
+   "id": "empty-body-en-quad",
+   "note": "",
+   "header": "---\nname: x\ndescription: d\n---\n",
+   "body": "\u2000\u2000",
+   "text": "---\nname: x\ndescription: d\n---\n\u2000\u2000",
+   "verdict": "empty_body"
+  },
+  {
+   "id": "empty-body-medium-math-space",
+   "note": "",
+   "header": "---\nname: x\ndescription: d\n---\n",
+   "body": "\u205f\u205f",
+   "text": "---\nname: x\ndescription: d\n---\n\u205f\u205f",
+   "verdict": "empty_body"
+  },
+  {
+   "id": "empty-body-bom",
+   "note": "U+FEFF is MARKED, so it leaves a copy before the cut: the only character the two engines disagree on that reaches this test",
+   "header": "---\nname: x\ndescription: d\n---\n",
+   "body": "\ufeff\ufeff",
+   "text": "---\nname: x\ndescription: d\n---\n\ufeff\ufeff",
+   "verdict": "empty_body"
+  },
+  {
+   "id": "empty-body-tab",
+   "note": "",
+   "header": "---\nname: x\ndescription: d\n---\n",
+   "body": "\t\t\n\t",
+   "text": "---\nname: x\ndescription: d\n---\n\t\t\n\t",
+   "verdict": "empty_body"
+  },
+  {
+   "id": "empty-body-mixed-whitespace",
+   "note": "",
+   "header": "---\nname: x\ndescription: d\n---\n",
+   "body": " \u00a0\u3000\u2000\u205f\t\n\r\n",
+   "text": "---\nname: x\ndescription: d\n---\n \u00a0\u3000\u2000\u205f\t\n\r\n",
+   "verdict": "empty_body"
+  },
+  {
+   "id": "empty-body-zero-width-space",
+   "note": "a body of marked characters only: nothing to read (and a 40-bit channel)",
+   "header": "---\nname: x\ndescription: d\n---\n",
+   "body": "\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b",
+   "text": "---\nname: x\ndescription: d\n---\n\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b",
+   "verdict": "empty_body"
+  },
+  {
+   "id": "empty-body-marked-and-whitespace",
+   "note": "",
+   "header": "---\nname: x\ndescription: d\n---\n",
+   "body": " \u200c \u2060\n\u00ad",
+   "text": "---\nname: x\ndescription: d\n---\n \u200c \u2060\n\u00ad",
+   "verdict": "empty_body"
+  },
+  {
+   "id": "hidden-body-nel",
+   "note": "U+0085 is whitespace to str.strip() and not to JS: refused BEFORE the cut, so the two sides cannot disagree",
+   "header": "---\nname: x\ndescription: d\n---\n",
+   "body": "\u0085",
+   "text": "---\nname: x\ndescription: d\n---\n\u0085",
+   "verdict": "hidden_characters"
+  },
+  {
+   "id": "hidden-body-nel-among-spaces",
+   "note": "",
+   "header": "---\nname: x\ndescription: d\n---\n",
+   "body": "  \u0085  ",
+   "text": "---\nname: x\ndescription: d\n---\n  \u0085  ",
+   "verdict": "hidden_characters"
+  },
+  {
+   "id": "hidden-body-file-separator",
+   "note": "U+001C to U+001F are whitespace to str.strip() and not to JS: refused before the cut",
+   "header": "---\nname: x\ndescription: d\n---\n",
+   "body": "\u001c",
+   "text": "---\nname: x\ndescription: d\n---\n\u001c",
+   "verdict": "hidden_characters"
+  },
+  {
+   "id": "hidden-body-unit-separator",
+   "note": "",
+   "header": "---\nname: x\ndescription: d\n---\n",
+   "body": " \u001f ",
+   "text": "---\nname: x\ndescription: d\n---\n \u001f ",
+   "verdict": "hidden_characters"
+  },
+  {
+   "id": "not-empty-letter",
+   "note": "a body with a letter is not empty",
+   "header": "---\nname: x\ndescription: d\n---\n",
+   "body": "\u00a0x\u00a0",
+   "text": "---\nname: x\ndescription: d\n---\n\u00a0x\u00a0",
+   "verdict": "ok"
+  },
+  {
+   "id": "not-empty-after-marked",
+   "note": "",
+   "header": "---\nname: x\ndescription: d\n---\n",
+   "body": "\u200cx",
+   "text": "---\nname: x\ndescription: d\n---\n\u200cx",
+   "verdict": "ok"
+  }
+ ]
+}

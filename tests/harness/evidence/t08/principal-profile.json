@@ -1,0 +1,28 @@
+[
+  {
+    "actor": {
+      "user_id": "harness-human",
+      "provider": "basic"
+    },
+    "profile": "default",
+    "profile_home": "/root/.hermes",
+    "key_resolved": true,
+    "upstream_status": 200,
+    "upstream_object": "hermes.api_server.capabilities",
+    "wrong_profile_key_status": 401,
+    "without_session_status": 401
+  },
+  {
+    "actor": {
+      "user_id": "harness-human",
+      "provider": "basic"
+    },
+    "profile": "vendas",
+    "profile_home": "/root/.hermes/profiles/vendas",
+    "key_resolved": true,
+    "upstream_status": 200,
+    "upstream_object": "hermes.api_server.capabilities",
+    "wrong_profile_key_status": 401,
+    "without_session_status": 401
+  }
+]

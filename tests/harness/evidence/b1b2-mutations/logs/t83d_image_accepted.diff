@@ -1,0 +1,7 @@
+diff --git a/backend/bot_meta.py b/backend/bot_meta.py
+index bd7ce39..6f14c1a 100644
+--- a/backend/bot_meta.py
++++ b/backend/bot_meta.py
+@@ -70 +70 @@ def validate_display(body, *, complete=False):
+-        if not isinstance(avatar, dict) or set(avatar) != {'kind', 'value'} or avatar['kind'] not in ('emoji', 'initials', 'mascot', 'luve'):
++        if not isinstance(avatar, dict) or set(avatar) != {'kind', 'value'} or avatar['kind'] not in ('emoji', 'initials', 'mascot', 'luve', 'image'):

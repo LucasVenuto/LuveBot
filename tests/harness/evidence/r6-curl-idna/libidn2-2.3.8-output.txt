@@ -1,0 +1,39 @@
+== idn2 -N
+  U+034F CGJ in localhost        -> localhost
+  U+180B                         -> localhost
+  U+180C                         -> localhost
+  U+180D                         -> localhost
+  U+FE0F                         -> localhost
+  U+00AD soft hyphen             -> localhost
+  U+1806 todo soft hyphen        -> REFUSED rc=1 (idn2: toAscii: string contains a disallowed character)
+  U+3002 as the dot of an IP     -> 127.0.0.1
+  U+FF61 as the dot of an IP     -> 127.0.0.1
+  U+FF0E as the dot of an IP     -> 127.0.0.1
+  control: plain IP              -> 127.0.0.1
+  control: plain name            -> localhost
+== idn2 -T
+  U+034F CGJ in localhost        -> localhost
+  U+180B                         -> localhost
+  U+180C                         -> localhost
+  U+180D                         -> localhost
+  U+FE0F                         -> localhost
+  U+00AD soft hyphen             -> localhost
+  U+1806 todo soft hyphen        -> REFUSED rc=1 (idn2: toAscii: string contains a disallowed character)
+  U+3002 as the dot of an IP     -> 127.0.0.1
+  U+FF61 as the dot of an IP     -> 127.0.0.1
+  U+FF0E as the dot of an IP     -> 127.0.0.1
+  control: plain IP              -> 127.0.0.1
+  control: plain name            -> localhost
+== idn2 --no-tr46
+  U+034F CGJ in localhost        -> REFUSED rc=1 (idn2: toAscii: string contains a disallowed character)
+  U+180B                         -> REFUSED rc=1 (idn2: toAscii: string contains a disallowed character)
+  U+180C                         -> REFUSED rc=1 (idn2: toAscii: string contains a disallowed character)
+  U+180D                         -> REFUSED rc=1 (idn2: toAscii: string contains a disallowed character)
+  U+FE0F                         -> REFUSED rc=1 (idn2: toAscii: string contains a disallowed character)
+  U+00AD soft hyphen             -> REFUSED rc=1 (idn2: toAscii: string contains a disallowed character)
+  U+1806 todo soft hyphen        -> REFUSED rc=1 (idn2: toAscii: string contains a disallowed character)
+  U+3002 as the dot of an IP     -> REFUSED rc=1 (idn2: toAscii: string contains a disallowed character)
+  U+FF61 as the dot of an IP     -> REFUSED rc=1 (idn2: toAscii: string contains a disallowed character)
+  U+FF0E as the dot of an IP     -> REFUSED rc=1 (idn2: toAscii: string contains a disallowed character)
+  control: plain IP              -> 127.0.0.1
+  control: plain name            -> localhost

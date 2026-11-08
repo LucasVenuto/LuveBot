@@ -1,0 +1,5 @@
+code: approval_resolve
+result: pass
+hermes_commit: bf0203a794a07aac3ff764972ab9087baa4e4f4e
+proof: native harness (no Docker) on Hermes v0.22.5, the whole invariants suite in one session, 625 passed and 0 failed
+tests: test_canonical_main.py (the canonical resolve: prompt_id and execution_generation, the answer refused when stale), test_approvals.py (the three-key body, a person with login only), test_hook.py (linked approval, hook 0.8.0)

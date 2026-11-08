@@ -1,0 +1,45 @@
+{
+ "chrome": "Chrome/156.0.8078.73",
+ "results": [
+  {
+   "label": "desktop-claro-pt",
+   "ok": true,
+   "sw": 900,
+   "iw": 900,
+   "cards": 4,
+   "links": 0,
+   "overflow": 0,
+   "mismatches": [
+    "Nenhum pedido pendente desta conversa em Aprovações.",
+    "Aprovações tem 3 pedidos desta conversa que o Bot não listou."
+   ]
+  },
+  {
+   "label": "celular-escuro-pt",
+   "ok": true,
+   "sw": 390,
+   "iw": 390,
+   "cards": 4,
+   "links": 0,
+   "overflow": 0,
+   "mismatches": [
+    "Nenhum pedido pendente desta conversa em Aprovações.",
+    "Aprovações tem 3 pedidos desta conversa que o Bot não listou."
+   ]
+  },
+  {
+   "label": "desktop-escuro-en",
+   "ok": true,
+   "sw": 900,
+   "iw": 900,
+   "cards": 4,
+   "links": 0,
+   "overflow": 0,
+   "mismatches": [
+    "No pending request from this conversation in Approvals.",
+    "Approvals has 3 requests from this conversation that the Bot did not list."
+   ]
+  }
+ ],
+ "problems": []
+}

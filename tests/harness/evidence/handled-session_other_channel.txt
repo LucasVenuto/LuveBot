@@ -1,0 +1,5 @@
+code: session_other_channel
+result: pass
+hermes_commit: bf0203a794a07aac3ff764972ab9087baa4e4f4e
+proof: native harness (no Docker) on Hermes v0.22.5, the whole invariants suite in one session, 625 passed and 0 failed
+tests: test_canonical_main.py (a session of another channel is refused in words with details.can_fork, and a new conversation continues it)

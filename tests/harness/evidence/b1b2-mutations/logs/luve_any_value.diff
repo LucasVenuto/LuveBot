@@ -1,0 +1,8 @@
+diff --git a/backend/bot_meta.py b/backend/bot_meta.py
+index bd7ce39..cf6fe80 100644
+--- a/backend/bot_meta.py
++++ b/backend/bot_meta.py
+@@ -77,2 +77 @@ def validate_display(body, *, complete=False):
+-            if not is_luve(value):
+-                raise _bad('avatar')
++            pass
